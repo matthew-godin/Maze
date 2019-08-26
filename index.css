@@ -1,8 +1,21 @@
+@font-face {
+  font-family: mainfont;
+  src: url(fonts/cocogoose.ttf);
+}
+
+* {
+	font-family: mainfont;
+}
+
+#lefth33 {
+	color: green;
+}
+
 #lefth3 {
-	color: blue;
+	color: red;
 }
 
 #righth3 {
-	color: red;
+	color: blue;
 	text-align: right;
 }
