@@ -3,7 +3,7 @@
   src: url(fonts/cocogoose.ttf);
 }
 
-body {
+/*body {
 	background-repeat: no-repeat;
 }
 
@@ -23,6 +23,14 @@ body {
     body {
 		background-image: url("img/temp.png");
 	}
+}*/
+
+h1 {
+	position: absolute;
+  	left: 40%;
+  	margin-left: -40px;
+  	top: 30%;
+  	margin-top: -30px;
 }
 
 * {
