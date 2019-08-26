@@ -3,15 +3,19 @@
   src: url(fonts/cocogoose.ttf);
 }
 
-@media (min-width: 400px) {
+body {
+	background-repeat: no-repeat;
+}
+
+@media (min-width: 800px) {
     body {
-        background: #cccccc;
+        background-image: url("img/test-android.png");
     }
 }
 
 @media (min-width: 1100px) {
     body {
-        background: #888888;
+        background-image: url("img/test.png");
     }
 }
 
