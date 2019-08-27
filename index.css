@@ -1,6 +1,6 @@
 @font-face {
   font-family: mainfont;
-  src: url(fonts/cocogoose.ttf);
+  src: url(fonts/kghappy.ttf);
 }
 
 /*body {
@@ -25,13 +25,20 @@
 	}
 }*/
 
-h1 {
+/*h1 {
 	position: absolute;
   	left: 40%;
   	margin-left: -40px;
   	top: 30%;
   	margin-top: -30px;
+  	font-size: 48pt;
+  	font-weight: normal;
 }
+
+h2 {
+	font-weight: normal;
+	font-size: 12pt;
+}*/
 
 * {
 	font-family: mainfont;
@@ -65,15 +72,35 @@ h1 {
     to   { opacity: 1; }
 }
 
-#lefth33 {
-	color: green;
+.container {
+	text-align: center;
+	margin-top: 100pt;
 }
 
-#lefth3 {
-	color: red;
+.top-container {
+	font-size: 42pt;
 }
 
-#righth3 {
+.bottom-center-container {
+	text-align: center;
+}
+
+.bottom-container {
+	display: inline-block;
+}
+
+.sub-bottom-container {
+	float: left;
+	font-size: 16pt;
+	margin: 5pt;
+	display: inline-block;
+	transition: all 500ms ease;
+}
+
+.sub-bottom-container:hover {
 	color: blue;
-	text-align: right;
+}
+
+a{
+    color: black; text-decoration: none;
 }
