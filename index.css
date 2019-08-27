@@ -94,13 +94,67 @@ h2 {
 	font-size: 16pt;
 	margin: 5pt;
 	display: inline-block;
-	transition: all 500ms ease;
+	transition: all 5000ms ease;
 }
 
-.sub-bottom-container:hover {
-	color: blue;
-}
-
-a{
+a {
     color: black; text-decoration: none;
+}
+
+.parent {
+  min-height: 200px;
+  min-width: 200px;
+}
+
+.parent span {
+  /* Set all text to the bottom*/
+  vertical-align: text-bottom;
+}
+
+.child {
+  display: block;
+}
+
+.parent:hover .hvr-underline-from-left {
+  display: inline-block;
+}
+
+
+/* Underline From Left */
+
+.hvr-underline-from-left {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+  overflow: hidden;
+}
+
+.hvr-underline-from-left:before {
+  content: "";
+  height: 4px;
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  right: 100%;
+  bottom: 0;
+  background: #000000;
+  -webkit-transition-property: right;
+  transition-property: right;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+  border-radius: 2pt;
+}
+
+.parent:hover .hvr-underline-from-left:before,
+.parent:focus .hvr-underline-from-left:before,
+.parent:active .hvr-underline-from-left:before {
+  right: 0;
 }
