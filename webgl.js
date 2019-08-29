@@ -1,7 +1,8 @@
 var canvas = document.getElementById('my_Canvas');
 gl = canvas.getContext('experimental-webgl');
-var vertices = [-1,-1,-1, 1,-1,-1, 1,1,-1, -1,1,-1,
-                -1,-1,1, 1,-1,1, 1,1,1, -1,1,1];
+var cube_size = 1;
+var vertices = [-cube_size,-cube_size,-cube_size, cube_size,-cube_size,-cube_size, cube_size,cube_size,-cube_size, -cube_size,cube_size,-cube_size,
+                -cube_size,-cube_size,cube_size, cube_size,-cube_size,cube_size, cube_size,cube_size,cube_size, -cube_size,cube_size,cube_size];
 
 var colors = [1,0,0, 1,0,0, 1,0,0, 1,1,0,
               0,1,0, 0,1,1, 1,0,1, 0,1,1];
