@@ -7,9 +7,9 @@ var height = window.innerHeight
 || document.body.clientHeight;
 
 var list = document.getElementsByTagName("TITLE")[0];
-list.innerHTML = "width: " + width + " height: " + height
+//list.innerHTML = "width: " + width + " height: " + height
 
-var canvas = document.getElementById('my_Canvas');
+var canvas = document.querySelector('#glcanvas');
 
 // resize the canvas to fill browser window dynamically
 window.addEventListener('resize', resizeCanvas, false);
