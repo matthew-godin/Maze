@@ -71,7 +71,7 @@ function main() {
   // objects we'll be drawing.
   const buffers = initBuffers(gl);
 
-  const texture = loadTexture(gl, 'img/grass.jpg');
+  const texture = loadTexture(gl, 'file:img/grass.jpg');
 
   var then = 0;
 
@@ -106,45 +106,41 @@ function initBuffers(gl) {
   gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
 
   // Now create an array of positions for the cube.
+  const halfSize = 1.0
+  var cubeOffsetX = 0.0, cubeOffsetY = 3.0, cubeOffsetZ = 0.0, aas = 3.0;
 
-  const positions = [
-    // Front face
-    -1.0, -1.0,  1.0,
-     1.0, -1.0,  1.0,
-     1.0,  1.0,  1.0,
-    -1.0,  1.0,  1.0,
+  var positions = [
+    -halfSize+cubeOffsetX, -halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
+    halfSize+cubeOffsetX, -halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
+    -halfSize+cubeOffsetX, halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
+    halfSize+cubeOffsetX, halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
+    -halfSize+cubeOffsetX, -halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
+    halfSize+cubeOffsetX, -halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
+    -halfSize+cubeOffsetX, halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
+    halfSize+cubeOffsetX, halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
 
-    // Back face
-    -1.0, -1.0, -1.0,
-    -1.0,  1.0, -1.0,
-     1.0,  1.0, -1.0,
-     1.0, -1.0, -1.0,
-
-    // Top face
-    -1.0,  1.0, -1.0,
-    -1.0,  1.0,  1.0,
-     1.0,  1.0,  1.0,
-     1.0,  1.0, -1.0,
-
-    // Bottom face
-    -1.0, -1.0, -1.0,
-     1.0, -1.0, -1.0,
-     1.0, -1.0,  1.0,
-    -1.0, -1.0,  1.0,
-
-    // Right face
-     1.0, -1.0, -1.0,
-     1.0,  1.0, -1.0,
-     1.0,  1.0,  1.0,
-     1.0, -1.0,  1.0,
-
-    // Left face
-    -1.0, -1.0, -1.0,
-    -1.0, -1.0,  1.0,
-    -1.0,  1.0,  1.0,
-    -1.0,  1.0, -1.0,
+    -halfSize+aas, -halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
+    halfSize+aas, -halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
+    -halfSize+aas, halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
+    halfSize+aas, halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
+    -halfSize+aas, -halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
+    halfSize+aas, -halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
+    -halfSize+aas, halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
+    halfSize+aas, halfSize+cubeOffsetY,  halfSize+cubeOffsetZ
   ];
 
+  /*cubeOffsetY = 12.0;
+  var positions2 = [
+    -halfSize+cubeOffsetX, -halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
+    halfSize+cubeOffsetX, -halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
+    -halfSize+cubeOffsetX, halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
+    halfSize+cubeOffsetX, halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
+    -halfSize+cubeOffsetX, -halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
+    halfSize+cubeOffsetX, -halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
+    -halfSize+cubeOffsetX, halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
+    halfSize+cubeOffsetX, halfSize+cubeOffsetY,  halfSize+cubeOffsetZ
+  ];
+  positions = positions.concat(positions2);*/
   // Now pass the list of positions into WebGL to build the
   // shape. We do this by creating a Float32Array from the
   // JavaScript array, then use it to fill the current buffer.
@@ -156,7 +152,7 @@ function initBuffers(gl) {
   const textureCoordBuffer = gl.createBuffer();
   gl.bindBuffer(gl.ARRAY_BUFFER, textureCoordBuffer);
 
-  const textureCoordinates = [
+  var textureCoordinates = [
     // Front
     0.0,  0.0,
     1.0,  0.0,
@@ -167,28 +163,17 @@ function initBuffers(gl) {
     1.0,  0.0,
     1.0,  1.0,
     0.0,  1.0,
-    // Top
+    // Front
     0.0,  0.0,
     1.0,  0.0,
     1.0,  1.0,
     0.0,  1.0,
-    // Bottom
+    // Back
     0.0,  0.0,
     1.0,  0.0,
     1.0,  1.0,
-    0.0,  1.0,
-    // Right
-    0.0,  0.0,
-    1.0,  0.0,
-    1.0,  1.0,
-    0.0,  1.0,
-    // Left
-    0.0,  0.0,
-    1.0,  0.0,
-    1.0,  1.0,
-    0.0,  1.0,
+    0.0,  1.0
   ];
-
   gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(textureCoordinates),
                 gl.STATIC_DRAW);
 
@@ -202,14 +187,28 @@ function initBuffers(gl) {
   // indices into the vertex array to specify each triangle's
   // position.
 
-  const indices = [
-    0,  1,  2,      0,  2,  3,    // front
+  var indices = [
+    0,  1,  3,      0,  3,  2,    // front
     4,  5,  6,      4,  6,  7,    // back
-    8,  9,  10,     8,  10, 11,   // top
-    12, 13, 14,     12, 14, 15,   // bottom
-    16, 17, 18,     16, 18, 19,   // right
-    20, 21, 22,     20, 22, 23,   // left
+    2,  3,  7,     2,  7, 6,   // top
+    1, 0, 5,     0, 5, 6,   // bottom
+    1, 5, 7,     1, 7, 3,   // right
+    4, 0, 2,     4, 2, 6,   // left
+
+    8,  9,  11,      8, 11,  10,    // front
+    12,  13, 14,      12,  14,  15,    // back
+    10,  11,  15,     10,  15, 14,   // top
+    9, 8, 13,     8, 13, 14,   // bottom
+    9, 13, 15,     9, 15, 11,   // right
+    12, 8, 10,     12, 10, 14   // left
   ];
+
+  /*var indices2 = [...indices];
+  {
+    var i;
+    for (i = 0; i < indices2.length; i++) indices2[i] += 8;
+  }
+  indices = indices.concat(indices2);*/
 
   // Now send the element array to GL
 
@@ -310,6 +309,9 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
                    aspect,
                    zNear,
                    zFar);
+  mat4.translate(projectionMatrix,     // destination matrix
+                 projectionMatrix,     // matrix to translate
+                 [-0.0, -1.0*cubeRotation, -3.0*cubeRotation]);  // amount to translate
 
   // Set the drawing position to the "identity" point, which is
   // the center of the scene.
@@ -399,7 +401,7 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
   gl.uniform1i(programInfo.uniformLocations.uSampler, 0);
 
   {
-    const vertexCount = 36;
+    const vertexCount = 72;
     const type = gl.UNSIGNED_SHORT;
     const offset = 0;
     gl.drawElements(gl.TRIANGLES, vertexCount, type, offset);
