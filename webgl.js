@@ -1,7 +1,50 @@
 var cubeRotation = 0.0;
-var camRotation = 0.0;
+var camRotationX = 0.0, camRotationY = 0.0;
+var ZTranslation = 0.0, XTranslation = 0.0;
+var WDown = false, ADown = false, SDown = false, DDown = false, aRight = false, aLeft = false, aUp = false, aDown = false;
 
 main();
+
+
+function logKeyDown(e) {
+  if (e.code == "KeyA") {
+    ADown = true;
+  } else if (e.code == "KeyW") {
+    WDown = true;
+  } else if (e.code == "KeyS") {
+    SDown = true;
+  } else if (e.code == "KeyD") {
+    DDown = true;
+  } else if (e.code == "ArrowLeft") {
+    aLeft = true;
+  } else if (e.code == "ArrowRight") {
+    aRight = true;
+  } else if (e.code == "ArrowDown") {
+    aDown = true;
+  } else if (e.code == "ArrowUp") {
+    aUp = true;
+  }
+}
+
+function logKeyUp(e) {
+  if (e.code == "KeyA") {
+    ADown = false;
+  } else if (e.code == "KeyW") {
+    WDown = false;
+  } else if (e.code == "KeyS") {
+    SDown = false;
+  } else if (e.code == "KeyD") {
+    DDown = false;
+  } else if (e.code == "ArrowLeft") {
+    aLeft = false;
+  } else if (e.code == "ArrowRight") {
+    aRight = false;
+  } else if (e.code == "ArrowDown") {
+    aDown = false;
+  } else if (e.code == "ArrowUp") {
+    aUp = false;
+  }
+}
 
 //
 // Start here
@@ -9,6 +52,9 @@ main();
 function main() {
   const canvas = document.querySelector('#glcanvas');
   const gl = canvas.getContext('webgl');
+
+  document.addEventListener('keydown', logKeyDown);
+  document.addEventListener('keyup', logKeyUp);
 
   // If we don't have a GL context, give up now
 
@@ -311,7 +357,19 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
                    zFar);
   mat4.translate(projectionMatrix,     // destination matrix
                  projectionMatrix,     // matrix to translate
-                 [-0.0, -5.0, -15.0]);  // amount to translate
+                 [2*XTranslation, -5.0, -15.0+2*ZTranslation]);  // amount to translate
+  mat4.rotate(projectionMatrix,  // destination matrix
+              projectionMatrix,  // matrix to rotate
+              camRotationX,     // amount to rotate in radians
+              [0.0, 1.0, 0.0]);
+  mat4.rotate(projectionMatrix,  // destination matrix
+              projectionMatrix,  // matrix to rotate
+              camRotationY,     // amount to rotate in radians
+              [1.0, 0.0, 0.0]);   
+  /*mat4.lookAt(projectionMatrix,
+              [XTranslation, -5.0, -15.0+ZTranslation],
+              [-3.0, -3.0, -6.0],
+              [0.0, 1.0, 0.0]);*/
 
   // Set the drawing position to the "identity" point, which is
   // the center of the scene.
@@ -410,6 +468,30 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
   // Update the rotation for the next draw
 
   cubeRotation += deltaTime;
+  if (WDown) {
+    ZTranslation += deltaTime;
+  }
+  if (SDown) {
+    ZTranslation -= deltaTime;
+  }
+  if (DDown) {
+    XTranslation -= deltaTime;
+  }
+  if (ADown) {
+    XTranslation += deltaTime;
+  }
+  if (aDown) {
+    camRotationY -= deltaTime;
+  }
+  if (aUp) {
+    camRotationY += deltaTime;
+  }
+  if (aLeft) {
+    camRotationX -= deltaTime;
+  }
+  if (aRight) {
+    camRotationX += deltaTime;
+  }
 }
 
 //
