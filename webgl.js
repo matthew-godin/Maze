@@ -165,14 +165,14 @@ function initBuffers(gl) {
     -halfSize+cubeOffsetX, halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
     halfSize+cubeOffsetX, halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
 
-    /*-halfSize+aas, -halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
+    -halfSize+aas, -halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
     halfSize+aas, -halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
     -halfSize+aas, halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
     halfSize+aas, halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
     -halfSize+aas, -halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
     halfSize+aas, -halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
     -halfSize+aas, halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
-    halfSize+aas, halfSize+cubeOffsetY,  halfSize+cubeOffsetZ*/
+    halfSize+aas, halfSize+cubeOffsetY,  halfSize+cubeOffsetZ
   ];
 
   /*cubeOffsetY = 12.0;
@@ -210,15 +210,15 @@ function initBuffers(gl) {
     0.0,  1.0,
     1.0,  1.0,
     // Front
-    /*0.0,  0.0,
+    0.0,  0.0,
     1.0,  0.0,
-    1.0,  1.0,
     0.0,  1.0,
+    1.0,  1.0,
     // Back
     0.0,  0.0,
     1.0,  0.0,
-    1.0,  1.0,
-    0.0,  1.0*/
+    0.0,  1.0,
+    1.0,  1.0
   ];
   gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(textureCoordinates),
                 gl.STATIC_DRAW);
@@ -236,17 +236,17 @@ function initBuffers(gl) {
   var indices = [
     0,  1,  3,      0,  3,  2,    // front
     4,  5,  6,      5,  7,  6,    // back
-    /*2,  3,  7,     2,  7, 6,   // top
-    1, 0, 5,     0, 5, 6,   // bottom
+    2,  3,  7,     2,  7, 6,   // top
+    1, 0, 4,     1, 4, 5,   // bottom
     1, 5, 7,     1, 7, 3,   // right
     4, 0, 2,     4, 2, 6,   // left
 
     8,  9,  11,      8, 11,  10,    // front
-    12,  13, 14,      12,  14,  15,    // back
+    12,  13, 14,      13,  14,  15,    // back
     10,  11,  15,     10,  15, 14,   // top
-    9, 8, 13,     8, 13, 14,   // bottom
+    9, 8, 12,     9, 12, 13,   // bottom
     9, 13, 15,     9, 15, 11,   // right
-    12, 8, 10,     12, 10, 14   // left*/
+    12, 8, 10,     12, 10, 14   // left
   ];
 
   /*var indices2 = [...indices];
@@ -459,7 +459,7 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
   gl.uniform1i(programInfo.uniformLocations.uSampler, 0);
 
   {
-    const vertexCount = 12;
+    const vertexCount = 72;
     const type = gl.UNSIGNED_SHORT;
     const offset = 0;
     gl.drawElements(gl.TRIANGLES, vertexCount, type, offset);
