@@ -311,7 +311,7 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
                    zFar);
   mat4.translate(projectionMatrix,     // destination matrix
                  projectionMatrix,     // matrix to translate
-                 [-0.0, -1.0*cubeRotation, -3.0*cubeRotation]);  // amount to translate
+                 [-0.0, -5.0, -15.0]);  // amount to translate
 
   // Set the drawing position to the "identity" point, which is
   // the center of the scene.
