@@ -165,14 +165,14 @@ function initBuffers(gl) {
     -halfSize+cubeOffsetX, halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
     halfSize+cubeOffsetX, halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
 
-    -halfSize+aas, -halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
+    /*-halfSize+aas, -halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
     halfSize+aas, -halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
     -halfSize+aas, halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
     halfSize+aas, halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
     -halfSize+aas, -halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
     halfSize+aas, -halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
     -halfSize+aas, halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
-    halfSize+aas, halfSize+cubeOffsetY,  halfSize+cubeOffsetZ
+    halfSize+aas, halfSize+cubeOffsetY,  halfSize+cubeOffsetZ*/
   ];
 
   /*cubeOffsetY = 12.0;
@@ -210,7 +210,7 @@ function initBuffers(gl) {
     1.0,  1.0,
     0.0,  1.0,
     // Front
-    0.0,  0.0,
+    /*0.0,  0.0,
     1.0,  0.0,
     1.0,  1.0,
     0.0,  1.0,
@@ -218,7 +218,7 @@ function initBuffers(gl) {
     0.0,  0.0,
     1.0,  0.0,
     1.0,  1.0,
-    0.0,  1.0
+    0.0,  1.0*/
   ];
   gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(textureCoordinates),
                 gl.STATIC_DRAW);
@@ -235,7 +235,7 @@ function initBuffers(gl) {
 
   var indices = [
     0,  1,  3,      0,  3,  2,    // front
-    4,  5,  6,      4,  6,  7,    // back
+    /*4,  5,  6,      4,  6,  7,    // back
     2,  3,  7,     2,  7, 6,   // top
     1, 0, 5,     0, 5, 6,   // bottom
     1, 5, 7,     1, 7, 3,   // right
@@ -246,7 +246,7 @@ function initBuffers(gl) {
     10,  11,  15,     10,  15, 14,   // top
     9, 8, 13,     8, 13, 14,   // bottom
     9, 13, 15,     9, 15, 11,   // right
-    12, 8, 10,     12, 10, 14   // left
+    12, 8, 10,     12, 10, 14   // left*/
   ];
 
   /*var indices2 = [...indices];
