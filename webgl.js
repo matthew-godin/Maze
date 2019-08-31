@@ -235,7 +235,7 @@ function initBuffers(gl) {
 
   var indices = [
     0,  1,  3,      0,  3,  2,    // front
-    4,  5,  6,      4,  6,  7,    // back
+    4,  5,  6,      5,  7,  6,    // back
     /*2,  3,  7,     2,  7, 6,   // top
     1, 0, 5,     0, 5, 6,   // bottom
     1, 5, 7,     1, 7, 3,   // right
