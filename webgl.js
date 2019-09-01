@@ -164,6 +164,22 @@ function initBuffers(gl) {
     halfSize+cubeOffsetX, -halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
     -halfSize+cubeOffsetX, halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
     halfSize+cubeOffsetX, halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
+    -halfSize+cubeOffsetX, -halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
+    -halfSize+cubeOffsetX, -halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
+    -halfSize+cubeOffsetX, halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
+    -halfSize+cubeOffsetX, halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
+    halfSize+cubeOffsetX, -halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
+    halfSize+cubeOffsetX, -halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
+    halfSize+cubeOffsetX, halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
+    halfSize+cubeOffsetX, halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
+    -halfSize+cubeOffsetX, -halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
+    halfSize+cubeOffsetX, -halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
+    -halfSize+cubeOffsetX, -halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
+    halfSize+cubeOffsetX, -halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
+    -halfSize+cubeOffsetX, halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
+    halfSize+cubeOffsetX, halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
+    -halfSize+cubeOffsetX, halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
+    halfSize+cubeOffsetX, halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
 
     -halfSize+aas, -halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
     halfSize+aas, -halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
@@ -171,6 +187,22 @@ function initBuffers(gl) {
     halfSize+aas, halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
     -halfSize+aas, -halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
     halfSize+aas, -halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
+    -halfSize+aas, halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
+    halfSize+aas, halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
+    -halfSize+aas, -halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
+    -halfSize+aas, -halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
+    -halfSize+aas, halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
+    -halfSize+aas, halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
+    halfSize+aas, -halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
+    halfSize+aas, -halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
+    halfSize+aas, halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
+    halfSize+aas, halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
+    -halfSize+aas, -halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
+    halfSize+aas, -halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
+    -halfSize+aas, -halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
+    halfSize+aas, -halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
+    -halfSize+aas, halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
+    halfSize+aas, halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
     -halfSize+aas, halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
     halfSize+aas, halfSize+cubeOffsetY,  halfSize+cubeOffsetZ
   ];
@@ -199,26 +231,55 @@ function initBuffers(gl) {
   gl.bindBuffer(gl.ARRAY_BUFFER, textureCoordBuffer);
 
   var textureCoordinates = [
-    // Front
     0.0,  0.0,
     1.0,  0.0,
     0.0,  1.0,
     1.0,  1.0,
-    // Back
-    1.0,  1.0,
-    0.0,  1.0,
-    1.0,  0.0,
-    0.0,  0.0,
-    // Front
     0.0,  0.0,
     1.0,  0.0,
     0.0,  1.0,
     1.0,  1.0,
-    // Back
-    1.0,  1.0,
-    0.0,  1.0,
+    0.0,  0.0,
     1.0,  0.0,
-    0.0,  0.0
+    0.0,  1.0,
+    1.0,  1.0,
+    0.0,  0.0,
+    1.0,  0.0,
+    0.0,  1.0,
+    1.0,  1.0,
+    0.0,  0.0,
+    1.0,  0.0,
+    0.0,  1.0,
+    1.0,  1.0,
+    0.0,  0.0,
+    1.0,  0.0,
+    0.0,  1.0,
+    1.0,  1.0,
+
+    0.0,  0.0,
+    1.0,  0.0,
+    0.0,  1.0,
+    1.0,  1.0,
+    0.0,  0.0,
+    1.0,  0.0,
+    0.0,  1.0,
+    1.0,  1.0,
+    0.0,  0.0,
+    1.0,  0.0,
+    0.0,  1.0,
+    1.0,  1.0,
+    0.0,  0.0,
+    1.0,  0.0,
+    0.0,  1.0,
+    1.0,  1.0,
+    0.0,  0.0,
+    1.0,  0.0,
+    0.0,  1.0,
+    1.0,  1.0,
+    0.0,  0.0,
+    1.0,  0.0,
+    0.0,  1.0,
+    1.0,  1.0
   ];
   gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(textureCoordinates),
                 gl.STATIC_DRAW);
@@ -236,17 +297,17 @@ function initBuffers(gl) {
   var indices = [
     0,  1,  3,      0,  3,  2,    // front
     4,  5,  6,      5,  7,  6,    // back
-    2,  3,  7,     2,  7, 6,   // top
-    1, 0, 4,     1, 4, 5,   // bottom
-    1, 5, 7,     1, 7, 3,   // right
-    4, 0, 2,     4, 2, 6,   // left
+    8,  9,  11,     8,  11, 10,   // top
+    12, 13, 15,     12, 15, 14,   // bottom
+    16, 17, 19,     16, 19, 18,   // right
+    20, 21, 23,     20, 23, 22,   // left
 
-    8,  9,  11,      8, 11,  10,    // front
-    12,  13, 14,      13,  14,  15,    // back
-    10,  11,  15,     10,  15, 14,   // top
-    9, 8, 12,     9, 12, 13,   // bottom
-    9, 13, 15,     9, 15, 11,   // right
-    12, 8, 10,     12, 10, 14   // left
+    24,  25,  27,     24, 27,  26,    // front
+    28,  29, 31,      28,  31,  30,    // back
+    32,  33,  35,     32,  35, 34,   // top
+    36, 37, 39,     36, 39, 38,   // bottom
+    40, 41, 43,     40, 43, 42,   // right
+    44, 45, 47,     44, 47, 46   // left
   ];
 
   /*var indices2 = [...indices];
