@@ -169,7 +169,7 @@ var positions = [];
     for (j = 0; j < mazeHeight; j++) {
       cubeOffsetX = 2.0 * i;
       cubeOffsetZ = 2.0 * j;
-      cubeOffsetY = canvasMaze.getContext('2d').getImageData(i, j, 1, 1).data[0] == 255 ? 2.0 : 0.0;
+      cubeOffsetY = canvasMaze.getContext('2d').getImageData(i, j, 1, 1).data[0] == 255 ? 0.0 : 2.0;
       positions = positions.concat([
         -halfSize+cubeOffsetX, -halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
         halfSize+cubeOffsetX, -halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
