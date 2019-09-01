@@ -2,6 +2,7 @@ var cubeRotation = 0.0;
 var camRotationX = 0.0, camRotationY = 0.0;
 var ZTranslation = 0.0, XTranslation = 0.0;
 var WDown = false, ADown = false, SDown = false, DDown = false, aRight = false, aLeft = false, aUp = false, aDown = false;
+var numCubes = 4;
 
 main();
 
@@ -153,12 +154,12 @@ function initBuffers(gl) {
 
   // Now create an array of positions for the cube.
   const halfSize = 1.0
-  var cubeOffsetX = 0.0, cubeOffsetY = 3.0, cubeOffsetZ = 0.0, aas = 3.0;
+  var cubeOffsetX = 0.0, cubeOffsetY = 3.0, cubeOffsetZ = 0.0;
 // TWO CUBES WORKING
 var positions = [];
 {
   var i;
-  for (i = 0; i < 2; i++) {
+  for (i = 0; i < numCubes; i++) {
     cubeOffsetX = 3.0 * i;
     positions = positions.concat([
       -halfSize+cubeOffsetX, -halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
@@ -200,57 +201,39 @@ var positions = [];
   const textureCoordBuffer = gl.createBuffer();
   gl.bindBuffer(gl.ARRAY_BUFFER, textureCoordBuffer);
 
-  var textureCoordinates = [
-    1.0,  1.0,
-    0.0,  1.0,
-    1.0,  0.0,
-    0.0,  0.0,
-    0.0,  1.0,
-    1.0,  1.0,
-    0.0,  0.0,
-    1.0,  0.0,
-    1.0,  1.0,
-    0.0,  1.0,
-    1.0,  0.0,
-    0.0,  0.0,
-    1.0,  1.0,
-    0.0,  1.0,
-    1.0,  0.0,
-    0.0,  0.0,
-    1.0,  1.0,
-    0.0,  1.0,
-    1.0,  0.0,
-    0.0,  0.0,
-    0.0,  0.0,
-    1.0,  0.0,
-    0.0,  1.0,
-    1.0,  1.0,
+var textureCoordinates = [];
+{
+  var i;
+  for (i = 0; i < numCubes; i++) {
+    textureCoordinates = textureCoordinates.concat([
+      1.0,  1.0,
+      0.0,  1.0,
+      1.0,  0.0,
+      0.0,  0.0,
+      0.0,  1.0,
+      1.0,  1.0,
+      0.0,  0.0,
+      1.0,  0.0,
+      1.0,  1.0,
+      0.0,  1.0,
+      1.0,  0.0,
+      0.0,  0.0,
+      1.0,  1.0,
+      0.0,  1.0,
+      1.0,  0.0,
+      0.0,  0.0,
+      1.0,  1.0,
+      0.0,  1.0,
+      1.0,  0.0,
+      0.0,  0.0,
+      0.0,  0.0,
+      1.0,  0.0,
+      0.0,  1.0,
+      1.0,  1.0
+    ]);
+  }
+}
 
-    1.0,  1.0,
-    0.0,  1.0,
-    1.0,  0.0,
-    0.0,  0.0,
-    0.0,  1.0,
-    1.0,  1.0,
-    0.0,  0.0,
-    1.0,  0.0,
-    1.0,  1.0,
-    0.0,  1.0,
-    1.0,  0.0,
-    0.0,  0.0,
-    1.0,  1.0,
-    0.0,  1.0,
-    1.0,  0.0,
-    0.0,  0.0,
-    1.0,  1.0,
-    0.0,  1.0,
-    1.0,  0.0,
-    0.0,  0.0,
-    0.0,  0.0,
-    1.0,  0.0,
-    0.0,  1.0,
-    1.0,  1.0
-  ];
   gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(textureCoordinates),
                 gl.STATIC_DRAW);
 
@@ -264,21 +247,20 @@ var positions = [];
   // indices into the vertex array to specify each triangle's
   // position.
 
-  var indices = [
-    0,  1,  3,      0,  3,  2,    // front
-    4,  5,  6,      5,  7,  6,    // back
-    8,  9,  11,     8,  11, 10,   // top
-    12, 13, 15,     12, 15, 14,   // bottom
-    16, 17, 19,     16, 19, 18,   // right
-    20, 21, 23,     20, 23, 22,   // left
-
-    24,  25,  27,     24, 27,  26,    // front
-    28,  29, 31,      28,  31,  30,    // back
-    32,  33,  35,     32,  35, 34,   // top
-    36, 37, 39,     36, 39, 38,   // bottom
-    40, 41, 43,     40, 43, 42,   // right
-    44, 45, 47,     44, 47, 46   // left
-  ];
+  var indices = [];
+{
+  var i;
+  for (i = 0; i < numCubes; i++) {
+    indices = indices.concat([
+      0+24*i,  1+24*i,  3+24*i,      0+24*i,  3+24*i,  2+24*i,    // front
+      4+24*i,  5+24*i,  6+24*i,      5+24*i,  7+24*i,  6+24*i,    // back
+      8+24*i,  9+24*i,  11+24*i,     8+24*i,  11+24*i, 10+24*i,   // top
+      12+24*i, 13+24*i, 15+24*i,     12+24*i, 15+24*i, 14+24*i,   // bottom
+      16+24*i, 17+24*i, 19+24*i,     16+24*i, 19+24*i, 18+24*i,   // right
+      20+24*i, 21+24*i, 23+24*i,     20+24*i, 23+24*i, 22+24*i,   // left
+    ]);
+  }
+}
 
   /*var indices2 = [...indices];
   {
@@ -490,7 +472,7 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
   gl.uniform1i(programInfo.uniformLocations.uSampler, 0);
 
   {
-    const vertexCount = 72;
+    const vertexCount = 36 * numCubes;
     const type = gl.UNSIGNED_SHORT;
     const offset = 0;
     gl.drawElements(gl.TRIANGLES, vertexCount, type, offset);
