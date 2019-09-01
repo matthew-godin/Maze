@@ -2,7 +2,8 @@ var cubeRotation = 0.0;
 var camRotationX = 0.0, camRotationY = 0.0;
 var ZTranslation = 0.0, XTranslation = 0.0;
 var WDown = false, ADown = false, SDown = false, DDown = false, aRight = false, aLeft = false, aUp = false, aDown = false;
-var numCubes = 4;
+var numCubes = 4, mazeWidth = 0, mazeHeight = 0;
+var canvasMaze;
 
 main();
 
@@ -56,6 +57,11 @@ function main() {
 
   document.addEventListener('keydown', logKeyDown);
   document.addEventListener('keyup', logKeyUp);
+  var imgMaze = document.getElementById('maze-img');
+  canvasMaze = document.createElement('canvas');
+  mazeWidth = canvasMaze.width = imgMaze.width;
+  mazeHeight = canvasMaze.height = imgMaze.height;
+  canvasMaze.getContext('2d').drawImage(imgMaze, 0, 0, imgMaze.width, imgMaze.height);
 
   // If we don't have a GL context, give up now
 
@@ -154,39 +160,43 @@ function initBuffers(gl) {
 
   // Now create an array of positions for the cube.
   const halfSize = 1.0
-  var cubeOffsetX = 0.0, cubeOffsetY = 3.0, cubeOffsetZ = 0.0;
+  var cubeOffsetX = 0.0, cubeOffsetY = 0.0, cubeOffsetZ = 0.0;
 // TWO CUBES WORKING
 var positions = [];
 {
-  var i;
-  for (i = 0; i < numCubes; i++) {
-    cubeOffsetX = 3.0 * i;
-    positions = positions.concat([
-      -halfSize+cubeOffsetX, -halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
-      halfSize+cubeOffsetX, -halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
-      -halfSize+cubeOffsetX, halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
-      halfSize+cubeOffsetX, halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
-      -halfSize+cubeOffsetX, -halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
-      halfSize+cubeOffsetX, -halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
-      -halfSize+cubeOffsetX, halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
-      halfSize+cubeOffsetX, halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
-      -halfSize+cubeOffsetX, -halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
-      -halfSize+cubeOffsetX, -halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
-      -halfSize+cubeOffsetX, halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
-      -halfSize+cubeOffsetX, halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
-      halfSize+cubeOffsetX, -halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
-      halfSize+cubeOffsetX, -halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
-      halfSize+cubeOffsetX, halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
-      halfSize+cubeOffsetX, halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
-      -halfSize+cubeOffsetX, -halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
-      halfSize+cubeOffsetX, -halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
-      -halfSize+cubeOffsetX, -halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
-      halfSize+cubeOffsetX, -halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
-      -halfSize+cubeOffsetX, halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
-      halfSize+cubeOffsetX, halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
-      -halfSize+cubeOffsetX, halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
-      halfSize+cubeOffsetX, halfSize+cubeOffsetY,  halfSize+cubeOffsetZ
-    ]);
+  var i, j;
+  for (i = 0; i < mazeWidth; i++) {
+    for (j = 0; j < mazeHeight; j++) {
+      cubeOffsetX = 2.0 * i;
+      cubeOffsetZ = 2.0 * j;
+      cubeOffsetY = canvasMaze.getContext('2d').getImageData(i, j, 1, 1).data[0] == 255 ? 2.0 : 0.0;
+      positions = positions.concat([
+        -halfSize+cubeOffsetX, -halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
+        halfSize+cubeOffsetX, -halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
+        -halfSize+cubeOffsetX, halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
+        halfSize+cubeOffsetX, halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
+        -halfSize+cubeOffsetX, -halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
+        halfSize+cubeOffsetX, -halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
+        -halfSize+cubeOffsetX, halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
+        halfSize+cubeOffsetX, halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
+        -halfSize+cubeOffsetX, -halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
+        -halfSize+cubeOffsetX, -halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
+        -halfSize+cubeOffsetX, halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
+        -halfSize+cubeOffsetX, halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
+        halfSize+cubeOffsetX, -halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
+        halfSize+cubeOffsetX, -halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
+        halfSize+cubeOffsetX, halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
+        halfSize+cubeOffsetX, halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
+        -halfSize+cubeOffsetX, -halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
+        halfSize+cubeOffsetX, -halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
+        -halfSize+cubeOffsetX, -halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
+        halfSize+cubeOffsetX, -halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
+        -halfSize+cubeOffsetX, halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
+        halfSize+cubeOffsetX, halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
+        -halfSize+cubeOffsetX, halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
+        halfSize+cubeOffsetX, halfSize+cubeOffsetY,  halfSize+cubeOffsetZ
+      ]);
+    }
   }
 }
   
@@ -204,7 +214,7 @@ var positions = [];
 var textureCoordinates = [];
 {
   var i;
-  for (i = 0; i < numCubes; i++) {
+  for (i = 0; i < mazeWidth*mazeHeight; i++) {
     textureCoordinates = textureCoordinates.concat([
       1.0,  1.0,
       0.0,  1.0,
@@ -250,7 +260,7 @@ var textureCoordinates = [];
   var indices = [];
 {
   var i;
-  for (i = 0; i < numCubes; i++) {
+  for (i = 0; i < mazeWidth*mazeHeight; i++) {
     indices = indices.concat([
       0+24*i,  1+24*i,  3+24*i,      0+24*i,  3+24*i,  2+24*i,    // front
       4+24*i,  5+24*i,  6+24*i,      5+24*i,  7+24*i,  6+24*i,    // back
@@ -472,7 +482,7 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
   gl.uniform1i(programInfo.uniformLocations.uSampler, 0);
 
   {
-    const vertexCount = 36 * numCubes;
+    const vertexCount = 36 * mazeWidth * mazeHeight;
     const type = gl.UNSIGNED_SHORT;
     const offset = 0;
     gl.drawElements(gl.TRIANGLES, vertexCount, type, offset);
