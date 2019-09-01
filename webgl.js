@@ -155,70 +155,40 @@ function initBuffers(gl) {
   const halfSize = 1.0
   var cubeOffsetX = 0.0, cubeOffsetY = 3.0, cubeOffsetZ = 0.0, aas = 3.0;
 // TWO CUBES WORKING
-  var positions = [
-    -halfSize+cubeOffsetX, -halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
-    halfSize+cubeOffsetX, -halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
-    -halfSize+cubeOffsetX, halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
-    halfSize+cubeOffsetX, halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
-    -halfSize+cubeOffsetX, -halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
-    halfSize+cubeOffsetX, -halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
-    -halfSize+cubeOffsetX, halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
-    halfSize+cubeOffsetX, halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
-    -halfSize+cubeOffsetX, -halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
-    -halfSize+cubeOffsetX, -halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
-    -halfSize+cubeOffsetX, halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
-    -halfSize+cubeOffsetX, halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
-    halfSize+cubeOffsetX, -halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
-    halfSize+cubeOffsetX, -halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
-    halfSize+cubeOffsetX, halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
-    halfSize+cubeOffsetX, halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
-    -halfSize+cubeOffsetX, -halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
-    halfSize+cubeOffsetX, -halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
-    -halfSize+cubeOffsetX, -halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
-    halfSize+cubeOffsetX, -halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
-    -halfSize+cubeOffsetX, halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
-    halfSize+cubeOffsetX, halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
-    -halfSize+cubeOffsetX, halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
-    halfSize+cubeOffsetX, halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
-
-    -halfSize+aas, -halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
-    halfSize+aas, -halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
-    -halfSize+aas, halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
-    halfSize+aas, halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
-    -halfSize+aas, -halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
-    halfSize+aas, -halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
-    -halfSize+aas, halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
-    halfSize+aas, halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
-    -halfSize+aas, -halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
-    -halfSize+aas, -halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
-    -halfSize+aas, halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
-    -halfSize+aas, halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
-    halfSize+aas, -halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
-    halfSize+aas, -halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
-    halfSize+aas, halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
-    halfSize+aas, halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
-    -halfSize+aas, -halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
-    halfSize+aas, -halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
-    -halfSize+aas, -halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
-    halfSize+aas, -halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
-    -halfSize+aas, halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
-    halfSize+aas, halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
-    -halfSize+aas, halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
-    halfSize+aas, halfSize+cubeOffsetY,  halfSize+cubeOffsetZ
-  ];
-
-  /*cubeOffsetY = 12.0;
-  var positions2 = [
-    -halfSize+cubeOffsetX, -halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
-    halfSize+cubeOffsetX, -halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
-    -halfSize+cubeOffsetX, halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
-    halfSize+cubeOffsetX, halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
-    -halfSize+cubeOffsetX, -halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
-    halfSize+cubeOffsetX, -halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
-    -halfSize+cubeOffsetX, halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
-    halfSize+cubeOffsetX, halfSize+cubeOffsetY,  halfSize+cubeOffsetZ
-  ];
-  positions = positions.concat(positions2);*/
+var positions = [];
+{
+  var i;
+  for (i = 0; i < 2; i++) {
+    cubeOffsetX = 3.0 * i;
+    positions = positions.concat([
+      -halfSize+cubeOffsetX, -halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
+      halfSize+cubeOffsetX, -halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
+      -halfSize+cubeOffsetX, halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
+      halfSize+cubeOffsetX, halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
+      -halfSize+cubeOffsetX, -halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
+      halfSize+cubeOffsetX, -halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
+      -halfSize+cubeOffsetX, halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
+      halfSize+cubeOffsetX, halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
+      -halfSize+cubeOffsetX, -halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
+      -halfSize+cubeOffsetX, -halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
+      -halfSize+cubeOffsetX, halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
+      -halfSize+cubeOffsetX, halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
+      halfSize+cubeOffsetX, -halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
+      halfSize+cubeOffsetX, -halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
+      halfSize+cubeOffsetX, halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
+      halfSize+cubeOffsetX, halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
+      -halfSize+cubeOffsetX, -halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
+      halfSize+cubeOffsetX, -halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
+      -halfSize+cubeOffsetX, -halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
+      halfSize+cubeOffsetX, -halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
+      -halfSize+cubeOffsetX, halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
+      halfSize+cubeOffsetX, halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
+      -halfSize+cubeOffsetX, halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
+      halfSize+cubeOffsetX, halfSize+cubeOffsetY,  halfSize+cubeOffsetZ
+    ]);
+  }
+}
+  
   // Now pass the list of positions into WebGL to build the
   // shape. We do this by creating a Float32Array from the
   // JavaScript array, then use it to fill the current buffer.
