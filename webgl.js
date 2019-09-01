@@ -154,7 +154,7 @@ function initBuffers(gl) {
   // Now create an array of positions for the cube.
   const halfSize = 1.0
   var cubeOffsetX = 0.0, cubeOffsetY = 3.0, cubeOffsetZ = 0.0, aas = 3.0;
-
+// TWO CUBES WORKING
   var positions = [
     -halfSize+cubeOffsetX, -halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
     halfSize+cubeOffsetX, -halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
