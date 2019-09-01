@@ -231,8 +231,6 @@ function initBuffers(gl) {
   gl.bindBuffer(gl.ARRAY_BUFFER, textureCoordBuffer);
 
   var textureCoordinates = [
-    0.0,  0.0,
-    1.0,  0.0,
     0.0,  1.0,
     1.0,  1.0,
     0.0,  0.0,
@@ -255,9 +253,9 @@ function initBuffers(gl) {
     1.0,  0.0,
     0.0,  1.0,
     1.0,  1.0,
+    0.0,  0.0,
+    1.0,  0.0,
 
-    0.0,  0.0,
-    1.0,  0.0,
     0.0,  1.0,
     1.0,  1.0,
     0.0,  0.0,
@@ -279,7 +277,9 @@ function initBuffers(gl) {
     0.0,  0.0,
     1.0,  0.0,
     0.0,  1.0,
-    1.0,  1.0
+    1.0,  1.0,
+    0.0,  0.0,
+    1.0,  0.0
   ];
   gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(textureCoordinates),
                 gl.STATIC_DRAW);
