@@ -124,7 +124,7 @@ function main() {
   // objects we'll be drawing.
   const buffers = initBuffers(gl);
 
-  const texture = loadTexture(gl, 'img/grass.jpg');
+  const texture = loadTexture(gl, 'img/GrassFence.png');
 
   var then = 0;
 
@@ -216,28 +216,28 @@ var textureCoordinates = [];
   var i;
   for (i = 0; i < mazeWidth*mazeHeight; i++) {
     textureCoordinates = textureCoordinates.concat([
+      1.0,  0.5,
+      0.0,  0.5,
+      1.0,  0.0,
+      0.0,  0.0,
+      0.0,  0.5,
+      1.0,  0.5,
+      0.0,  0.0,
+      1.0,  0.0,
+      1.0,  0.5,
+      0.0,  0.5,
+      1.0,  0.0,
+      0.0,  0.0,
+      1.0,  0.5,
+      0.0,  0.5,
+      1.0,  0.0,
+      0.0,  0.0,
       1.0,  1.0,
       0.0,  1.0,
-      1.0,  0.0,
-      0.0,  0.0,
-      0.0,  1.0,
-      1.0,  1.0,
-      0.0,  0.0,
-      1.0,  0.0,
-      1.0,  1.0,
-      0.0,  1.0,
-      1.0,  0.0,
-      0.0,  0.0,
-      1.0,  1.0,
-      0.0,  1.0,
-      1.0,  0.0,
-      0.0,  0.0,
-      1.0,  1.0,
-      0.0,  1.0,
-      1.0,  0.0,
-      0.0,  0.0,
-      0.0,  0.0,
-      1.0,  0.0,
+      1.0,  0.5,
+      0.0,  0.5,
+      0.0,  0.5,
+      1.0,  0.5,
       0.0,  1.0,
       1.0,  1.0
     ]);
