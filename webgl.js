@@ -205,20 +205,20 @@ function initBuffers(gl) {
     0.0,  1.0,
     1.0,  1.0,
     // Back
-    0.0,  0.0,
-    1.0,  0.0,
-    0.0,  1.0,
     1.0,  1.0,
+    0.0,  1.0,
+    1.0,  0.0,
+    0.0,  0.0,
     // Front
     0.0,  0.0,
     1.0,  0.0,
     0.0,  1.0,
     1.0,  1.0,
     // Back
-    0.0,  0.0,
-    1.0,  0.0,
+    1.0,  1.0,
     0.0,  1.0,
-    1.0,  1.0
+    1.0,  0.0,
+    0.0,  0.0
   ];
   gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(textureCoordinates),
                 gl.STATIC_DRAW);
