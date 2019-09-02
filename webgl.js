@@ -272,13 +272,6 @@ var textureCoordinates = [];
   }
 }
 
-  /*var indices2 = [...indices];
-  {
-    var i;
-    for (i = 0; i < indices2.length; i++) indices2[i] += 8;
-  }
-  indices = indices.concat(indices2);*/
-
   // Now send the element array to GL
 
   gl.bufferData(gl.ELEMENT_ARRAY_BUFFER,
@@ -380,7 +373,7 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
                    zFar);
   mat4.translate(projectionMatrix,     // destination matrix
                  projectionMatrix,     // matrix to translate
-                 [2*XTranslation, -5.0, -15.0+2*ZTranslation]);  // amount to translate
+                 [2*XTranslation+40, -5.0, -50.0+2*ZTranslation]);  // amount to translate
   mat4.rotate(projectionMatrix,  // destination matrix
               projectionMatrix,  // matrix to rotate
               camRotationX,     // amount to rotate in radians
