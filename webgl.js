@@ -371,7 +371,7 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
                    aspect,
                    zNear,
                    zFar);
-  mat4.translate(projectionMatrix,     // destination matrix
+  /*mat4.translate(projectionMatrix,     // destination matrix
                  projectionMatrix,     // matrix to translate
                  [2*XTranslation-26.0, 1.0, -22.0+2*ZTranslation]);  // amount to translate
   mat4.rotate(projectionMatrix,  // destination matrix
@@ -381,11 +381,11 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
   mat4.rotate(projectionMatrix,  // destination matrix
               projectionMatrix,  // matrix to rotate
               camRotationY,     // amount to rotate in radians
-              [1.0, 0.0, 0.0]);   
-  /*mat4.lookAt(projectionMatrix,
-              [XTranslation, -5.0, -15.0+ZTranslation],
-              [-3.0, -3.0, -6.0],
-              [0.0, 1.0, 0.0]);*/
+              [1.0, 0.0, 0.0]);   */
+  mat4.lookAt(projectionMatrix,
+              [2*XTranslation-26.0, 1.0, -22.0+2*ZTranslation],
+              [-27.0, 1.0, -22.0],
+              [0.0, 1.0, 0.0]);
 
   // Set the drawing position to the "identity" point, which is
   // the center of the scene.
