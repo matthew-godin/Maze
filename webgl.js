@@ -487,22 +487,26 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
   // Update the rotation for the next draw
 
   cubeRotation += deltaTime;
-  if (WDown) {
+  if (WDown && canvasMaze.getContext('2d').getImageData
+      ((XTranslation+xCoord*2.0*deltaTime) / 2, (ZTranslation+yCoord*2.0*deltaTime) / 2, 1, 1).data[0] == 255) {
     //ZTranslation += deltaTime;
     XTranslation += xCoord*2.0*deltaTime;
     ZTranslation += yCoord*2.0*deltaTime;
   }
-  if (SDown) {
+  if (SDown && canvasMaze.getContext('2d').getImageData
+      ((XTranslation-xCoord*2.0*deltaTime) / 2, (ZTranslation-yCoord*2.0*deltaTime) / 2, 1, 1).data[0] == 255) {
     //ZTranslation -= deltaTime;
     XTranslation -= xCoord*2.0*deltaTime;
     ZTranslation -= yCoord*2.0*deltaTime;
   }
-  if (DDown) {
+  if (DDown && canvasMaze.getContext('2d').getImageData
+      ((XTranslation-yCoord*2.0*deltaTime) / 2, (ZTranslation+xCoord*2.0*deltaTime) / 2, 1, 1).data[0] == 255) {
     //XTranslation -= deltaTime;
     XTranslation -= yCoord*2.0*deltaTime;
     ZTranslation += xCoord*2.0*deltaTime;
   }
-  if (ADown) {
+  if (ADown && canvasMaze.getContext('2d').getImageData
+      ((XTranslation+yCoord*2.0*deltaTime) / 2, (ZTranslation-xCoord*2.0*deltaTime) / 2, 1, 1).data[0] == 255) {
     //XTranslation += deltaTime;
     XTranslation += yCoord*2.0*deltaTime;
     ZTranslation -= xCoord*2.0*deltaTime;
