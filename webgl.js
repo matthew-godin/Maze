@@ -402,7 +402,7 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
               [0, 1, 0]);       // axis to rotate around (X)*/
               mat4.lookAt(modelViewMatrix,
               [0,0,0],
-              [Math.cos(camRotationX),0,Math.cos(camRotationX)],
+              [Math.cos(camRotationX*1.0),0.0,Math.cos(camRotationX*1.0)],
               [0.0, 1.0, 0.0]);
 
   // Tell WebGL how to pull out the positions from the position
