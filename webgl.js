@@ -487,10 +487,11 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
   // Update the rotation for the next draw
 
   cubeRotation += deltaTime;
-  var XReal = XTranslation + 0.8;
-  var ZReal = ZTranslation + 0.8;
-  var XReal2 = XTranslation + 1.2;
-  var ZReal2 = ZTranslation + 1.2;
+  var XZReal = 0.4
+  var XReal = XTranslation + 1.0 - XZReal;
+  var ZReal = ZTranslation + 1.0 - XZReal;
+  var XReal2 = XTranslation + 1.0 + XZReal;
+  var ZReal2 = ZTranslation + 1.0 + XZReal;
   if (WDown && canvasMaze.getContext('2d').getImageData
       ((XReal+xCoord*2.0*deltaTime) / 2, (ZReal+yCoord*2.0*deltaTime) / 2, 1, 1).data[0] == 255
       && canvasMaze.getContext('2d').getImageData
