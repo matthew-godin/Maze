@@ -487,26 +487,28 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
   // Update the rotation for the next draw
 
   cubeRotation += deltaTime;
+  var XReal = XTranslation + 1.0;
+  var ZReal = ZTranslation - 1.0;
   if (WDown && canvasMaze.getContext('2d').getImageData
-      ((XTranslation+xCoord*2.0*deltaTime) / 2, (ZTranslation+yCoord*2.0*deltaTime) / 2, 1, 1).data[0] == 255) {
+      ((XReal+xCoord*2.0*deltaTime) / 2, (ZReal+yCoord*2.0*deltaTime) / 2, 1, 1).data[0] == 255) {
     //ZTranslation += deltaTime;
     XTranslation += xCoord*2.0*deltaTime;
     ZTranslation += yCoord*2.0*deltaTime;
   }
   if (SDown && canvasMaze.getContext('2d').getImageData
-      ((XTranslation-xCoord*2.0*deltaTime) / 2, (ZTranslation-yCoord*2.0*deltaTime) / 2, 1, 1).data[0] == 255) {
+      ((XReal-xCoord*2.0*deltaTime) / 2, (ZReal-yCoord*2.0*deltaTime) / 2, 1, 1).data[0] == 255) {
     //ZTranslation -= deltaTime;
     XTranslation -= xCoord*2.0*deltaTime;
     ZTranslation -= yCoord*2.0*deltaTime;
   }
   if (DDown && canvasMaze.getContext('2d').getImageData
-      ((XTranslation-yCoord*2.0*deltaTime) / 2, (ZTranslation+xCoord*2.0*deltaTime) / 2, 1, 1).data[0] == 255) {
+      ((XReal-yCoord*2.0*deltaTime) / 2, (ZReal+xCoord*2.0*deltaTime) / 2, 1, 1).data[0] == 255) {
     //XTranslation -= deltaTime;
     XTranslation -= yCoord*2.0*deltaTime;
     ZTranslation += xCoord*2.0*deltaTime;
   }
   if (ADown && canvasMaze.getContext('2d').getImageData
-      ((XTranslation+yCoord*2.0*deltaTime) / 2, (ZTranslation-xCoord*2.0*deltaTime) / 2, 1, 1).data[0] == 255) {
+      ((XReal+yCoord*2.0*deltaTime) / 2, (ZReal-xCoord*2.0*deltaTime) / 2, 1, 1).data[0] == 255) {
     //XTranslation += deltaTime;
     XTranslation += yCoord*2.0*deltaTime;
     ZTranslation -= xCoord*2.0*deltaTime;
