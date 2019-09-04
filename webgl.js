@@ -404,7 +404,7 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
               var yCoord = Math.sin(camRotationX*1.0);
               mat4.lookAt(modelViewMatrix,
               [2.0*XTranslation,0.0,2.0*ZTranslation],
-              [xCoord,0.0,yCoord],
+              [xCoord+2.0*XTranslation,0.0,yCoord+2.0*ZTranslation],
               [0.0, 1.0, 0.0]);
 
   // Tell WebGL how to pull out the positions from the position
