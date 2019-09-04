@@ -382,10 +382,6 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
               projectionMatrix,  // matrix to rotate
               camRotationY,     // amount to rotate in radians
               [1.0, 0.0, 0.0]);   */
-  mat4.lookAt(projectionMatrix,
-              [2*XTranslation-26.0, 1.0, -22.0+2*ZTranslation],
-              [-27.0, 1.0, -22.0],
-              [0.0, 1.0, 0.0]);
 
   // Set the drawing position to the "identity" point, which is
   // the center of the scene.
@@ -404,6 +400,10 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
               modelViewMatrix,  // matrix to rotate
               cubeRotation * .7,// amount to rotate in radians
               [0, 1, 0]);       // axis to rotate around (X)*/
+              mat4.lookAt(projectionMatrix,
+              [2*XTranslation-26.0, 1.0, -22.0+2*ZTranslation],
+              [-27.0, 1.0, -22.0],
+              [0.0, 1.0, 0.0]);
 
   // Tell WebGL how to pull out the positions from the position
   // buffer into the vertexPosition attribute
