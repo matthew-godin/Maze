@@ -371,10 +371,10 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
                    aspect,
                    zNear,
                    zFar);
-  /*mat4.translate(projectionMatrix,     // destination matrix
+  mat4.translate(projectionMatrix,     // destination matrix
                  projectionMatrix,     // matrix to translate
                  [2*XTranslation-26.0, 1.0, -22.0+2*ZTranslation]);  // amount to translate
-  mat4.rotate(projectionMatrix,  // destination matrix
+  /*mat4.rotate(projectionMatrix,  // destination matrix
               projectionMatrix,  // matrix to rotate
               camRotationX,     // amount to rotate in radians
               [0.0, 1.0, 0.0]);
