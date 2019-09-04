@@ -403,8 +403,9 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
               var xCoord = Math.cos(camRotationX*1.0);
               var yCoord = Math.sin(camRotationX*1.0);
               mat4.lookAt(modelViewMatrix,
-              [xCoord*2.0*ZTranslation+yCoord*2.0*XTranslation,0.0,yCoord*2.0*ZTranslation-xCoord*2.0*XTranslation],
-              [xCoord+xCoord*2.0*ZTranslation+yCoord*2.0*XTranslation,0.0,yCoord+yCoord*2.0*ZTranslation-xCoord*2.0*XTranslation],
+              //[xCoord*2.0*ZTranslation+yCoord*2.0*XTranslation,0.0,yCoord*2.0*ZTranslation-xCoord*2.0*XTranslation],
+              [XTranslation,0.0,ZTranslation],
+              [xCoord+XTranslation,0.0,yCoord+ZTranslation],
               [0.0, 1.0, 0.0]);
 
   // Tell WebGL how to pull out the positions from the position
@@ -487,16 +488,24 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
 
   cubeRotation += deltaTime;
   if (WDown) {
-    ZTranslation += deltaTime;
+    //ZTranslation += deltaTime;
+    XTranslation += xCoord*2.0*deltaTime;
+    ZTranslation += yCoord*2.0*deltaTime;
   }
   if (SDown) {
-    ZTranslation -= deltaTime;
+    //ZTranslation -= deltaTime;
+    XTranslation -= xCoord*2.0*deltaTime;
+    ZTranslation -= yCoord*2.0*deltaTime;
   }
   if (DDown) {
-    XTranslation -= deltaTime;
+    //XTranslation -= deltaTime;
+    XTranslation -= yCoord*2.0*deltaTime;
+    ZTranslation += xCoord*2.0*deltaTime;
   }
   if (ADown) {
-    XTranslation += deltaTime;
+    //XTranslation += deltaTime;
+    XTranslation += yCoord*2.0*deltaTime;
+    ZTranslation -= xCoord*2.0*deltaTime;
   }
   if (aDown) {
     camRotationY -= deltaTime;
