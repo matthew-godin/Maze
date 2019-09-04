@@ -400,7 +400,7 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
               modelViewMatrix,  // matrix to rotate
               cubeRotation * .7,// amount to rotate in radians
               [0, 1, 0]);       // axis to rotate around (X)*/
-              mat4.lookAt(projectionMatrix,
+              mat4.lookAt(modelViewMatrix,
               [2*XTranslation-26.0, 1.0, -22.0+2*ZTranslation],
               [-27.0, 1.0, -22.0],
               [0.0, 1.0, 0.0]);
