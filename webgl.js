@@ -389,9 +389,9 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
 
   // Now move the drawing position a bit to where we want to
   // start drawing the square.
-  mat4.translate(modelViewMatrix,     // destination matrix
+  /*mat4.translate(modelViewMatrix,     // destination matrix
                  modelViewMatrix,     // matrix to translate
-                 [-3.0, -3.0, -6.0]);  // amount to translate
+                 [-3.0, -3.0, -6.0]);  // amount to translate*/
   /*mat4.rotate(modelViewMatrix,  // destination matrix
               modelViewMatrix,  // matrix to rotate
               cubeRotation,     // amount to rotate in radians
@@ -401,7 +401,7 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
               cubeRotation * .7,// amount to rotate in radians
               [0, 1, 0]);       // axis to rotate around (X)*/
               mat4.lookAt(modelViewMatrix,
-              [0,0,0],
+              [0,1,0],
               [-27.0, 1.0, -22.0],
               [0.0, 1.0, 0.0]);
 
