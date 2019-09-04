@@ -401,8 +401,8 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
               cubeRotation * .7,// amount to rotate in radians
               [0, 1, 0]);       // axis to rotate around (X)*/
               mat4.lookAt(modelViewMatrix,
-              [0,1,0],
-              [-27.0, 1.0, -22.0],
+              [0,0,0],
+              [0,0,1],
               [0.0, 1.0, 0.0]);
 
   // Tell WebGL how to pull out the positions from the position
