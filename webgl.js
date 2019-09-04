@@ -371,9 +371,9 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
                    aspect,
                    zNear,
                    zFar);
-  mat4.translate(projectionMatrix,     // destination matrix
+  /*mat4.translate(projectionMatrix,     // destination matrix
                  projectionMatrix,     // matrix to translate
-                 [2*XTranslation, 0, 2*ZTranslation]);  // amount to translate
+                 [2*XTranslation, 0, 2*ZTranslation]);  // amount to translate*/
   /*mat4.rotate(projectionMatrix,  // destination matrix
               projectionMatrix,  // matrix to rotate
               camRotationX,     // amount to rotate in radians
@@ -403,7 +403,7 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
               var xCoord = Math.cos(camRotationX*1.0);
               var yCoord = Math.sin(camRotationX*1.0);
               mat4.lookAt(modelViewMatrix,
-              [0.0,0.0,0.0],
+              [2.0*XTranslation,0.0,2.0*ZTranslation],
               [xCoord,0.0,yCoord],
               [0.0, 1.0, 0.0]);
 
