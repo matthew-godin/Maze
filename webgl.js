@@ -124,7 +124,7 @@ function main() {
   // objects we'll be drawing.
   const buffers = initBuffers(gl);
 
-  const texture = loadTexture(gl, 'img/GrassFence.png');
+  const texture = loadTexture(gl, 'img/texture.jpg');
 
   var then = 0;
 
