@@ -161,45 +161,45 @@ function initBuffers(gl) {
   // Now create an array of positions for the cube.
   const halfSize = 1.0
   var cubeOffsetX = 0.0, cubeOffsetY = 0.0, cubeOffsetZ = 0.0;
-// TWO CUBES WORKING
-var positions = [];
-{
-  var i, j;
-  for (i = 0; i < mazeWidth; i++) {
-    for (j = 0; j < mazeHeight; j++) {
-      cubeOffsetX = 2.0 * i;
-      cubeOffsetZ = 2.0 * j;
-      cubeOffsetY = canvasMaze.getContext('2d').getImageData(i, j, 1, 1).data[0] == 255 ? 0.0 : 2.0;
-      positions = positions.concat([
-        -halfSize+cubeOffsetX, -halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
-        halfSize+cubeOffsetX, -halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
-        -halfSize+cubeOffsetX, halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
-        halfSize+cubeOffsetX, halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
-        -halfSize+cubeOffsetX, -halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
-        halfSize+cubeOffsetX, -halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
-        -halfSize+cubeOffsetX, halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
-        halfSize+cubeOffsetX, halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
-        -halfSize+cubeOffsetX, -halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
-        -halfSize+cubeOffsetX, -halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
-        -halfSize+cubeOffsetX, halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
-        -halfSize+cubeOffsetX, halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
-        halfSize+cubeOffsetX, -halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
-        halfSize+cubeOffsetX, -halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
-        halfSize+cubeOffsetX, halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
-        halfSize+cubeOffsetX, halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
-        -halfSize+cubeOffsetX, -halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
-        halfSize+cubeOffsetX, -halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
-        -halfSize+cubeOffsetX, -halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
-        halfSize+cubeOffsetX, -halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
-        -halfSize+cubeOffsetX, halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
-        halfSize+cubeOffsetX, halfSize+cubeOffsetY,  -halfSize+cubeOffsetZ,
-        -halfSize+cubeOffsetX, halfSize+cubeOffsetY,  halfSize+cubeOffsetZ,
-        halfSize+cubeOffsetX, halfSize+cubeOffsetY,  halfSize+cubeOffsetZ
-      ]);
+  // TWO CUBES WORKING
+  var positions = [];
+  {
+    var i, j;
+    for (i = 0; i < mazeWidth; i++) {
+      for (j = 0; j < mazeHeight; j++) {
+        cubeOffsetX = 2.0 * i;
+        cubeOffsetZ = 2.0 * j;
+        cubeOffsetY = canvasMaze.getContext('2d').getImageData(i, j, 1, 1).data[0] == 255 ? 0.0 : 2.0;
+        positions = positions.concat([
+          -halfSize + cubeOffsetX, -halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
+          halfSize + cubeOffsetX, -halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
+          -halfSize + cubeOffsetX, halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
+          halfSize + cubeOffsetX, halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
+          -halfSize + cubeOffsetX, -halfSize + cubeOffsetY, halfSize + cubeOffsetZ,
+          halfSize + cubeOffsetX, -halfSize + cubeOffsetY, halfSize + cubeOffsetZ,
+          -halfSize + cubeOffsetX, halfSize + cubeOffsetY, halfSize + cubeOffsetZ,
+          halfSize + cubeOffsetX, halfSize + cubeOffsetY, halfSize + cubeOffsetZ,
+          -halfSize + cubeOffsetX, -halfSize + cubeOffsetY, halfSize + cubeOffsetZ,
+          -halfSize + cubeOffsetX, -halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
+          -halfSize + cubeOffsetX, halfSize + cubeOffsetY, halfSize + cubeOffsetZ,
+          -halfSize + cubeOffsetX, halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
+          halfSize + cubeOffsetX, -halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
+          halfSize + cubeOffsetX, -halfSize + cubeOffsetY, halfSize + cubeOffsetZ,
+          halfSize + cubeOffsetX, halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
+          halfSize + cubeOffsetX, halfSize + cubeOffsetY, halfSize + cubeOffsetZ,
+          -halfSize + cubeOffsetX, -halfSize + cubeOffsetY, halfSize + cubeOffsetZ,
+          halfSize + cubeOffsetX, -halfSize + cubeOffsetY, halfSize + cubeOffsetZ,
+          -halfSize + cubeOffsetX, -halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
+          halfSize + cubeOffsetX, -halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
+          -halfSize + cubeOffsetX, halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
+          halfSize + cubeOffsetX, halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
+          -halfSize + cubeOffsetX, halfSize + cubeOffsetY, halfSize + cubeOffsetZ,
+          halfSize + cubeOffsetX, halfSize + cubeOffsetY, halfSize + cubeOffsetZ
+        ]);
+      }
     }
   }
-}
-  
+
   // Now pass the list of positions into WebGL to build the
   // shape. We do this by creating a Float32Array from the
   // JavaScript array, then use it to fill the current buffer.
@@ -211,41 +211,41 @@ var positions = [];
   const textureCoordBuffer = gl.createBuffer();
   gl.bindBuffer(gl.ARRAY_BUFFER, textureCoordBuffer);
 
-var textureCoordinates = [];
-{
-  var i;
-  for (i = 0; i < mazeWidth*mazeHeight; i++) {
-    textureCoordinates = textureCoordinates.concat([
-      1.0,  0.5,
-      0.0,  0.5,
-      1.0,  0.0,
-      0.0,  0.0,
-      0.0,  0.5,
-      1.0,  0.5,
-      0.0,  0.0,
-      1.0,  0.0,
-      1.0,  0.5,
-      0.0,  0.5,
-      1.0,  0.0,
-      0.0,  0.0,
-      1.0,  0.5,
-      0.0,  0.5,
-      1.0,  0.0,
-      0.0,  0.0,
-      1.0,  1.0,
-      0.0,  1.0,
-      1.0,  0.5,
-      0.0,  0.5,
-      0.0,  0.5,
-      1.0,  0.5,
-      0.0,  1.0,
-      1.0,  1.0
-    ]);
+  var textureCoordinates = [];
+  {
+    var i;
+    for (i = 0; i < mazeWidth * mazeHeight; i++) {
+      textureCoordinates = textureCoordinates.concat([
+        1.0, 0.5,
+        0.0, 0.5,
+        1.0, 0.0,
+        0.0, 0.0,
+        0.0, 0.5,
+        1.0, 0.5,
+        0.0, 0.0,
+        1.0, 0.0,
+        1.0, 0.5,
+        0.0, 0.5,
+        1.0, 0.0,
+        0.0, 0.0,
+        1.0, 0.5,
+        0.0, 0.5,
+        1.0, 0.0,
+        0.0, 0.0,
+        1.0, 1.0,
+        0.0, 1.0,
+        1.0, 0.5,
+        0.0, 0.5,
+        0.0, 0.5,
+        1.0, 0.5,
+        0.0, 1.0,
+        1.0, 1.0
+      ]);
+    }
   }
-}
 
   gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(textureCoordinates),
-                gl.STATIC_DRAW);
+    gl.STATIC_DRAW);
 
   // Build the element array buffer; this specifies the indices
   // into the vertex arrays for each face's vertices.
@@ -258,24 +258,24 @@ var textureCoordinates = [];
   // position.
 
   var indices = [];
-{
-  var i;
-  for (i = 0; i < mazeWidth*mazeHeight; i++) {
-    indices = indices.concat([
-      0+24*i,  1+24*i,  3+24*i,      0+24*i,  3+24*i,  2+24*i,    // front
-      4+24*i,  5+24*i,  6+24*i,      5+24*i,  7+24*i,  6+24*i,    // back
-      8+24*i,  9+24*i,  11+24*i,     8+24*i,  11+24*i, 10+24*i,   // top
-      12+24*i, 13+24*i, 15+24*i,     12+24*i, 15+24*i, 14+24*i,   // bottom
-      16+24*i, 17+24*i, 19+24*i,     16+24*i, 19+24*i, 18+24*i,   // right
-      20+24*i, 21+24*i, 23+24*i,     20+24*i, 23+24*i, 22+24*i,   // left
-    ]);
+  {
+    var i;
+    for (i = 0; i < mazeWidth * mazeHeight; i++) {
+      indices = indices.concat([
+        0 + 24 * i, 1 + 24 * i, 3 + 24 * i, 0 + 24 * i, 3 + 24 * i, 2 + 24 * i,    // front
+        4 + 24 * i, 5 + 24 * i, 6 + 24 * i, 5 + 24 * i, 7 + 24 * i, 6 + 24 * i,    // back
+        8 + 24 * i, 9 + 24 * i, 11 + 24 * i, 8 + 24 * i, 11 + 24 * i, 10 + 24 * i,   // top
+        12 + 24 * i, 13 + 24 * i, 15 + 24 * i, 12 + 24 * i, 15 + 24 * i, 14 + 24 * i,   // bottom
+        16 + 24 * i, 17 + 24 * i, 19 + 24 * i, 16 + 24 * i, 19 + 24 * i, 18 + 24 * i,   // right
+        20 + 24 * i, 21 + 24 * i, 23 + 24 * i, 20 + 24 * i, 23 + 24 * i, 22 + 24 * i,   // left
+      ]);
+    }
   }
-}
 
   // Now send the element array to GL
 
   gl.bufferData(gl.ELEMENT_ARRAY_BUFFER,
-      new Uint16Array(indices), gl.STATIC_DRAW);
+    new Uint16Array(indices), gl.STATIC_DRAW);
 
   return {
     position: positionBuffer,
@@ -306,27 +306,27 @@ function loadTexture(gl, url) {
   const srcType = gl.UNSIGNED_BYTE;
   const pixel = new Uint8Array([0, 0, 255, 255]);  // opaque blue
   gl.texImage2D(gl.TEXTURE_2D, level, internalFormat,
-                width, height, border, srcFormat, srcType,
-                pixel);
+    width, height, border, srcFormat, srcType,
+    pixel);
 
   const image = new Image();
-  image.onload = function() {
+  image.onload = function () {
     gl.bindTexture(gl.TEXTURE_2D, texture);
     gl.texImage2D(gl.TEXTURE_2D, level, internalFormat,
-                  srcFormat, srcType, image);
+      srcFormat, srcType, image);
 
     // WebGL1 has different requirements for power of 2 images
     // vs non power of 2 images so check if the image is a
     // power of 2 in both dimensions.
     if (isPowerOf2(image.width) && isPowerOf2(image.height)) {
-       // Yes, it's a power of 2. Generate mips.
-       gl.generateMipmap(gl.TEXTURE_2D);
+      // Yes, it's a power of 2. Generate mips.
+      gl.generateMipmap(gl.TEXTURE_2D);
     } else {
-       // No, it's not a power of 2. Turn of mips and set
-       // wrapping to clamp to edge
-       gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
-       gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
-       gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+      // No, it's not a power of 2. Turn of mips and set
+      // wrapping to clamp to edge
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
     }
   };
   image.src = url;
@@ -367,10 +367,10 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
   // note: glmatrix.js always has the first argument
   // as the destination to receive the result.
   mat4.perspective(projectionMatrix,
-                   fieldOfView,
-                   aspect,
-                   zNear,
-                   zFar);
+    fieldOfView,
+    aspect,
+    zNear,
+    zFar);
   /*mat4.translate(projectionMatrix,     // destination matrix
                  projectionMatrix,     // matrix to translate
                  [2*XTranslation, 0, 2*ZTranslation]);  // amount to translate*/
@@ -400,13 +400,13 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
               modelViewMatrix,  // matrix to rotate
               cubeRotation * .7,// amount to rotate in radians
               [0, 1, 0]);       // axis to rotate around (X)*/
-              var xCoord = Math.cos(camRotationX*1.0);
-              var yCoord = Math.sin(camRotationX*1.0);
-              mat4.lookAt(modelViewMatrix,
-              //[xCoord*2.0*ZTranslation+yCoord*2.0*XTranslation,0.0,yCoord*2.0*ZTranslation-xCoord*2.0*XTranslation],
-              [XTranslation,2.0,ZTranslation],
-              [xCoord+XTranslation,2.0,yCoord+ZTranslation],
-              [0.0, 1.0, 0.0]);
+  var xCoord = Math.cos(camRotationX * 1.0);
+  var yCoord = Math.sin(camRotationX * 1.0);
+  mat4.lookAt(modelViewMatrix,
+    //[xCoord*2.0*ZTranslation+yCoord*2.0*XTranslation,0.0,yCoord*2.0*ZTranslation-xCoord*2.0*XTranslation],
+    [XTranslation, 2.0, ZTranslation],
+    [xCoord + XTranslation, 2.0, yCoord + ZTranslation],
+    [0.0, 1.0, 0.0]);
 
   // Tell WebGL how to pull out the positions from the position
   // buffer into the vertexPosition attribute
@@ -418,14 +418,14 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
     const offset = 0;
     gl.bindBuffer(gl.ARRAY_BUFFER, buffers.position);
     gl.vertexAttribPointer(
-        programInfo.attribLocations.vertexPosition,
-        numComponents,
-        type,
-        normalize,
-        stride,
-        offset);
+      programInfo.attribLocations.vertexPosition,
+      numComponents,
+      type,
+      normalize,
+      stride,
+      offset);
     gl.enableVertexAttribArray(
-        programInfo.attribLocations.vertexPosition);
+      programInfo.attribLocations.vertexPosition);
   }
 
   // Tell WebGL how to pull out the texture coordinates from
@@ -438,14 +438,14 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
     const offset = 0;
     gl.bindBuffer(gl.ARRAY_BUFFER, buffers.textureCoord);
     gl.vertexAttribPointer(
-        programInfo.attribLocations.textureCoord,
-        numComponents,
-        type,
-        normalize,
-        stride,
-        offset);
+      programInfo.attribLocations.textureCoord,
+      numComponents,
+      type,
+      normalize,
+      stride,
+      offset);
     gl.enableVertexAttribArray(
-        programInfo.attribLocations.textureCoord);
+      programInfo.attribLocations.textureCoord);
   }
 
   // Tell WebGL which indices to use to index the vertices
@@ -458,13 +458,13 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
   // Set the shader uniforms
 
   gl.uniformMatrix4fv(
-      programInfo.uniformLocations.projectionMatrix,
-      false,
-      projectionMatrix);
+    programInfo.uniformLocations.projectionMatrix,
+    false,
+    projectionMatrix);
   gl.uniformMatrix4fv(
-      programInfo.uniformLocations.modelViewMatrix,
-      false,
-      modelViewMatrix);
+    programInfo.uniformLocations.modelViewMatrix,
+    false,
+    modelViewMatrix);
 
   // Specify the texture to map onto the faces.
 
@@ -493,36 +493,36 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
   var XReal2 = XTranslation + 1.0 + XZReal;
   var ZReal2 = ZTranslation + 1.0 + XZReal;
   if (WDown && canvasMaze.getContext('2d').getImageData
-      ((XReal+xCoord*2.0*deltaTime) / 2, (ZReal+yCoord*2.0*deltaTime) / 2, 1, 1).data[0] == 255
-      && canvasMaze.getContext('2d').getImageData
-      ((XReal2+xCoord*2.0*deltaTime) / 2, (ZReal2+yCoord*2.0*deltaTime) / 2, 1, 1).data[0] == 255) {
+    ((XReal + xCoord * 2.0 * deltaTime) / 2, (ZReal + yCoord * 2.0 * deltaTime) / 2, 1, 1).data[0] == 255
+    && canvasMaze.getContext('2d').getImageData
+      ((XReal2 + xCoord * 2.0 * deltaTime) / 2, (ZReal2 + yCoord * 2.0 * deltaTime) / 2, 1, 1).data[0] == 255) {
     //ZTranslation += deltaTime;
-    XTranslation += xCoord*2.0*deltaTime;
-    ZTranslation += yCoord*2.0*deltaTime;
+    XTranslation += xCoord * 2.0 * deltaTime;
+    ZTranslation += yCoord * 2.0 * deltaTime;
   }
   if (SDown && canvasMaze.getContext('2d').getImageData
-      ((XReal-xCoord*2.0*deltaTime) / 2, (ZReal-yCoord*2.0*deltaTime) / 2, 1, 1).data[0] == 255
-      && canvasMaze.getContext('2d').getImageData
-      ((XReal2-xCoord*2.0*deltaTime) / 2, (ZReal2-yCoord*2.0*deltaTime) / 2, 1, 1).data[0] == 255) {
+    ((XReal - xCoord * 2.0 * deltaTime) / 2, (ZReal - yCoord * 2.0 * deltaTime) / 2, 1, 1).data[0] == 255
+    && canvasMaze.getContext('2d').getImageData
+      ((XReal2 - xCoord * 2.0 * deltaTime) / 2, (ZReal2 - yCoord * 2.0 * deltaTime) / 2, 1, 1).data[0] == 255) {
     //ZTranslation -= deltaTime;
-    XTranslation -= xCoord*2.0*deltaTime;
-    ZTranslation -= yCoord*2.0*deltaTime;
+    XTranslation -= xCoord * 2.0 * deltaTime;
+    ZTranslation -= yCoord * 2.0 * deltaTime;
   }
   if (DDown && canvasMaze.getContext('2d').getImageData
-      ((XReal-yCoord*2.0*deltaTime) / 2, (ZReal+xCoord*2.0*deltaTime) / 2, 1, 1).data[0] == 255
-      && canvasMaze.getContext('2d').getImageData
-      ((XReal2-yCoord*2.0*deltaTime) / 2, (ZReal2+xCoord*2.0*deltaTime) / 2, 1, 1).data[0] == 255) {
+    ((XReal - yCoord * 2.0 * deltaTime) / 2, (ZReal + xCoord * 2.0 * deltaTime) / 2, 1, 1).data[0] == 255
+    && canvasMaze.getContext('2d').getImageData
+      ((XReal2 - yCoord * 2.0 * deltaTime) / 2, (ZReal2 + xCoord * 2.0 * deltaTime) / 2, 1, 1).data[0] == 255) {
     //XTranslation -= deltaTime;
-    XTranslation -= yCoord*2.0*deltaTime;
-    ZTranslation += xCoord*2.0*deltaTime;
+    XTranslation -= yCoord * 2.0 * deltaTime;
+    ZTranslation += xCoord * 2.0 * deltaTime;
   }
   if (ADown && canvasMaze.getContext('2d').getImageData
-      ((XReal+yCoord*2.0*deltaTime) / 2, (ZReal-xCoord*2.0*deltaTime) / 2, 1, 1).data[0] == 255
-      && canvasMaze.getContext('2d').getImageData
-      ((XReal2+yCoord*2.0*deltaTime) / 2, (ZReal2-xCoord*2.0*deltaTime) / 2, 1, 1).data[0] == 255) {
+    ((XReal + yCoord * 2.0 * deltaTime) / 2, (ZReal - xCoord * 2.0 * deltaTime) / 2, 1, 1).data[0] == 255
+    && canvasMaze.getContext('2d').getImageData
+      ((XReal2 + yCoord * 2.0 * deltaTime) / 2, (ZReal2 - xCoord * 2.0 * deltaTime) / 2, 1, 1).data[0] == 255) {
     //XTranslation += deltaTime;
-    XTranslation += yCoord*2.0*deltaTime;
-    ZTranslation -= xCoord*2.0*deltaTime;
+    XTranslation += yCoord * 2.0 * deltaTime;
+    ZTranslation -= xCoord * 2.0 * deltaTime;
   }
   if (aDown) {
     camRotationY -= deltaTime;
