@@ -536,7 +536,7 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
   if (aRight) {
     camRotationX += deltaTime;
   }
-}
+} // test
 
 //
 // Initialize a shader program, so WebGL knows how to draw our data
