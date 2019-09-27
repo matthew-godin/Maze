@@ -492,37 +492,45 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
   var ZReal = ZTranslation + 1.0 - XZReal;
   var XReal2 = XTranslation + 1.0 + XZReal;
   var ZReal2 = ZTranslation + 1.0 + XZReal;
-  if (WDown && canvasMaze.getContext('2d').getImageData
-    ((XReal + xCoord * 2.0 * deltaTime) / 2, (ZReal + yCoord * 2.0 * deltaTime) / 2, 1, 1).data[0] == 255
-    && canvasMaze.getContext('2d').getImageData
-      ((XReal2 + xCoord * 2.0 * deltaTime) / 2, (ZReal2 + yCoord * 2.0 * deltaTime) / 2, 1, 1).data[0] == 255) {
-    //ZTranslation += deltaTime;
-    XTranslation += xCoord * 2.0 * deltaTime;
-    ZTranslation += yCoord * 2.0 * deltaTime;
+  if (WDown) {
+    if (canvasMaze.getContext('2d').getImageData
+      ((XReal + xCoord * 2.0 * deltaTime) / 2, (ZReal + yCoord * 2.0 * deltaTime) / 2, 1, 1).data[0] == 255
+      && canvasMaze.getContext('2d').getImageData
+        ((XReal2 + xCoord * 2.0 * deltaTime) / 2, (ZReal2 + yCoord * 2.0 * deltaTime) / 2, 1, 1).data[0] == 255) {
+      //ZTranslation += deltaTime;
+      XTranslation += xCoord * 2.0 * deltaTime;
+      ZTranslation += yCoord * 2.0 * deltaTime;
+    }
   }
-  if (SDown && canvasMaze.getContext('2d').getImageData
-    ((XReal - xCoord * 2.0 * deltaTime) / 2, (ZReal - yCoord * 2.0 * deltaTime) / 2, 1, 1).data[0] == 255
-    && canvasMaze.getContext('2d').getImageData
-      ((XReal2 - xCoord * 2.0 * deltaTime) / 2, (ZReal2 - yCoord * 2.0 * deltaTime) / 2, 1, 1).data[0] == 255) {
-    //ZTranslation -= deltaTime;
-    XTranslation -= xCoord * 2.0 * deltaTime;
-    ZTranslation -= yCoord * 2.0 * deltaTime;
+  if (SDown) {
+    if (canvasMaze.getContext('2d').getImageData
+      ((XReal - xCoord * 2.0 * deltaTime) / 2, (ZReal - yCoord * 2.0 * deltaTime) / 2, 1, 1).data[0] == 255
+      && canvasMaze.getContext('2d').getImageData
+        ((XReal2 - xCoord * 2.0 * deltaTime) / 2, (ZReal2 - yCoord * 2.0 * deltaTime) / 2, 1, 1).data[0] == 255) {
+      //ZTranslation -= deltaTime;
+      XTranslation -= xCoord * 2.0 * deltaTime;
+      ZTranslation -= yCoord * 2.0 * deltaTime;
+    }
   }
-  if (DDown && canvasMaze.getContext('2d').getImageData
-    ((XReal - yCoord * 2.0 * deltaTime) / 2, (ZReal + xCoord * 2.0 * deltaTime) / 2, 1, 1).data[0] == 255
-    && canvasMaze.getContext('2d').getImageData
-      ((XReal2 - yCoord * 2.0 * deltaTime) / 2, (ZReal2 + xCoord * 2.0 * deltaTime) / 2, 1, 1).data[0] == 255) {
-    //XTranslation -= deltaTime;
-    XTranslation -= yCoord * 2.0 * deltaTime;
-    ZTranslation += xCoord * 2.0 * deltaTime;
+  if (DDown) {
+    if (canvasMaze.getContext('2d').getImageData
+      ((XReal - yCoord * 2.0 * deltaTime) / 2, (ZReal + xCoord * 2.0 * deltaTime) / 2, 1, 1).data[0] == 255
+      && canvasMaze.getContext('2d').getImageData
+        ((XReal2 - yCoord * 2.0 * deltaTime) / 2, (ZReal2 + xCoord * 2.0 * deltaTime) / 2, 1, 1).data[0] == 255) {
+      //XTranslation -= deltaTime;
+      XTranslation -= yCoord * 2.0 * deltaTime;
+      ZTranslation += xCoord * 2.0 * deltaTime;
+    }
   }
-  if (ADown && canvasMaze.getContext('2d').getImageData
-    ((XReal + yCoord * 2.0 * deltaTime) / 2, (ZReal - xCoord * 2.0 * deltaTime) / 2, 1, 1).data[0] == 255
-    && canvasMaze.getContext('2d').getImageData
-      ((XReal2 + yCoord * 2.0 * deltaTime) / 2, (ZReal2 - xCoord * 2.0 * deltaTime) / 2, 1, 1).data[0] == 255) {
-    //XTranslation += deltaTime;
-    XTranslation += yCoord * 2.0 * deltaTime;
-    ZTranslation -= xCoord * 2.0 * deltaTime;
+  if (ADown) {
+    if (canvasMaze.getContext('2d').getImageData
+      ((XReal + yCoord * 2.0 * deltaTime) / 2, (ZReal - xCoord * 2.0 * deltaTime) / 2, 1, 1).data[0] == 255
+      && canvasMaze.getContext('2d').getImageData
+        ((XReal2 + yCoord * 2.0 * deltaTime) / 2, (ZReal2 - xCoord * 2.0 * deltaTime) / 2, 1, 1).data[0] == 255) {
+      //XTranslation += deltaTime;
+      XTranslation += yCoord * 2.0 * deltaTime;
+      ZTranslation -= xCoord * 2.0 * deltaTime;
+    }
   }
   if (aDown) {
     camRotationY -= deltaTime;
@@ -536,7 +544,7 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
   if (aRight) {
     camRotationX += deltaTime;
   }
-} // test
+}
 
 //
 // Initialize a shader program, so WebGL knows how to draw our data
