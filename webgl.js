@@ -1,6 +1,6 @@
 var cubeRotation = 0.0;
 var camRotationX = 0.0, camRotationY = 0.0;
-var ZTranslation = 8.0, XTranslation = 25.0, YTranslation = 20.0, YLookAt = 17.0;
+var ZTranslation = 8.0, XTranslation = -10.0, YTranslation = 20.0, YLookAt = 19.0;
 var WDown = false, ADown = false, SDown = false, DDown = false, aRight = false, aLeft = false, aUp = false, aDown = false;
 var numCubes = 4, mazeWidth = 0, mazeHeight = 0;
 var canvasMaze;
