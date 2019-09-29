@@ -1,6 +1,6 @@
 var cubeRotation = 0.0;
 var camRotationX = 0.0, camRotationY = 0.0;
-var ZTranslation = 8.0, XTranslation = 25.0, YTranslation = 20.0;
+var ZTranslation = 8.0, XTranslation = 25.0, YTranslation = 20.0, YLookAt = 17.0;
 var WDown = false, ADown = false, SDown = false, DDown = false, aRight = false, aLeft = false, aUp = false, aDown = false;
 var numCubes = 4, mazeWidth = 0, mazeHeight = 0;
 var canvasMaze;
@@ -414,7 +414,7 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
   mat4.lookAt(modelViewMatrix,
     //[xCoord*2.0*ZTranslation+yCoord*2.0*XTranslation,0.0,yCoord*2.0*ZTranslation-xCoord*2.0*XTranslation],
     [XTranslation, YTranslation, ZTranslation],
-    [xCoord + XTranslation, YTranslation, yCoord + ZTranslation],
+    [xCoord + XTranslation, YLookAt, yCoord + ZTranslation],
     [0.0, 1.0, 0.0]);
 
   // Tell WebGL how to pull out the positions from the position
@@ -504,6 +504,7 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
     ZTranslation = 8.0;
     XTranslation = 5.0;
     YTranslation = 2.0;
+    YLookAt = 2.0;
   }
   if (WDown) {
     if (canvasMaze.getContext('2d').getImageData
