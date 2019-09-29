@@ -515,11 +515,12 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
     deltaX /= deltaNorm;
     deltaY /= deltaNorm;
     deltaZ /= deltaNorm;
-    XTranslation += deltaX * deltaTime * 0.1;
-    YTranslation += deltaX * deltaTime * 0.1;
-    ZTranslation += deltaZ * deltaTime * 0.1;
+    var deltaSpeed = 0.4;
+    XTranslation += deltaX * deltaTime * deltaSpeed;
+    YTranslation += deltaX * deltaTime * deltaSpeed;
+    ZTranslation += deltaZ * deltaTime * deltaSpeed;
     floatTime += deltaTime;
-    if (floatTime > 10) {
+    if (floatTime > 30) {
       floatTime = 0.0;
       startAngle = Math.random() * 2.0 * Math.PI;
       ZTranslation = 50.0 * Math.sin(startAngle);
