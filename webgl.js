@@ -483,10 +483,6 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
     const offset = 0;
     gl.drawElements(gl.TRIANGLES, vertexCount, type, offset);
   }
-
-  // Update the rotation for the next draw
-
-  cubeRotation += deltaTime;
   var XZReal = 0.4
   var XReal = XTranslation + 1.0 - XZReal;
   var ZReal = ZTranslation + 1.0 - XZReal;
@@ -494,41 +490,57 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
   var ZReal2 = ZTranslation + 1.0 + XZReal;
   if (WDown) {
     if (canvasMaze.getContext('2d').getImageData
-      ((XReal + xCoord * 2.0 * deltaTime) / 2, (ZReal + yCoord * 2.0 * deltaTime) / 2, 1, 1).data[0] == 255
+      ((XReal + xCoord * 2.0 * deltaTime) / 2, ZReal / 2, 1, 1).data[0] == 255
       && canvasMaze.getContext('2d').getImageData
-        ((XReal2 + xCoord * 2.0 * deltaTime) / 2, (ZReal2 + yCoord * 2.0 * deltaTime) / 2, 1, 1).data[0] == 255) {
-      //ZTranslation += deltaTime;
+        ((XReal2 + xCoord * 2.0 * deltaTime) / 2, ZReal2 / 2, 1, 1).data[0] == 255) {
       XTranslation += xCoord * 2.0 * deltaTime;
+    }
+    if (canvasMaze.getContext('2d').getImageData
+      (XReal / 2, (ZReal + yCoord * 2.0 * deltaTime) / 2, 1, 1).data[0] == 255
+      && canvasMaze.getContext('2d').getImageData
+        (XReal2 / 2, (ZReal2 + yCoord * 2.0 * deltaTime) / 2, 1, 1).data[0] == 255) {
       ZTranslation += yCoord * 2.0 * deltaTime;
     }
   }
   if (SDown) {
     if (canvasMaze.getContext('2d').getImageData
-      ((XReal - xCoord * 2.0 * deltaTime) / 2, (ZReal - yCoord * 2.0 * deltaTime) / 2, 1, 1).data[0] == 255
+      ((XReal - xCoord * 2.0 * deltaTime) / 2, ZReal / 2, 1, 1).data[0] == 255
       && canvasMaze.getContext('2d').getImageData
-        ((XReal2 - xCoord * 2.0 * deltaTime) / 2, (ZReal2 - yCoord * 2.0 * deltaTime) / 2, 1, 1).data[0] == 255) {
-      //ZTranslation -= deltaTime;
+        ((XReal2 - xCoord * 2.0 * deltaTime) / 2, ZReal2 / 2, 1, 1).data[0] == 255) {
       XTranslation -= xCoord * 2.0 * deltaTime;
+    }
+    if (canvasMaze.getContext('2d').getImageData
+      (XReal / 2, (ZReal - yCoord * 2.0 * deltaTime) / 2, 1, 1).data[0] == 255
+      && canvasMaze.getContext('2d').getImageData
+        (XReal2 / 2, (ZReal2 - yCoord * 2.0 * deltaTime) / 2, 1, 1).data[0] == 255) {
       ZTranslation -= yCoord * 2.0 * deltaTime;
     }
   }
   if (DDown) {
     if (canvasMaze.getContext('2d').getImageData
-      ((XReal - yCoord * 2.0 * deltaTime) / 2, (ZReal + xCoord * 2.0 * deltaTime) / 2, 1, 1).data[0] == 255
+      ((XReal - yCoord * 2.0 * deltaTime) / 2, ZReal / 2, 1, 1).data[0] == 255
       && canvasMaze.getContext('2d').getImageData
-        ((XReal2 - yCoord * 2.0 * deltaTime) / 2, (ZReal2 + xCoord * 2.0 * deltaTime) / 2, 1, 1).data[0] == 255) {
-      //XTranslation -= deltaTime;
+        ((XReal2 - yCoord * 2.0 * deltaTime) / 2, ZReal2 / 2, 1, 1).data[0] == 255) {
       XTranslation -= yCoord * 2.0 * deltaTime;
+    }
+    if (canvasMaze.getContext('2d').getImageData
+      (XReal / 2, (ZReal + xCoord * 2.0 * deltaTime) / 2, 1, 1).data[0] == 255
+      && canvasMaze.getContext('2d').getImageData
+        (XReal2 / 2, (ZReal2 + xCoord * 2.0 * deltaTime) / 2, 1, 1).data[0] == 255) {
       ZTranslation += xCoord * 2.0 * deltaTime;
     }
   }
   if (ADown) {
     if (canvasMaze.getContext('2d').getImageData
-      ((XReal + yCoord * 2.0 * deltaTime) / 2, (ZReal - xCoord * 2.0 * deltaTime) / 2, 1, 1).data[0] == 255
+      ((XReal + yCoord * 2.0 * deltaTime) / 2, ZReal / 2, 1, 1).data[0] == 255
       && canvasMaze.getContext('2d').getImageData
-        ((XReal2 + yCoord * 2.0 * deltaTime) / 2, (ZReal2 - xCoord * 2.0 * deltaTime) / 2, 1, 1).data[0] == 255) {
-      //XTranslation += deltaTime;
+        ((XReal2 + yCoord * 2.0 * deltaTime) / 2, ZReal2 / 2, 1, 1).data[0] == 255) {
       XTranslation += yCoord * 2.0 * deltaTime;
+    }
+    if (canvasMaze.getContext('2d').getImageData
+      (XReal / 2, (ZReal - xCoord * 2.0 * deltaTime) / 2, 1, 1).data[0] == 255
+      && canvasMaze.getContext('2d').getImageData
+        (XReal2 / 2, (ZReal2 - xCoord * 2.0 * deltaTime) / 2, 1, 1).data[0] == 255) {
       ZTranslation -= xCoord * 2.0 * deltaTime;
     }
   }
