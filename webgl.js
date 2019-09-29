@@ -72,8 +72,8 @@ function main() {
   mazeWidth = canvasMaze.width = imgMaze.width;
   mazeHeight = canvasMaze.height = imgMaze.height;
   canvasMaze.getContext('2d').drawImage(imgMaze, 0, 0, imgMaze.width, imgMaze.height);
-  XLookAt = mazeWidth / 2.0;
-  ZLookAt = mazeHeight / 2.0;
+  XLookAt = mazeWidth;
+  ZLookAt = mazeHeight;
 
   // If we don't have a GL context, give up now
 
@@ -508,8 +508,8 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
   var ZReal2 = ZTranslation + ZOffset + XZReal;
   if (floatCam) {
     floatRotation += deltaTime;
-    XTranslation = 50.0 * Math.cos(floatRotation);
-    ZTranslation = 50.0 * Math.sin(floatRotation);
+    XTranslation = 50.0 * Math.cos(floatRotation) + XLookAt;
+    ZTranslation = 50.0 * Math.sin(floatRotation) + ZLookAt;
   }
   else if (floatQuit) {
     floatQuit = false;
