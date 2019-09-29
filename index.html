@@ -1,25 +1,33 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>mathieugodin.dev</title>
-		<link rel="stylesheet" type="text/css" href="index.css" />
-	</head>
-	<body id="main-container">
-		<img id="maze-img" src="img/maze.png" style="display:none" />
-		<canvas id="glcanvas"></canvas>
-		<div class="container">
-			<div class="top-container">Mathieu Godin</div>
-			<div class="bottom-center-container">
-				<div class="bottom-container">
-					<a href="pdf/resume.pdf" class="parent"><span class="sub-bottom-container child hvr-underline-from-left">resume</span></a>
-					<a href="https://github.com/mat302" class="parent"><span class="sub-bottom-container child hvr-underline-from-left">github</span></a>
-					<a href="https://linkedin.com/in/mathieu-godin" class="parent"><span class="sub-bottom-container child hvr-underline-from-left">linkedin</span></a>
-					<a href="mailto:m2godin@edu.uwaterloo.ca" class="parent"><span class="sub-bottom-container child hvr-underline-from-left">contact</span></a>
-				</div>
+
+<head>
+	<title>mathieugodin.dev</title>
+	<link rel="stylesheet" type="text/css" href="index.css" />
+</head>
+
+<body id="main-container">
+	<img id="maze-img" src="img/maze.png" style="display:none" />
+	<canvas id="backgroundCanvas" style="background: url('img/stars.jpg')" width="1400" height="800"></canvas>
+	<canvas id="glcanvas"></canvas>
+	<div class="container">
+		<div class="top-container">Mathieu Godin</div>
+		<div class="bottom-center-container">
+			<div class="bottom-container">
+				<a href="pdf/resume.pdf" class="parent"><span
+						class="sub-bottom-container child hvr-underline-from-left">resume</span></a>
+				<a href="https://github.com/mat302" class="parent"><span
+						class="sub-bottom-container child hvr-underline-from-left">github</span></a>
+				<a href="https://linkedin.com/in/mathieu-godin" class="parent"><span
+						class="sub-bottom-container child hvr-underline-from-left">linkedin</span></a>
+				<a href="mailto:m2godin@edu.uwaterloo.ca" class="parent"><span
+						class="sub-bottom-container child hvr-underline-from-left">contact</span></a>
 			</div>
 		</div>
-		<script src="index.js"></script>
-		<script src="gl-matrix.js"></script>
-		<script src="webgl.js"></script>
-	</body>
+	</div>
+	<script src="index.js"></script>
+	<script src="gl-matrix.js"></script>
+	<script src="webgl.js"></script>
+</body>
+
 </html>
