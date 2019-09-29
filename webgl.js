@@ -491,9 +491,9 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
     const offset = 0;
     gl.drawElements(gl.TRIANGLES, vertexCount, type, offset);
   }
-  var XZReal = 0.0;
+  var XZReal = 1.0;
   var XOffset = 1.0;
-  var ZOffset = 0.8;
+  var ZOffset = 1.0;
   var XReal = XTranslation + XOffset - XZReal;
   var ZReal = ZTranslation + ZOffset - XZReal;
   var XReal2 = XTranslation + XOffset + XZReal;
