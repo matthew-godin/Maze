@@ -1,12 +1,15 @@
 var cubeRotation = 0.0;
 var camRotationX = 2.0, camRotationY = 0.0;
-var ZTranslation = -50.0, XTranslation = -50.0, YTranslation = 20.0, YLookAt = 0.0, XLookAt = 50.0, ZLookAt = 50.0;
+var startAngle = Math.random() * 2.0 * Math.PI;
+var ZTranslation = 50.0 * Math.sin(startAngle), XTranslation = 50.0 * Math.cos(startAngle), YTranslation = 20.0;
+var YLookAt = 0.0, XLookAt = 50.0 * Math.cos(startAngle + Math.PI), ZLookAt = 50.0 * Math.sin(startAngle + Math.PI);
 var WDown = false, ADown = false, SDown = false, DDown = false, aRight = false, aLeft = false, aUp = false, aDown = false;
 var numCubes = 4, mazeWidth = 0, mazeHeight = 0;
 var canvasMaze;
 var floatCam = true;
 var floatQuit = true;
 var floatRotation = 0.0;
+var floatTime = 0.0;
 
 main();
 
@@ -507,9 +510,27 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
   var XReal2 = XTranslation + XOffset + XZReal;
   var ZReal2 = ZTranslation + ZOffset + XZReal;
   if (floatCam) {
-    floatRotation += deltaTime * 0.1;
-    XTranslation = 50.0 * Math.cos(floatRotation) + XLookAt;
-    ZTranslation = 50.0 * Math.sin(floatRotation) + ZLookAt;
+    var deltaX = XLookAt - XTranslation, deltaY = YLookAt - YTranslation, deltaZ = ZLookAt - ZTranslation;
+    var deltaNorm = Math.sqrt(deltaX * deltaX + deltaY * deltaY + deltaZ * deltaZ);
+    deltaX /= deltaNorm;
+    deltaY /= deltaNorm;
+    deltaZ /= deltaNorm;
+    XTranslation += deltaX * deltaTime * 0.1;
+    YTranslation += deltaX * deltaTime * 0.1;
+    ZTranslation += deltaZ * deltaTime * 0.1;
+    floatTime += deltaTime;
+    if (floatTime > 10) {
+      floatTime = 0.0;
+      startAngle = Math.random() * 2.0 * Math.PI;
+      ZTranslation = 50.0 * Math.sin(startAngle);
+      XTranslation = 50.0 * Math.cos(startAngle);
+      YTranslation = 20.0;
+      XLookAt = 50.0 * Math.cos(startAngle + Math.PI);
+      ZLookAt = 50.0 * Math.sin(startAngle + Math.PI);
+    }
+    //floatRotation += deltaTime * 0.1;
+    //XTranslation = 50.0 * Math.cos(floatRotation) + XLookAt;
+    //ZTranslation = 50.0 * Math.sin(floatRotation) + ZLookAt;
   }
   else if (floatQuit) {
     floatQuit = false;
