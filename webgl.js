@@ -500,15 +500,15 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
   var ZReal2 = ZTranslation + ZOffset + XZReal;
   if (WDown) {
     if (canvasMaze.getContext('2d').getImageData
-      ((XReal + xCoord * 2.0 * deltaTime) / 2, ZReal / 2, 1, 1).data[0] == 255
+      ((XReal + xCoord * 2.0 * deltaTime) / 2, (ZReal - 0.2) / 2, 1, 1).data[0] == 255
       && canvasMaze.getContext('2d').getImageData
-        ((XReal2 + xCoord * 2.0 * deltaTime) / 2, ZReal / 2, 1, 1).data[0] == 255) {
+        ((XReal2 + xCoord * 2.0 * deltaTime) / 2, (ZReal2 + 0.2) / 2, 1, 1).data[0] == 255) {
       XTranslation += xCoord * 2.0 * deltaTime;
     }
     if (canvasMaze.getContext('2d').getImageData
-      (XReal / 2, (ZReal + yCoord * 2.0 * deltaTime) / 2, 1, 1).data[0] == 255
+      ((XReal - 0.2) / 2, (ZReal + yCoord * 2.0 * deltaTime) / 2, 1, 1).data[0] == 255
       && canvasMaze.getContext('2d').getImageData
-        (XReal / 2, (ZReal2 + yCoord * 2.0 * deltaTime) / 2, 1, 1).data[0] == 255) {
+        ((XReal2 + 0.2) / 2, (ZReal2 + yCoord * 2.0 * deltaTime) / 2, 1, 1).data[0] == 255) {
       ZTranslation += yCoord * 2.0 * deltaTime;
     }
   }
