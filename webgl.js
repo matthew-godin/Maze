@@ -547,6 +547,8 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
     YLookAt = 2.0;
     camRotationX = 0.0;
     camRotationY = 0.0;
+    var titleContainer = document.getElementById("title-container");
+    titleContainer.style.display = "none";
   }
   if (WDown) {
     if (canvasMaze.getContext('2d').getImageData
