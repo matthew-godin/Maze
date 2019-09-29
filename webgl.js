@@ -6,6 +6,7 @@ var numCubes = 4, mazeWidth = 0, mazeHeight = 0;
 var canvasMaze;
 var floatCam = true;
 var floatQuit = true;
+var floatRotation = 0.0;
 
 main();
 
@@ -504,8 +505,9 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
   var XReal2 = XTranslation + XOffset + XZReal;
   var ZReal2 = ZTranslation + ZOffset + XZReal;
   if (floatCam) {
-    XTranslation = 50.0 * Math.cos(deltaTime);
-    ZTranslation = 50.0 * Math.sin(deltaTime);
+    floatRotation += deltaTime;
+    XTranslation = 50.0 * Math.cos(floatRotation);
+    ZTranslation = 50.0 * Math.sin(floatRotation);
   }
   else if (floatQuit) {
     floatQuit = false;
