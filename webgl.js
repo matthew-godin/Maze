@@ -522,7 +522,7 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
     deltaZ /= deltaNorm;
     var deltaSpeed = 1.0;
     XTranslation += deltaX * deltaTime * deltaSpeed;
-    YTranslation += deltaX * deltaTime * deltaSpeed;
+    YTranslation += deltaY * deltaTime * deltaSpeed;
     ZTranslation += deltaZ * deltaTime * deltaSpeed;
     floatTime += deltaTime;
     if (floatTime > 30) {
