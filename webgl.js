@@ -75,8 +75,12 @@ function main() {
   mazeWidth = canvasMaze.width = imgMaze.width;
   mazeHeight = canvasMaze.height = imgMaze.height;
   canvasMaze.getContext('2d').drawImage(imgMaze, 0, 0, imgMaze.width, imgMaze.height);
-  XLookAt = mazeWidth;
-  ZLookAt = mazeHeight;
+  //XLookAt = mazeWidth;
+  //ZLookAt = mazeHeight;
+  XTranslation += mazeWidth;
+  ZTranslation += mazeHeight;
+  XLookAt += mazeWidth;
+  ZLookAt += mazeHeight;
 
   // If we don't have a GL context, give up now
 
@@ -523,11 +527,11 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
     if (floatTime > 30) {
       floatTime = 0.0;
       startAngle = Math.random() * 2.0 * Math.PI;
-      ZTranslation = 50.0 * Math.sin(startAngle);
-      XTranslation = 50.0 * Math.cos(startAngle);
+      ZTranslation = 50.0 * Math.sin(startAngle) + mazeHeight;
+      XTranslation = 50.0 * Math.cos(startAngle) + mazeWidth;
       YTranslation = 20.0;
-      XLookAt = 50.0 * Math.cos(startAngle + Math.PI);
-      ZLookAt = 50.0 * Math.sin(startAngle + Math.PI);
+      XLookAt = 50.0 * Math.cos(startAngle + Math.PI) + mazeWidth;
+      ZLookAt = 50.0 * Math.sin(startAngle + Math.PI) + mazeHeight;
     }
     //floatRotation += deltaTime * 0.1;
     //XTranslation = 50.0 * Math.cos(floatRotation) + XLookAt;
