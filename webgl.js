@@ -502,13 +502,13 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
     if (canvasMaze.getContext('2d').getImageData
       ((XReal + xCoord * 2.0 * deltaTime) / 2, ZReal / 2, 1, 1).data[0] == 255
       && canvasMaze.getContext('2d').getImageData
-        ((XReal2 + xCoord * 2.0 * deltaTime) / 2, ZReal2 / 2, 1, 1).data[0] == 255) {
+        ((XReal2 + xCoord * 2.0 * deltaTime) / 2, ZReal / 2, 1, 1).data[0] == 255) {
       XTranslation += xCoord * 2.0 * deltaTime;
     }
-    if (true || canvasMaze.getContext('2d').getImageData
+    if (canvasMaze.getContext('2d').getImageData
       (XReal / 2, (ZReal + yCoord * 2.0 * deltaTime) / 2, 1, 1).data[0] == 255
       && canvasMaze.getContext('2d').getImageData
-        (XReal2 / 2, (ZReal2 + yCoord * 2.0 * deltaTime) / 2, 1, 1).data[0] == 255) {
+        (XReal / 2, (ZReal2 + yCoord * 2.0 * deltaTime) / 2, 1, 1).data[0] == 255) {
       ZTranslation += yCoord * 2.0 * deltaTime;
     }
   }
