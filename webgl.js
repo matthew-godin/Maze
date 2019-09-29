@@ -4,6 +4,7 @@ var ZTranslation = 8.0, XTranslation = 5.0;
 var WDown = false, ADown = false, SDown = false, DDown = false, aRight = false, aLeft = false, aUp = false, aDown = false;
 var numCubes = 4, mazeWidth = 0, mazeHeight = 0;
 var canvasMaze;
+var floatCam = true;
 
 main();
 
@@ -11,20 +12,27 @@ main();
 function logKeyDown(e) {
   if (e.code == "KeyA") {
     ADown = true;
+    floatCam = false;
   } else if (e.code == "KeyW") {
     WDown = true;
+    floatCam = false;
   } else if (e.code == "KeyS") {
     SDown = true;
+    floatCam = false;
   } else if (e.code == "KeyD") {
     DDown = true;
+    floatCam = false;
   } else if (e.code == "ArrowLeft") {
     aLeft = true;
+    floatCam = false;
   } else if (e.code == "ArrowRight") {
     aRight = true;
   } else if (e.code == "ArrowDown") {
     aDown = true;
+    floatCam = false;
   } else if (e.code == "ArrowUp") {
     aUp = true;
+    floatCam = false;
   }
 }
 
@@ -483,7 +491,7 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
     const offset = 0;
     gl.drawElements(gl.TRIANGLES, vertexCount, type, offset);
   }
-  var XZReal = 0.4
+  var XZReal = 0.6
   var XReal = XTranslation + 1.0 - XZReal;
   var ZReal = ZTranslation + 1.0 - XZReal;
   var XReal2 = XTranslation + 1.0 + XZReal;
