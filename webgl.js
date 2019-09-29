@@ -1,6 +1,6 @@
 var cubeRotation = 0.0;
-var camRotationX = 0.0, camRotationY = 0.0;
-var ZTranslation = 8.0, XTranslation = -50.0, YTranslation = 20.0, YLookAt = 19.5;
+var camRotationX = 2.0, camRotationY = 0.0;
+var ZTranslation = -50.0, XTranslation = -50.0, YTranslation = 20.0, YLookAt = 19.5;
 var WDown = false, ADown = false, SDown = false, DDown = false, aRight = false, aLeft = false, aUp = false, aDown = false;
 var numCubes = 4, mazeWidth = 0, mazeHeight = 0;
 var canvasMaze;
@@ -505,6 +505,8 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
     XTranslation = 5.0;
     YTranslation = 2.0;
     YLookAt = 2.0;
+    camRotationX = 0.0;
+    camRotationY = 0.0;
   }
   if (WDown) {
     if (canvasMaze.getContext('2d').getImageData
