@@ -1,10 +1,11 @@
 var cubeRotation = 0.0;
 var camRotationX = 0.0, camRotationY = 0.0;
-var ZTranslation = 8.0, XTranslation = 5.0;
+var ZTranslation = 8.0, XTranslation = 25.0, YTranslation = 20.0;
 var WDown = false, ADown = false, SDown = false, DDown = false, aRight = false, aLeft = false, aUp = false, aDown = false;
 var numCubes = 4, mazeWidth = 0, mazeHeight = 0;
 var canvasMaze;
 var floatCam = true;
+var floatQuit = true;
 
 main();
 
@@ -412,8 +413,8 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
   var yCoord = Math.sin(camRotationX * 1.0);
   mat4.lookAt(modelViewMatrix,
     //[xCoord*2.0*ZTranslation+yCoord*2.0*XTranslation,0.0,yCoord*2.0*ZTranslation-xCoord*2.0*XTranslation],
-    [XTranslation, 2.0, ZTranslation],
-    [xCoord + XTranslation, 2.0, yCoord + ZTranslation],
+    [XTranslation, YTranslation, ZTranslation],
+    [xCoord + XTranslation, YTranslation, yCoord + ZTranslation],
     [0.0, 1.0, 0.0]);
 
   // Tell WebGL how to pull out the positions from the position
@@ -498,6 +499,12 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
   var ZReal = ZTranslation + ZOffset - XZReal;
   var XReal2 = XTranslation + XOffset + XZReal;
   var ZReal2 = ZTranslation + ZOffset + XZReal;
+  if (!floatCam && floatQuit) {
+    floatQuit = false;
+    ZTranslation = 8.0;
+    XTranslation = 5.0;
+    YTranslation = 2.0;
+  }
   if (WDown) {
     if (canvasMaze.getContext('2d').getImageData
       ((XReal + xCoord * 2.0 * deltaTime) / 2, ZReal / 2, 1, 1).data[0] == 255
