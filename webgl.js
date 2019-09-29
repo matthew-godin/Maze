@@ -110,6 +110,7 @@ function main() {
 
   gl.clearColor(0.0, 0.0, 0.0, 0.0);
   initBkgnd();
+  gl.enable(gl.DEPTH_TEST);
 
   // Vertex shader program
 
