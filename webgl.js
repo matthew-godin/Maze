@@ -492,10 +492,12 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
     gl.drawElements(gl.TRIANGLES, vertexCount, type, offset);
   }
   var XZReal = 0.4
-  var XReal = XTranslation + 1.6 - XZReal;
-  var ZReal = ZTranslation + 1.6 - XZReal;
-  var XReal2 = XTranslation + 1.6 + XZReal;
-  var ZReal2 = ZTranslation + 1.6 + XZReal;
+  var XOffset = 1.0;
+  var ZOffset = 1.6;
+  var XReal = XTranslation + XOffset - XZReal;
+  var ZReal = ZTranslation + ZOffset - XZReal;
+  var XReal2 = XTranslation + XOffset + XZReal;
+  var ZReal2 = ZTranslation + ZOffset + XZReal;
   if (WDown) {
     if (canvasMaze.getContext('2d').getImageData
       ((XReal + xCoord * 2.0 * deltaTime) / 2, ZReal / 2, 1, 1).data[0] == 255
