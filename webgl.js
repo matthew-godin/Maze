@@ -533,6 +533,7 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
       YTranslation = 20.0;
       XLookAt = floatRadius * Math.cos(startAngle + Math.PI) + mazeWidth;
       ZLookAt = floatRadius * Math.sin(startAngle + Math.PI) + mazeHeight;
+      YLookAt = 0.0;
     }
     //floatRotation += deltaTime * 0.1;
     //XTranslation = floatRadius * Math.cos(floatRotation) + XLookAt;
