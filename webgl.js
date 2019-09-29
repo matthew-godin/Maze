@@ -507,7 +507,7 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
   var XReal2 = XTranslation + XOffset + XZReal;
   var ZReal2 = ZTranslation + ZOffset + XZReal;
   if (floatCam) {
-    floatRotation += deltaTime;
+    floatRotation += deltaTime * 0.1;
     XTranslation = 50.0 * Math.cos(floatRotation) + XLookAt;
     ZTranslation = 50.0 * Math.sin(floatRotation) + ZLookAt;
   }
