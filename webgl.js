@@ -62,24 +62,6 @@ function logKeyUp(e) {
   }
 }
 
-function initBkgnd() {
-  backTex = gl.createTexture();
-  backTex.Img = new Image();
-  backTex.Img.onload = function () {
-    handleBkTex(backTex);
-  }
-  backTex.Img.src = "img/stars.jpg";
-}
-
-function handleBkTex(tex) {
-  gl.bindTexture(gl.TEXTURE_2D, tex);
-  gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, true);
-  gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, tex.Img);
-  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.NEAREST);
-  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.NEAREST);
-  gl.bindTexture(gl.TEXTURE_2D, null);
-}
-
 //
 // Start here
 //
@@ -107,10 +89,6 @@ function main() {
     alert('Unable to initialize WebGL. Your browser or machine may not support it.');
     return;
   }
-
-  gl.clearColor(0.0, 0.0, 0.0, 0.0);
-  initBkgnd();
-  gl.enable(gl.DEPTH_TEST);
 
   // Vertex shader program
 
@@ -529,7 +507,6 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
     const offset = 0;
     gl.drawElements(gl.TRIANGLES, vertexCount, type, offset);
   }
-  initBkgnd();
   var XZReal = 0.2;
   var XOffset = 1.0;
   var ZOffset = 1.0;
