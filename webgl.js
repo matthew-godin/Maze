@@ -72,8 +72,8 @@ function main() {
   mazeWidth = canvasMaze.width = imgMaze.width;
   mazeHeight = canvasMaze.height = imgMaze.height;
   canvasMaze.getContext('2d').drawImage(imgMaze, 0, 0, imgMaze.width, imgMaze.height);
-  XLookAt = mazeWidth;
-  ZLookAt = mazeHeight;
+  XLookAt = mazeWidth / 2.0;
+  ZLookAt = mazeHeight / 2.0;
 
   // If we don't have a GL context, give up now
 
