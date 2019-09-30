@@ -234,7 +234,7 @@ function initBuffers(gl) {
     for (i = 0; i < mazeWidth; i++) {
       for (j = 0; j < mazeHeight; j++) {
         cubeOffsetX = 2.0 * i + 2.0 * mazeWidth;
-        cubeOffsetZ = 2.0 * j - 2.0 * mazeHeight;
+        cubeOffsetZ = 2.0 * j + 2.0 * mazeHeight;
         positions = positions.concat([
           -halfSize + cubeOffsetX, halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
           halfSize + cubeOffsetX, halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
