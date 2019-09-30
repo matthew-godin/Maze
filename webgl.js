@@ -218,6 +218,110 @@ function initBuffers(gl) {
         ]);
       }
     }
+    for (i = 0; i < mazeWidth; i++) {
+      for (j = 0; j < mazeHeight; j++) {
+        cubeOffsetX = 2.0 * i + 2.0 * mazeWidth;
+        cubeOffsetZ = 2.0 * j;
+        cubeOffsetY = canvasMaze.getContext('2d').getImageData(i, j, 1, 1).data[0] == 255 ? 0.0 : 2.0;
+        positions = positions.concat([
+          -halfSize + cubeOffsetX, -halfSize + cubeOffsetY, halfSize + cubeOffsetZ,
+          halfSize + cubeOffsetX, -halfSize + cubeOffsetY, halfSize + cubeOffsetZ,
+          -halfSize + cubeOffsetX, -halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
+          halfSize + cubeOffsetX, -halfSize + cubeOffsetY, -halfSize + cubeOffsetZ
+        ]);
+      }
+    }
+    for (i = 0; i < mazeWidth; i++) {
+      for (j = 0; j < mazeHeight; j++) {
+        cubeOffsetX = 2.0 * i + 2.0 * mazeWidth;
+        cubeOffsetZ = 2.0 * j + 2.0 * mazeHeight;
+        cubeOffsetY = canvasMaze.getContext('2d').getImageData(i, j, 1, 1).data[0] == 255 ? 0.0 : 2.0;
+        positions = positions.concat([
+          -halfSize + cubeOffsetX, -halfSize + cubeOffsetY, halfSize + cubeOffsetZ,
+          halfSize + cubeOffsetX, -halfSize + cubeOffsetY, halfSize + cubeOffsetZ,
+          -halfSize + cubeOffsetX, -halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
+          halfSize + cubeOffsetX, -halfSize + cubeOffsetY, -halfSize + cubeOffsetZ
+        ]);
+      }
+    }
+    for (i = 0; i < mazeWidth; i++) {
+      for (j = 0; j < mazeHeight; j++) {
+        cubeOffsetX = 2.0 * i;
+        cubeOffsetZ = 2.0 * j + 2.0 * mazeHeight;
+        cubeOffsetY = canvasMaze.getContext('2d').getImageData(i, j, 1, 1).data[0] == 255 ? 0.0 : 2.0;
+        positions = positions.concat([
+          -halfSize + cubeOffsetX, -halfSize + cubeOffsetY, halfSize + cubeOffsetZ,
+          halfSize + cubeOffsetX, -halfSize + cubeOffsetY, halfSize + cubeOffsetZ,
+          -halfSize + cubeOffsetX, -halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
+          halfSize + cubeOffsetX, -halfSize + cubeOffsetY, -halfSize + cubeOffsetZ
+        ]);
+      }
+    }
+    for (i = 0; i < mazeWidth; i++) {
+      for (j = 0; j < mazeHeight; j++) {
+        cubeOffsetX = 2.0 * i - 2.0 * mazeWidth;
+        cubeOffsetZ = 2.0 * j + 2.0 * mazeHeight;
+        cubeOffsetY = canvasMaze.getContext('2d').getImageData(i, j, 1, 1).data[0] == 255 ? 0.0 : 2.0;
+        positions = positions.concat([
+          -halfSize + cubeOffsetX, -halfSize + cubeOffsetY, halfSize + cubeOffsetZ,
+          halfSize + cubeOffsetX, -halfSize + cubeOffsetY, halfSize + cubeOffsetZ,
+          -halfSize + cubeOffsetX, -halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
+          halfSize + cubeOffsetX, -halfSize + cubeOffsetY, -halfSize + cubeOffsetZ
+        ]);
+      }
+    }
+    for (i = 0; i < mazeWidth; i++) {
+      for (j = 0; j < mazeHeight; j++) {
+        cubeOffsetX = 2.0 * i - 2.0 * mazeWidth;
+        cubeOffsetZ = 2.0 * j;
+        cubeOffsetY = canvasMaze.getContext('2d').getImageData(i, j, 1, 1).data[0] == 255 ? 0.0 : 2.0;
+        positions = positions.concat([
+          -halfSize + cubeOffsetX, -halfSize + cubeOffsetY, halfSize + cubeOffsetZ,
+          halfSize + cubeOffsetX, -halfSize + cubeOffsetY, halfSize + cubeOffsetZ,
+          -halfSize + cubeOffsetX, -halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
+          halfSize + cubeOffsetX, -halfSize + cubeOffsetY, -halfSize + cubeOffsetZ
+        ]);
+      }
+    }
+    for (i = 0; i < mazeWidth; i++) {
+      for (j = 0; j < mazeHeight; j++) {
+        cubeOffsetX = 2.0 * i - 2.0 * mazeWidth;
+        cubeOffsetZ = 2.0 * j - 2.0 * mazeHeight;
+        cubeOffsetY = canvasMaze.getContext('2d').getImageData(i, j, 1, 1).data[0] == 255 ? 0.0 : 2.0;
+        positions = positions.concat([
+          -halfSize + cubeOffsetX, -halfSize + cubeOffsetY, halfSize + cubeOffsetZ,
+          halfSize + cubeOffsetX, -halfSize + cubeOffsetY, halfSize + cubeOffsetZ,
+          -halfSize + cubeOffsetX, -halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
+          halfSize + cubeOffsetX, -halfSize + cubeOffsetY, -halfSize + cubeOffsetZ
+        ]);
+      }
+    }
+    for (i = 0; i < mazeWidth; i++) {
+      for (j = 0; j < mazeHeight; j++) {
+        cubeOffsetX = 2.0 * i;
+        cubeOffsetZ = 2.0 * j - 2.0 * mazeHeight;
+        cubeOffsetY = canvasMaze.getContext('2d').getImageData(i, j, 1, 1).data[0] == 255 ? 0.0 : 2.0;
+        positions = positions.concat([
+          -halfSize + cubeOffsetX, -halfSize + cubeOffsetY, halfSize + cubeOffsetZ,
+          halfSize + cubeOffsetX, -halfSize + cubeOffsetY, halfSize + cubeOffsetZ,
+          -halfSize + cubeOffsetX, -halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
+          halfSize + cubeOffsetX, -halfSize + cubeOffsetY, -halfSize + cubeOffsetZ
+        ]);
+      }
+    }
+    for (i = 0; i < mazeWidth; i++) {
+      for (j = 0; j < mazeHeight; j++) {
+        cubeOffsetX = 2.0 * i + 2.0 * mazeWidth;
+        cubeOffsetZ = 2.0 * j - 2.0 * mazeWidth;
+        cubeOffsetY = canvasMaze.getContext('2d').getImageData(i, j, 1, 1).data[0] == 255 ? 0.0 : 2.0;
+        positions = positions.concat([
+          -halfSize + cubeOffsetX, -halfSize + cubeOffsetY, halfSize + cubeOffsetZ,
+          halfSize + cubeOffsetX, -halfSize + cubeOffsetY, halfSize + cubeOffsetZ,
+          -halfSize + cubeOffsetX, -halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
+          halfSize + cubeOffsetX, -halfSize + cubeOffsetY, -halfSize + cubeOffsetZ
+        ]);
+      }
+    }
   }
 
   // Now pass the list of positions into WebGL to build the
@@ -233,7 +337,7 @@ function initBuffers(gl) {
 
   var textureCoordinates = [];
   {
-    var i, j;
+    var i, j, k;
     for (i = 0; i < mazeWidth; i++) {
       for (j = 0; j < mazeHeight; j++) {
         var topTex = canvasMaze.getContext('2d').getImageData(i, j, 1, 1).data[0] == 255 ? 0.5 : 0.0;
@@ -265,6 +369,19 @@ function initBuffers(gl) {
         ]);
       }
     }
+    for (k = 0; k < 8; k++) {
+      for (i = 0; i < mazeWidth; i++) {
+        for (j = 0; j < mazeHeight; j++) {
+          var topTex = canvasMaze.getContext('2d').getImageData(i, j, 1, 1).data[0] == 255 ? 0.5 : 0.0;
+          textureCoordinates = textureCoordinates.concat([
+            1.0, 1.0,
+            0.0, 1.0,
+            1.0, 0.5,
+            0.0, 0.5
+          ]);
+        }
+      }
+    }
   }
 
   gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(textureCoordinates),
@@ -282,7 +399,7 @@ function initBuffers(gl) {
 
   var indices = [];
   {
-    var i;
+    var i, j;
     for (i = 0; i < mazeWidth * mazeHeight; i++) {
       indices = indices.concat([
         0 + 24 * i, 1 + 24 * i, 3 + 24 * i, 0 + 24 * i, 3 + 24 * i, 2 + 24 * i,    // front
@@ -292,6 +409,13 @@ function initBuffers(gl) {
         16 + 24 * i, 17 + 24 * i, 19 + 24 * i, 16 + 24 * i, 19 + 24 * i, 18 + 24 * i,   // right
         20 + 24 * i, 21 + 24 * i, 23 + 24 * i, 20 + 24 * i, 23 + 24 * i, 22 + 24 * i,   // left
       ]);
+    }
+    for (j = 0; j < 8; j++) {
+      for (i = mazeWidth * mazeHeight * j; i < (j + 1) * mazeWidth * mazeHeight; i++) {
+        indices = indices.concat([
+          4 * i, 4 * i + 1, 4 * i + 3, 4 * i, 4 * i + 3, 4 * i + 2,   // top
+        ]);
+      }
     }
   }
 
