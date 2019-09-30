@@ -405,7 +405,7 @@ function initBuffers(gl) {
     for (j = 0; j < 8; j++) {
       for (i = mazeWidth * mazeHeight * (j + 1); i < (j + 2) * mazeWidth * mazeHeight; i++) {
         indices = indices.concat([
-          4 * i, 4 * i + 1, 4 * i + 3, 4 * i, 4 * i + 3, 4 * i + 2,   // top
+          4 * i, 4 * i + 1, 4 * i + 3, 4 * i, 4 * i + 3, 4 * i + 2   // top
         ]);
       }
     }
@@ -621,7 +621,7 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
   gl.uniform1i(programInfo.uniformLocations.uSampler, 0);
 
   {
-    const vertexCount = 36 * mazeWidth * mazeHeight + 6 * 8;
+    const vertexCount = 36 * mazeWidth * mazeHeight + 6 * 8 * mazeWidth * mazeHeight;
     const type = gl.UNSIGNED_SHORT;
     const offset = 0;
     gl.drawElements(gl.TRIANGLES, vertexCount, type, offset);
