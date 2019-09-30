@@ -647,11 +647,11 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
     if (floatTime > 30) {
       floatTime = 0.0;
       startAngle = Math.random() * 2.0 * Math.PI;
-      ZTranslation = floatRadius * Math.sin(startAngle) + mazeHeight;
-      XTranslation = floatRadius * Math.cos(startAngle) + mazeWidth;
+      ZTranslation = floatRadius * Math.sin(startAngle) + 3.0 * mazeHeight;
+      XTranslation = floatRadius * Math.cos(startAngle) + 3.0 * mazeWidth;
       YTranslation = 20.0;
-      XLookAt = floatRadius * Math.cos(startAngle + Math.PI) + mazeWidth;
-      ZLookAt = floatRadius * Math.sin(startAngle + Math.PI) + mazeHeight;
+      XLookAt = floatRadius * Math.cos(startAngle + Math.PI) + 3.0 * mazeWidth;
+      ZLookAt = floatRadius * Math.sin(startAngle + Math.PI) + 3.0 * mazeHeight;
       YLookAt = 0.0;
     }
     //floatRotation += deltaTime * 0.1;
