@@ -370,7 +370,7 @@ function initBuffers(gl) {
         ]);
       }
     }
-    for (k = 0; k < 8; k++) {
+    for (k = 0; k < 2; k++) {
       for (i = 0; i < mazeWidth; i++) {
         for (j = 0; j < mazeHeight; j++) {
           textureCoordinates = textureCoordinates.concat([
@@ -410,7 +410,7 @@ function initBuffers(gl) {
         20 + 24 * i, 21 + 24 * i, 23 + 24 * i, 20 + 24 * i, 23 + 24 * i, 22 + 24 * i,   // left
       ]);
     }
-    for (j = 0; j < 8; j++) {
+    for (j = 0; j < 2; j++) {
       for (i = mazeWidth * mazeHeight * (j + 1); i < (j + 2) * mazeWidth * mazeHeight; i++) {
         indices = indices.concat([
           4 * i, 4 * i + 1, 4 * i + 3, 4 * i, 4 * i + 3, 4 * i + 2   // top
