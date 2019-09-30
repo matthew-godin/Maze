@@ -248,10 +248,14 @@ function initBuffers(gl) {
         cubeOffsetX = 2.0 * i + 2.0 * mazeWidth;
         cubeOffsetZ = 2.0 * j + 4.0 * mazeHeight;
         positions = positions.concat([
-          -halfSize + cubeOffsetX, halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
-          halfSize + cubeOffsetX, halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
-          -halfSize + cubeOffsetX, halfSize + cubeOffsetY, halfSize + cubeOffsetZ,
-          halfSize + cubeOffsetX, halfSize + cubeOffsetY, halfSize + cubeOffsetZ
+          -halfSize + cubeOffsetX - 2.0 * mazeWidth, halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
+          halfSize + cubeOffsetX - 2.0 * mazeWidth, halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
+          -halfSize + cubeOffsetX - 2.0 * mazeWidth, halfSize + cubeOffsetY, halfSize + cubeOffsetZ,
+          halfSize + cubeOffsetX - 2.0 * mazeWidth, halfSize + cubeOffsetY, halfSize + cubeOffsetZ,
+          -halfSize + cubeOffsetX - 2.0 * mazeWidth, halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
+          halfSize + cubeOffsetX - 2.0 * mazeWidth, halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
+          -halfSize + cubeOffsetX - 2.0 * mazeWidth, halfSize + cubeOffsetY, halfSize + cubeOffsetZ,
+          halfSize + cubeOffsetX - 2.0 * mazeWidth, halfSize + cubeOffsetY, halfSize + cubeOffsetZ
         ]);
       }
     }
