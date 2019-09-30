@@ -78,10 +78,10 @@ function main() {
   canvasMaze.getContext('2d').drawImage(imgMaze, 0, 0, imgMaze.width, imgMaze.height);
   //XLookAt = mazeWidth;
   //ZLookAt = mazeHeight;
-  XTranslation += mazeWidth;
-  ZTranslation += mazeHeight;
-  XLookAt += mazeWidth;
-  ZLookAt += mazeHeight;
+  XTranslation += 3.0 * mazeWidth;
+  ZTranslation += 3.0 * mazeHeight;
+  XLookAt += 3.0 * mazeWidth;
+  ZLookAt += 3.0 * mazeHeight;
 
   // If we don't have a GL context, give up now
 
@@ -187,8 +187,8 @@ function initBuffers(gl) {
     var i, j;
     for (i = 0; i < mazeWidth; i++) {
       for (j = 0; j < mazeHeight; j++) {
-        cubeOffsetX = 2.0 * i;
-        cubeOffsetZ = 2.0 * j;
+        cubeOffsetX = 2.0 * i + 2.0 * mazeWidth;
+        cubeOffsetZ = 2.0 * j + 2.0 * mazeHeight;
         cubeOffsetY = canvasMaze.getContext('2d').getImageData(i, j, 1, 1).data[0] == 255 ? 0.0 : 2.0;
         positions = positions.concat([
           -halfSize + cubeOffsetX, -halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
@@ -221,8 +221,20 @@ function initBuffers(gl) {
     cubeOffsetY = 0.0;
     for (i = 0; i < mazeWidth; i++) {
       for (j = 0; j < mazeHeight; j++) {
-        cubeOffsetX = 2.0 * i + 2.0 * mazeWidth;
-        cubeOffsetZ = 2.0 * j;
+        cubeOffsetX = 2.0 * i + 4.0 * mazeWidth;
+        cubeOffsetZ = 2.0 * j + 2.0 * mazeHeight;
+        positions = positions.concat([
+          -halfSize + cubeOffsetX, halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
+          halfSize + cubeOffsetX, halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
+          -halfSize + cubeOffsetX, halfSize + cubeOffsetY, halfSize + cubeOffsetZ,
+          halfSize + cubeOffsetX, halfSize + cubeOffsetY, halfSize + cubeOffsetZ
+        ]);
+      }
+    }
+    for (i = 0; i < mazeWidth; i++) {
+      for (j = 0; j < mazeHeight; j++) {
+        cubeOffsetX = 2.0 * i + 4.0 * mazeWidth;
+        cubeOffsetZ = 2.0 * j + 4.0 * mazeHeight;
         positions = positions.concat([
           -halfSize + cubeOffsetX, halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
           halfSize + cubeOffsetX, halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
@@ -234,7 +246,19 @@ function initBuffers(gl) {
     for (i = 0; i < mazeWidth; i++) {
       for (j = 0; j < mazeHeight; j++) {
         cubeOffsetX = 2.0 * i + 2.0 * mazeWidth;
-        cubeOffsetZ = 2.0 * j + 2.0 * mazeHeight;
+        cubeOffsetZ = 2.0 * j + 4.0 * mazeHeight;
+        positions = positions.concat([
+          -halfSize + cubeOffsetX, halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
+          halfSize + cubeOffsetX, halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
+          -halfSize + cubeOffsetX, halfSize + cubeOffsetY, halfSize + cubeOffsetZ,
+          halfSize + cubeOffsetX, halfSize + cubeOffsetY, halfSize + cubeOffsetZ
+        ]);
+      }
+    }
+    for (i = 0; i < mazeWidth; i++) {
+      for (j = 0; j < mazeHeight; j++) {
+        cubeOffsetX = 2.0 * i;
+        cubeOffsetZ = 2.0 * j + 4.0 * mazeHeight;
         positions = positions.concat([
           -halfSize + cubeOffsetX, halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
           halfSize + cubeOffsetX, halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
@@ -257,19 +281,7 @@ function initBuffers(gl) {
     }
     for (i = 0; i < mazeWidth; i++) {
       for (j = 0; j < mazeHeight; j++) {
-        cubeOffsetX = 2.0 * i - 2.0 * mazeWidth;
-        cubeOffsetZ = 2.0 * j + 2.0 * mazeHeight;
-        positions = positions.concat([
-          -halfSize + cubeOffsetX, halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
-          halfSize + cubeOffsetX, halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
-          -halfSize + cubeOffsetX, halfSize + cubeOffsetY, halfSize + cubeOffsetZ,
-          halfSize + cubeOffsetX, halfSize + cubeOffsetY, halfSize + cubeOffsetZ
-        ]);
-      }
-    }
-    for (i = 0; i < mazeWidth; i++) {
-      for (j = 0; j < mazeHeight; j++) {
-        cubeOffsetX = 2.0 * i - 2.0 * mazeWidth;
+        cubeOffsetX = 2.0 * i;
         cubeOffsetZ = 2.0 * j;
         positions = positions.concat([
           -halfSize + cubeOffsetX, halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
@@ -281,32 +293,20 @@ function initBuffers(gl) {
     }
     for (i = 0; i < mazeWidth; i++) {
       for (j = 0; j < mazeHeight; j++) {
-        cubeOffsetX = 2.0 * i - 2.0 * mazeWidth;
-        cubeOffsetZ = 2.0 * j - 2.0 * mazeHeight;
-        positions = positions.concat([
-          -halfSize + cubeOffsetX, halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
-          halfSize + cubeOffsetX, halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
-          -halfSize + cubeOffsetX, halfSize + cubeOffsetY, halfSize + cubeOffsetZ,
-          halfSize + cubeOffsetX, halfSize + cubeOffsetY, halfSize + cubeOffsetZ
-        ]);
-      }
-    }
-    for (i = 0; i < mazeWidth; i++) {
-      for (j = 0; j < mazeHeight; j++) {
-        cubeOffsetX = 2.0 * i;
-        cubeOffsetZ = 2.0 * j - 2.0 * mazeHeight;
-        positions = positions.concat([
-          -halfSize + cubeOffsetX, halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
-          halfSize + cubeOffsetX, halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
-          -halfSize + cubeOffsetX, halfSize + cubeOffsetY, halfSize + cubeOffsetZ,
-          halfSize + cubeOffsetX, halfSize + cubeOffsetY, halfSize + cubeOffsetZ
-        ]);
-      }
-    }
-    for (i = 0; i < mazeWidth; i++) {
-      for (j = 0; j < mazeHeight; j++) {
         cubeOffsetX = 2.0 * i + 2.0 * mazeWidth;
-        cubeOffsetZ = 2.0 * j - 2.0 * mazeHeight;
+        cubeOffsetZ = 2.0 * j;
+        positions = positions.concat([
+          -halfSize + cubeOffsetX, halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
+          halfSize + cubeOffsetX, halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
+          -halfSize + cubeOffsetX, halfSize + cubeOffsetY, halfSize + cubeOffsetZ,
+          halfSize + cubeOffsetX, halfSize + cubeOffsetY, halfSize + cubeOffsetZ
+        ]);
+      }
+    }
+    for (i = 0; i < mazeWidth; i++) {
+      for (j = 0; j < mazeHeight; j++) {
+        cubeOffsetX = 2.0 * i + 4.0 * mazeWidth;
+        cubeOffsetZ = 2.0 * j;
         positions = positions.concat([
           -halfSize + cubeOffsetX, -halfSize + cubeOffsetY, halfSize + cubeOffsetZ,
           halfSize + cubeOffsetX, -halfSize + cubeOffsetY, halfSize + cubeOffsetZ,
@@ -627,8 +627,8 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
     gl.drawElements(gl.TRIANGLES, vertexCount, type, offset);
   }
   var XZReal = 0.2;
-  var XOffset = 1.0;
-  var ZOffset = 1.0;
+  var XOffset = 1.0 - 2.0 * mazeWidth;
+  var ZOffset = 1.0 - 2.0 * mazeHeight;
   var XReal = XTranslation + XOffset - XZReal;
   var ZReal = ZTranslation + ZOffset - XZReal;
   var XReal2 = XTranslation + XOffset + XZReal;
@@ -660,8 +660,8 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
   }
   else if (floatQuit) {
     floatQuit = false;
-    ZTranslation = 8.0;
-    XTranslation = 5.0;
+    ZTranslation = 8.0 + 2.0 * mazeWidth;
+    XTranslation = 5.0 + 2.0 * mazeWidth;
     YTranslation = 2.0;
     YLookAt = 2.0;
     camRotationX = 0.0;
