@@ -308,10 +308,10 @@ function initBuffers(gl) {
         cubeOffsetX = 2.0 * i + 4.0 * mazeWidth;
         cubeOffsetZ = 2.0 * j;
         positions = positions.concat([
-          -halfSize + cubeOffsetX, -halfSize + cubeOffsetY, halfSize + cubeOffsetZ,
-          halfSize + cubeOffsetX, -halfSize + cubeOffsetY, halfSize + cubeOffsetZ,
-          -halfSize + cubeOffsetX, -halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
-          halfSize + cubeOffsetX, -halfSize + cubeOffsetY, -halfSize + cubeOffsetZ
+          -halfSize + cubeOffsetX, halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
+          halfSize + cubeOffsetX, halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
+          -halfSize + cubeOffsetX, halfSize + cubeOffsetY, halfSize + cubeOffsetZ,
+          halfSize + cubeOffsetX, halfSize + cubeOffsetY, halfSize + cubeOffsetZ
         ]);
       }
     }
