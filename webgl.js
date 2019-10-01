@@ -685,6 +685,8 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
     titleContainer.style.display = "none";
   }
   if (WDown) {
+    XTranslation += xCoord * 2.0 * deltaTime;
+    ZTranslation += yCoord * 2.0 * deltaTime;
     if (canvasMaze.getContext('2d').getImageData
       ((XReal + xCoord * 2.0 * deltaTime) / 2, ZReal / 2, 1, 1).data[0] == 255
       && canvasMaze.getContext('2d').getImageData
