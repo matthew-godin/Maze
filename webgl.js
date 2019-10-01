@@ -243,7 +243,7 @@ function initBuffers(gl) {
         ]);
       }
     }
-    for (i = 0; i < mazeWidth; i++) {
+    /*for (i = 0; i < mazeWidth; i++) {
       for (j = 0; j < mazeHeight; j++) {
         cubeOffsetX = 2.0 * i + 2.0 * mazeWidth;
         cubeOffsetZ = 2.0 * j + 4.0 * mazeHeight;
@@ -254,7 +254,7 @@ function initBuffers(gl) {
           halfSize + cubeOffsetX, halfSize + cubeOffsetY, halfSize + cubeOffsetZ,
         ]);
       }
-    }
+    }*/
     for (i = 0; i < mazeWidth; i++) {
       for (j = 0; j < mazeHeight; j++) {
         cubeOffsetX = 2.0 * i;
