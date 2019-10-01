@@ -315,6 +315,21 @@ function initBuffers(gl) {
         ]);
       }
     }
+    var k;
+    for (k = 0; k < 16; k++) {
+      for (i = 0; i < mazeWidth; i++) {
+        for (j = 0; j < mazeHeight; j++) {
+          cubeOffsetX = 2.0 * i + 4.0 * mazeWidth;
+          cubeOffsetZ = 2.0 * j;
+          positions = positions.concat([
+            -halfSize + cubeOffsetX, halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
+            halfSize + cubeOffsetX, halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
+            -halfSize + cubeOffsetX, halfSize + cubeOffsetY, halfSize + cubeOffsetZ,
+            halfSize + cubeOffsetX, halfSize + cubeOffsetY, halfSize + cubeOffsetZ
+          ]);
+        }
+      }
+    }
   }
 
   // Now pass the list of positions into WebGL to build the
