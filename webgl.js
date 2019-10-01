@@ -219,7 +219,7 @@ function initBuffers(gl) {
       }
     }
     cubeOffsetY = 0.0;
-    /*for (i = 0; i < mazeWidth; i++) {
+    for (i = 0; i < mazeWidth; i++) {
       for (j = 0; j < mazeHeight; j++) {
         cubeOffsetX = 2.0 * i + 4.0 * mazeWidth;
         cubeOffsetZ = 2.0 * j + 2.0 * mazeHeight;
@@ -252,10 +252,6 @@ function initBuffers(gl) {
           halfSize + cubeOffsetX, halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
           -halfSize + cubeOffsetX, halfSize + cubeOffsetY, halfSize + cubeOffsetZ,
           halfSize + cubeOffsetX, halfSize + cubeOffsetY, halfSize + cubeOffsetZ,
-          -halfSize + cubeOffsetX - 2.0 * mazeWidth, halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
-          halfSize + cubeOffsetX - 2.0 * mazeWidth, halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
-          -halfSize + cubeOffsetX - 2.0 * mazeWidth, halfSize + cubeOffsetY, halfSize + cubeOffsetZ,
-          halfSize + cubeOffsetX - 2.0 * mazeWidth, halfSize + cubeOffsetY, halfSize + cubeOffsetZ
         ]);
       }
     }
@@ -270,24 +266,20 @@ function initBuffers(gl) {
           halfSize + cubeOffsetX, halfSize + cubeOffsetY, halfSize + cubeOffsetZ
         ]);
       }
-    }*/
+    }
     for (i = 0; i < mazeWidth; i++) {
       for (j = 0; j < mazeHeight; j++) {
-        cubeOffsetX = 2.0 * i + 2.0 * mazeWidth;
-        cubeOffsetZ = 2.0 * j + 4.0 * mazeHeight;
+        cubeOffsetX = 2.0 * i;
+        cubeOffsetZ = 2.0 * j + 2.0 * mazeHeight;
         positions = positions.concat([
           -halfSize + cubeOffsetX, halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
           halfSize + cubeOffsetX, halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
           -halfSize + cubeOffsetX, halfSize + cubeOffsetY, halfSize + cubeOffsetZ,
           halfSize + cubeOffsetX, halfSize + cubeOffsetY, halfSize + cubeOffsetZ,
-          -halfSize + cubeOffsetX - 2.0 * mazeWidth, halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
-          halfSize + cubeOffsetX - 2.0 * mazeWidth, halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
-          -halfSize + cubeOffsetX - 2.0 * mazeWidth, halfSize + cubeOffsetY, halfSize + cubeOffsetZ,
-          halfSize + cubeOffsetX - 2.0 * mazeWidth, halfSize + cubeOffsetY, halfSize + cubeOffsetZ
         ]);
       }
     }
-    /*for (i = 0; i < mazeWidth; i++) {
+    for (i = 0; i < mazeWidth; i++) {
       for (j = 0; j < mazeHeight; j++) {
         cubeOffsetX = 2.0 * i;
         cubeOffsetZ = 2.0 * j;
@@ -322,7 +314,7 @@ function initBuffers(gl) {
           halfSize + cubeOffsetX, -halfSize + cubeOffsetY, -halfSize + cubeOffsetZ
         ]);
       }
-    }*/
+    }
   }
 
   // Now pass the list of positions into WebGL to build the
