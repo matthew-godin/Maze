@@ -382,8 +382,8 @@ function initBuffers(gl) {
       for (i = 0; i < mazeWidth; i++) {
         for (j = 0; j < mazeHeight; j++) {
           textureCoordinates = textureCoordinates.concat([
-            0.0, 0.5,
-            1.0, 0.5,
+            0.0, 0.49,
+            1.0, 0.51,
             0.0, 1.0,
             1.0, 1.0
           ]);
