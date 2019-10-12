@@ -351,30 +351,30 @@ function initBuffers(gl) {
         var topTex = canvasMaze.getContext('2d').getImageData(i, j, 1, 1).data[0] == 255 ? 0.49 : 0.0;
         var topTex2 = canvasMaze.getContext('2d').getImageData(i, j, 1, 1).data[0] == 255 ? 0.51 : 0.0;
         textureCoordinates = textureCoordinates.concat([
-          1.0, 0.51,
+          1.0, 0.49,
           0.0, 0.49,
           1.0, 0.0,
           0.0, 0.0,
           0.0, 0.49,
-          1.0, 0.51,
+          1.0, 0.49,
           0.0, 0.0,
           1.0, 0.0,
-          1.0, 0.51,
+          1.0, 0.49,
           0.0, 0.49,
           1.0, 0.0,
           0.0, 0.0,
-          1.0, 0.51,
+          1.0, 0.49,
           0.0, 0.49,
           1.0, 0.0,
           0.0, 0.0,
           1.0, 1.0,
           0.0, 1.0,
           1.0, 0.51,
-          0.0, 0.49,
-          0.0, topTex,
+          0.0, 0.51,
+          0.0, topTex2,
           1.0, topTex2,
           0.0, 0.49 + topTex2,
-          1.0, 0.51 + topTex
+          1.0, 0.49 + topTex2
         ]);
       }
     }
@@ -382,7 +382,7 @@ function initBuffers(gl) {
       for (i = 0; i < mazeWidth; i++) {
         for (j = 0; j < mazeHeight; j++) {
           textureCoordinates = textureCoordinates.concat([
-            0.0, 0.49,
+            0.0, 0.51,
             1.0, 0.51,
             0.0, 1.0,
             1.0, 1.0
