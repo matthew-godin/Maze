@@ -411,71 +411,73 @@ function initBuffers(gl) {
   const textureCoordBuffer = gl.createBuffer();
   gl.bindBuffer(gl.ARRAY_BUFFER, textureCoordBuffer);
 
+  var t1 = 1.0 / 3.0, t2 = 2.0 / 3.0;
+
   var textureCoordinates = [];
   {
     var i, j, k;
     textureCoordinates = textureCoordinates.concat([
-      0.0, 0.5,
-      1.0, 0.5,
+      0.0, t2,
+      1.0, t2,
       0.0, 1.0,
       1.0, 1.0,
-      0.0, 0.5,
-      1.0, 0.5,
+      0.0, t2,
+      1.0, t2,
       0.0, 1.0,
       1.0, 1.0,
-      0.0, 0.5,
-      1.0, 0.5,
+      0.0, t2,
+      1.0, t2,
       0.0, 1.0,
       1.0, 1.0,
-      0.0, 0.5,
-      1.0, 0.5,
+      0.0, t2,
+      1.0, t2,
       0.0, 1.0,
       1.0, 1.0,
-      0.0, 0.5,
-      1.0, 0.5,
+      0.0, t2,
+      1.0, t2,
       0.0, 1.0,
       1.0, 1.0,
-      0.0, 0.5,
-      1.0, 0.5,
+      0.0, t2,
+      1.0, t2,
       0.0, 1.0,
       1.0, 1.0,
-      0.0, 0.5,
-      1.0, 0.5,
+      0.0, t2,
+      1.0, t2,
       0.0, 1.0,
       1.0, 1.0,
-      0.0, 0.5,
-      1.0, 0.5,
+      0.0, t2,
+      1.0, t2,
       0.0, 1.0,
       1.0, 1.0
     ]);
     for (i = 0; i < mazeWidth; i++) {
       for (j = 0; j < mazeHeight; j++) {
-        var topTex = canvasMaze.getContext('2d').getImageData(i, j, 1, 1).data[0] == 255 ? 0.5 : 0.0;
+        var topTex = canvasMaze.getContext('2d').getImageData(i, j, 1, 1).data[0] == 255 ? t1 : 0.0;
         textureCoordinates = textureCoordinates.concat([
-          1.0, 0.5,
-          0.0, 0.5,
+          1.0, t1,
+          0.0, t1,
           1.0, 0.0,
           0.0, 0.0,
-          0.0, 0.5,
-          1.0, 0.5,
+          0.0, t1,
+          1.0, t1,
           0.0, 0.0,
           1.0, 0.0,
-          1.0, 0.5,
-          0.0, 0.5,
+          1.0, t1,
+          0.0, t1,
           1.0, 0.0,
           0.0, 0.0,
-          1.0, 0.5,
-          0.0, 0.5,
+          1.0, t1,
+          0.0, t1,
           1.0, 0.0,
           0.0, 0.0,
           1.0, 1.0,
           0.0, 1.0,
-          1.0, 0.5,
-          0.0, 0.5,
+          1.0, t1,
+          0.0, t1,
           0.0, topTex,
           1.0, topTex,
-          0.0, 0.5 + topTex,
-          1.0, 0.5 + topTex
+          0.0, t1 + topTex,
+          1.0, t1 + topTex
         ]);
       }
     }
