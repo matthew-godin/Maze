@@ -219,17 +219,17 @@ function initBuffers(gl) {
       }
     }
     cubeOffsetY = 0.0;
-    halfSize = 10.0;
+    halfSize = 20.0;
     var bigOffset = 4.0;
-    cubeOffsetX = 4.0 * mazeWidth + bigOffset;
-    cubeOffsetZ = 2.0 * mazeHeight + bigOffset;
+    cubeOffsetX = 0.0;
+    cubeOffsetZ = 0.0;
     positions = positions.concat([
           -halfSize + cubeOffsetX, halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
           halfSize + cubeOffsetX, halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
           -halfSize + cubeOffsetX, halfSize + cubeOffsetY, halfSize + cubeOffsetZ,
           halfSize + cubeOffsetX, halfSize + cubeOffsetY, halfSize + cubeOffsetZ
         ]);
-    cubeOffsetX = 4.0 * mazeWidth + bigOffset;
+    /*cubeOffsetX = 4.0 * mazeWidth + bigOffset;
     cubeOffsetZ = 4.0 * mazeHeight + bigOffset;
     positions = positions.concat([
           -halfSize + cubeOffsetX, halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
@@ -292,7 +292,7 @@ function initBuffers(gl) {
           halfSize + cubeOffsetX, halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
           -halfSize + cubeOffsetX, halfSize + cubeOffsetY, halfSize + cubeOffsetZ,
           halfSize + cubeOffsetX, halfSize + cubeOffsetY, halfSize + cubeOffsetZ
-        ]);
+        ]);*/
     /*for (i = 0; i < mazeWidth; i++) {
       for (j = 0; j < mazeHeight; j++) {
         cubeOffsetX = 2.0 * i + 4.0 * mazeWidth;
@@ -456,8 +456,8 @@ function initBuffers(gl) {
             0.0, 0.5,
             1.0, 0.5,
             0.0, 1.0,
-            1.0, 1.0,
-            0.0, 0.5,
+            1.0, 1.0
+            /*0.0, 0.5,
             1.0, 0.5,
             0.0, 1.0,
             1.0, 1.0,
@@ -484,7 +484,7 @@ function initBuffers(gl) {
             0.0, 0.5,
             1.0, 0.5,
             0.0, 1.0,
-            1.0, 1.0,
+            1.0, 1.0,*/
           ]);
 	}
     /*for (k = 0; k < 24; k++) {
@@ -527,7 +527,7 @@ function initBuffers(gl) {
         20 + 24 * i, 21 + 24 * i, 23 + 24 * i, 20 + 24 * i, 23 + 24 * i, 22 + 24 * i,   // left
       ]);
     }
-    for (i = 0; i < 24; i++) {
+    for (i = 0; i < 1; i++) {
 	    indices = indices.concat([
 	          4 * i, 4 * i + 1, 4 * i + 3, 4 * i, 4 * i + 3, 4 * i + 2   // top
 	    ]);
@@ -751,7 +751,7 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
   gl.uniform1i(programInfo.uniformLocations.uSampler, 0);
 
   {
-    const vertexCount = 36 * mazeWidth * mazeHeight; //+ 8 * 18;//+ 18 * 8 * mazeWidth * mazeHeight;
+    const vertexCount = 36 * mazeWidth * mazeHeight; + 6;//+ 18 * 8 * mazeWidth * mazeHeight;
     const type = gl.UNSIGNED_SHORT;
     const offset = 0;
     gl.drawElements(gl.TRIANGLES, vertexCount, type, offset);
