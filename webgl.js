@@ -219,7 +219,7 @@ function initBuffers(gl) {
       }
     }
     cubeOffsetY = 0.0;
-    halfSize = 100.0;
+    halfSize = 10.0;
     var bigOffset = 0.0;
     cubeOffsetX = 4.0 * mazeWidth + bigOffset;
     cubeOffsetZ = 2.0 * mazeHeight + bigOffset;
