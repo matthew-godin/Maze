@@ -187,7 +187,7 @@ function initBuffers(gl) {
     var i, j;
     cubeOffsetY = 0.0;
     halfSize = 20.0;
-    var bigOffset = mazeWidth / 2.0 - 1;
+    var bigOffset = mazeWidth - 1;
     cubeOffsetX = 0.0 + bigOffset;
     cubeOffsetZ = 0.0 + bigOffset;
     var oldHalfSize = 1.0
