@@ -179,7 +179,7 @@ function initBuffers(gl) {
   gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
 
   // Now create an array of positions for the cube.
-  const halfSize = 1.0
+  var halfSize = 1.0
   var cubeOffsetX = 0.0, cubeOffsetY = 0.0, cubeOffsetZ = 0.0;
   // TWO CUBES WORKING
   var positions = [];
