@@ -5,12 +5,19 @@ var floatRadius = 100.0;
 var ZTranslation = floatRadius * Math.sin(startAngle), XTranslation = floatRadius * Math.cos(startAngle), YTranslation = 20.0;
 var YLookAt = 0.0, XLookAt = floatRadius * Math.cos(startAngle + Math.PI), ZLookAt = floatRadius * Math.sin(startAngle + Math.PI);
 var WDown = false, ADown = false, SDown = false, DDown = false, aRight = false, aLeft = false, aUp = false, aDown = false;
-var numCubes = 4, mazeWidth = 0, mazeHeight = 0;
+var numCubes = 4, mazeWidth = 50, mazeHeight = 50;
 var canvasMaze;
 var floatCam = true;
 var floatQuit = true;
 var floatRotation = 0.0;
 var floatTime = 0.0;
+var randMaze = [];
+for (var i = 0; i < mazeWidth; i++) {
+  randMaze[i] = [mazeHeight];
+  for (var j = 0; j < mazeHeight; j++) {
+    randMaze[i][j] = false;
+  }
+}
 
 main();
 
@@ -62,6 +69,75 @@ function logKeyUp(e) {
   }
 }
 
+function createRandMaze (i, j) {
+  // Using Prim's Algorithm
+  var numPossibilities = 0, temp = j - 2, n = false, e = false, s = false, w = false;
+  if (temp >= 1 && !randMaze[i][temp]) {
+    ++numPossibilities;
+    n = true;
+  }
+  temp = i + 2;
+  if (temp <= mazeWidth - 2 && !randMaze[temp][j]) {
+    ++numPossibilities;
+    e = true;
+  }
+  temp = j + 2;
+  if (temp <= mazeWidth - 2 && !randMaze[i][temp]) {
+    ++numPossibilities;
+    s = true;
+  }
+  temp = i - 2;
+  if (temp >= 1 && !randMaze[temp][j]) {
+    ++numPossibilities;
+    w = true;
+  }
+  var direction = Math.floor(Math.random() * numPossibilities);
+  if (n) {
+    if (direction == 0) {
+      randMaze[i][j - 2] = randMaze[i][j - 1] = true;
+      createRandMaze(i, j - 2);
+      createRandMaze(i, j);
+      createRandMaze(i, j);
+    }
+    else {
+      --direction;
+    }
+  }
+  if (e) {
+    if (direction == 0) {
+      randMaze[i + 2][j] = randMaze[i + 1][j] = true;
+      createRandMaze(i + 2, j);
+      createRandMaze(i, j);
+      createRandMaze(i, j);
+    }
+    else {
+      --direction;
+    }
+  }
+  if (s) {
+    if (direction == 0) {
+      randMaze[i][j + 2] = randMaze[i][j + 1] = true;
+      createRandMaze(i, j + 2);
+      createRandMaze(i, j);
+      createRandMaze(i, j);
+    }
+    else {
+      --direction;
+    }
+  }
+  if (w) {
+    if (direction == 0) {
+      randMaze[i - 2][j] = randMaze[i - 1][j] = true;
+      createRandMaze(i - 2, j);
+      createRandMaze(i, j);
+      createRandMaze(i, j);
+    }
+    else {
+      --direction;
+    }
+  }
+}
+
 //
 // Start here
 //
@@ -73,8 +149,10 @@ function main() {
   document.addEventListener('keyup', logKeyUp);
   var imgMaze = document.getElementById('maze-img');
   canvasMaze = document.createElement('canvas');
-  mazeWidth = canvasMaze.width = imgMaze.width;
-  mazeHeight = canvasMaze.height = imgMaze.height;
+  mazeWidth = 50;//canvasMaze.width = imgMaze.width;
+  mazeHeight = 50;//canvasMaze.height = imgMaze.height;
+  randMaze[1][1] = true;
+  createRandMaze(1, 1);
   canvasMaze.getContext('2d').drawImage(imgMaze, 0, 0, imgMaze.width, imgMaze.height);
   //XLookAt = mazeWidth;
   //ZLookAt = mazeHeight;
@@ -258,7 +336,7 @@ function initBuffers(gl) {
       for (j = 0; j < mazeHeight; j++) {
         cubeOffsetX = 2.0 * i + 2.0 * mazeWidth;
         cubeOffsetZ = 2.0 * j + 2.0 * mazeHeight;
-        cubeOffsetY = canvasMaze.getContext('2d').getImageData(i, j, 1, 1).data[0] == 255 ? 0.0 : 2.0;
+        cubeOffsetY = randMaze[i][j] ? 0.0 : 2.0;//canvasMaze.getContext('2d').getImageData(i, j, 1, 1).data[0] == 255 ? 0.0 : 2.0;
         positions = positions.concat([
           -halfSize + cubeOffsetX, -halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
           halfSize + cubeOffsetX, -halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
