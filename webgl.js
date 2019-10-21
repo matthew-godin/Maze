@@ -411,7 +411,7 @@ function initBuffers(gl) {
   const textureCoordBuffer = gl.createBuffer();
   gl.bindBuffer(gl.ARRAY_BUFFER, textureCoordBuffer);
 
-  var t1 = 1.0 / 3.0, t2 = 2.0 / 3.0;
+  var t1 = 1.0 / 3.0, t2 = 1.0 / 3.0;
 
   var textureCoordinates = [];
   {
