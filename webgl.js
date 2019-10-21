@@ -219,7 +219,80 @@ function initBuffers(gl) {
       }
     }
     cubeOffsetY = 0.0;
-    for (i = 0; i < mazeWidth; i++) {
+    halfSize = 100.0;
+    cubeOffsetX = 4.0 * mazeWidth + 99.0;
+    cubeOffsetZ = 2.0 * mazeHeight + 99.0;
+    positions = positions.concat([
+          -halfSize + cubeOffsetX, halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
+          halfSize + cubeOffsetX, halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
+          -halfSize + cubeOffsetX, halfSize + cubeOffsetY, halfSize + cubeOffsetZ,
+          halfSize + cubeOffsetX, halfSize + cubeOffsetY, halfSize + cubeOffsetZ
+        ]);
+    cubeOffsetX = 4.0 * mazeWidth + 99.0;
+    cubeOffsetZ = 4.0 * mazeHeight + 99.0;
+    positions = positions.concat([
+          -halfSize + cubeOffsetX, halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
+          halfSize + cubeOffsetX, halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
+          -halfSize + cubeOffsetX, halfSize + cubeOffsetY, halfSize + cubeOffsetZ,
+          halfSize + cubeOffsetX, halfSize + cubeOffsetY, halfSize + cubeOffsetZ
+        ]);
+    cubeOffsetX = 2.0 * mazeWidth + 99.0;
+    cubeOffsetZ = 4.0 * mazeHeight + 99.0;
+    positions = positions.concat([
+          -halfSize + cubeOffsetX, halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
+          halfSize + cubeOffsetX, halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
+          -halfSize + cubeOffsetX, halfSize + cubeOffsetY, halfSize + cubeOffsetZ,
+          halfSize + cubeOffsetX, halfSize + cubeOffsetY, halfSize + cubeOffsetZ
+        ]);
+    cubeOffsetX = 0.0 + 99.0;
+    cubeOffsetZ = 4.0 * mazeHeight + 99.0;
+    positions = positions.concat([
+          -halfSize + cubeOffsetX, halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
+          halfSize + cubeOffsetX, halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
+          -halfSize + cubeOffsetX, halfSize + cubeOffsetY, halfSize + cubeOffsetZ,
+          halfSize + cubeOffsetX, halfSize + cubeOffsetY, halfSize + cubeOffsetZ
+        ]);
+    cubeOffsetX = 0.0 + 99.0;
+    cubeOffsetZ = 2.0 * mazeHeight + 99.0;
+    positions = positions.concat([
+          -halfSize + cubeOffsetX, halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
+          halfSize + cubeOffsetX, halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
+          -halfSize + cubeOffsetX, halfSize + cubeOffsetY, halfSize + cubeOffsetZ,
+          halfSize + cubeOffsetX, halfSize + cubeOffsetY, halfSize + cubeOffsetZ
+        ]);
+    cubeOffsetX = 0.0 + 99.0;
+    cubeOffsetZ = 0.0 + 99.0;
+    positions = positions.concat([
+          -halfSize + cubeOffsetX, halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
+          halfSize + cubeOffsetX, halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
+          -halfSize + cubeOffsetX, halfSize + cubeOffsetY, halfSize + cubeOffsetZ,
+          halfSize + cubeOffsetX, halfSize + cubeOffsetY, halfSize + cubeOffsetZ
+        ]);
+    cubeOffsetX = 4.0 * mazeWidth + 99.0;
+    cubeOffsetZ = 2.0 * mazeHeight + 99.0;
+    positions = positions.concat([
+          -halfSize + cubeOffsetX, halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
+          halfSize + cubeOffsetX, halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
+          -halfSize + cubeOffsetX, halfSize + cubeOffsetY, halfSize + cubeOffsetZ,
+          halfSize + cubeOffsetX, halfSize + cubeOffsetY, halfSize + cubeOffsetZ
+        ]);
+    cubeOffsetX = 2.0 * mazeWidth + 99.0;
+    cubeOffsetZ = 2.0 * mazeHeight + 99.0;
+    positions = positions.concat([
+          -halfSize + cubeOffsetX, halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
+          halfSize + cubeOffsetX, halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
+          -halfSize + cubeOffsetX, halfSize + cubeOffsetY, halfSize + cubeOffsetZ,
+          halfSize + cubeOffsetX, halfSize + cubeOffsetY, halfSize + cubeOffsetZ
+        ]);
+    cubeOffsetX = 4.0 * mazeWidth + 99.0;
+    cubeOffsetZ = 0.0 + 99.0;
+    positions = positions.concat([
+          -halfSize + cubeOffsetX, halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
+          halfSize + cubeOffsetX, halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
+          -halfSize + cubeOffsetX, halfSize + cubeOffsetY, halfSize + cubeOffsetZ,
+          halfSize + cubeOffsetX, halfSize + cubeOffsetY, halfSize + cubeOffsetZ
+        ]);
+    /*for (i = 0; i < mazeWidth; i++) {
       for (j = 0; j < mazeHeight; j++) {
         cubeOffsetX = 2.0 * i + 4.0 * mazeWidth;
         cubeOffsetZ = 2.0 * j + 2.0 * mazeHeight;
@@ -329,7 +402,7 @@ function initBuffers(gl) {
           ]);
         }
       }
-    }
+    }*/
   }
 
   // Now pass the list of positions into WebGL to build the
@@ -377,7 +450,41 @@ function initBuffers(gl) {
         ]);
       }
     }
-    for (k = 0; k < 24; k++) {
+    textureCoordinates = textureCoordinates.concat([
+            0.0, 0.5,
+            1.0, 0.5,
+            0.0, 1.0,
+            1.0, 1.0,
+            0.0, 0.5,
+            1.0, 0.5,
+            0.0, 1.0,
+            1.0, 1.0,
+            0.0, 0.5,
+            1.0, 0.5,
+            0.0, 1.0,
+            1.0, 1.0,
+            0.0, 0.5,
+            1.0, 0.5,
+            0.0, 1.0,
+            1.0, 1.0,
+            0.0, 0.5,
+            1.0, 0.5,
+            0.0, 1.0,
+            1.0, 1.0,
+            0.0, 0.5,
+            1.0, 0.5,
+            0.0, 1.0,
+            1.0, 1.0,
+            0.0, 0.5,
+            1.0, 0.5,
+            0.0, 1.0,
+            1.0, 1.0,
+            0.0, 0.5,
+            1.0, 0.5,
+            0.0, 1.0,
+            1.0, 1.0,
+          ]);
+    /*for (k = 0; k < 24; k++) {
       for (i = 0; i < mazeWidth; i++) {
         for (j = 0; j < mazeHeight; j++) {
           textureCoordinates = textureCoordinates.concat([
@@ -388,7 +495,7 @@ function initBuffers(gl) {
           ]);
         }
       }
-    }
+    }*/
   }
 
   gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(textureCoordinates),
@@ -417,13 +524,18 @@ function initBuffers(gl) {
         20 + 24 * i, 21 + 24 * i, 23 + 24 * i, 20 + 24 * i, 23 + 24 * i, 22 + 24 * i,   // left
       ]);
     }
-    for (j = 0; j < 24; j++) {
+    for (i = 0; i < 8; i++) {}
+	    indices = indices.concat([
+	          4 * i, 4 * i + 1, 4 * i + 3, 4 * i, 4 * i + 3, 4 * i + 2   // top
+	    ]);
+	}
+    /*for (j = 0; j < 24; j++) {
       for (i = mazeWidth * mazeHeight * (j + 1); i < (j + 2) * mazeWidth * mazeHeight; i++) {
         indices = indices.concat([
           4 * i, 4 * i + 1, 4 * i + 3, 4 * i, 4 * i + 3, 4 * i + 2   // top
         ]);
       }
-    }
+    }*/
   }
 
   // Now send the element array to GL
@@ -636,7 +748,7 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
   gl.uniform1i(programInfo.uniformLocations.uSampler, 0);
 
   {
-    const vertexCount = 36 * mazeWidth * mazeHeight + 18 * 8 * mazeWidth * mazeHeight;
+    const vertexCount = 36 * mazeWidth * mazeHeight + 8 * 18;//+ 18 * 8 * mazeWidth * mazeHeight;
     const type = gl.UNSIGNED_SHORT;
     const offset = 0;
     gl.drawElements(gl.TRIANGLES, vertexCount, type, offset);
