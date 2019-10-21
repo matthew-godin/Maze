@@ -237,14 +237,6 @@ function initBuffers(gl) {
           -halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, halfSize + cubeOffsetZ,
           halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, halfSize + cubeOffsetZ
         ]);
-    cubeOffsetX = 4.0 * mazeWidth + bigOffset;
-    cubeOffsetZ = 2.0 * mazeHeight + bigOffset;
-    positions = positions.concat([
-          -halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
-          halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
-          -halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, halfSize + cubeOffsetZ,
-          halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, halfSize + cubeOffsetZ
-        ]);
     cubeOffsetX = 0.0 * mazeWidth + bigOffset;
     cubeOffsetZ = 4.0 * mazeHeight + bigOffset;
     positions = positions.concat([
