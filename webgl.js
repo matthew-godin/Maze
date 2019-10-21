@@ -185,6 +185,82 @@ function initBuffers(gl) {
   var positions = [];
   {
     var i, j;
+    cubeOffsetY = 0.0;
+    halfSize = 20.0;
+    var bigOffset = mazeWidth / 2.0 - 1;
+    cubeOffsetX = 0.0 + bigOffset;
+    cubeOffsetZ = 0.0 + bigOffset;
+    var oldHalfSize = 2.0
+    positions = positions.concat([
+          -halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
+          halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
+          -halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, halfSize + cubeOffsetZ,
+          halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, halfSize + cubeOffsetZ
+        ]);
+    cubeOffsetX = 4.0 * mazeWidth + bigOffset;
+    cubeOffsetZ = 4.0 * mazeHeight + bigOffset;
+    positions = positions.concat([
+          -halfSize + cubeOffsetX, halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
+          halfSize + cubeOffsetX, halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
+          -halfSize + cubeOffsetX, halfSize + cubeOffsetY, halfSize + cubeOffsetZ,
+          halfSize + cubeOffsetX, halfSize + cubeOffsetY, halfSize + cubeOffsetZ
+        ]);
+    cubeOffsetX = 2.0 * mazeWidth + bigOffset;
+    cubeOffsetZ = 4.0 * mazeHeight + bigOffset;
+    positions = positions.concat([
+          -halfSize + cubeOffsetX, halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
+          halfSize + cubeOffsetX, halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
+          -halfSize + cubeOffsetX, halfSize + cubeOffsetY, halfSize + cubeOffsetZ,
+          halfSize + cubeOffsetX, halfSize + cubeOffsetY, halfSize + cubeOffsetZ
+        ]);
+    cubeOffsetX = 0.0 + bigOffset;
+    cubeOffsetZ = 4.0 * mazeHeight + bigOffset;
+    positions = positions.concat([
+          -halfSize + cubeOffsetX, halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
+          halfSize + cubeOffsetX, halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
+          -halfSize + cubeOffsetX, halfSize + cubeOffsetY, halfSize + cubeOffsetZ,
+          halfSize + cubeOffsetX, halfSize + cubeOffsetY, halfSize + cubeOffsetZ
+        ]);
+    cubeOffsetX = 0.0 + bigOffset;
+    cubeOffsetZ = 2.0 * mazeHeight + bigOffset;
+    positions = positions.concat([
+          -halfSize + cubeOffsetX, halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
+          halfSize + cubeOffsetX, halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
+          -halfSize + cubeOffsetX, halfSize + cubeOffsetY, halfSize + cubeOffsetZ,
+          halfSize + cubeOffsetX, halfSize + cubeOffsetY, halfSize + cubeOffsetZ
+        ]);
+    cubeOffsetX = 0.0 + bigOffset;
+    cubeOffsetZ = 0.0 + bigOffset;
+    positions = positions.concat([
+          -halfSize + cubeOffsetX, halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
+          halfSize + cubeOffsetX, halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
+          -halfSize + cubeOffsetX, halfSize + cubeOffsetY, halfSize + cubeOffsetZ,
+          halfSize + cubeOffsetX, halfSize + cubeOffsetY, halfSize + cubeOffsetZ
+        ]);
+    cubeOffsetX = 4.0 * mazeWidth + bigOffset;
+    cubeOffsetZ = 2.0 * mazeHeight + bigOffset;
+    positions = positions.concat([
+          -halfSize + cubeOffsetX, halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
+          halfSize + cubeOffsetX, halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
+          -halfSize + cubeOffsetX, halfSize + cubeOffsetY, halfSize + cubeOffsetZ,
+          halfSize + cubeOffsetX, halfSize + cubeOffsetY, halfSize + cubeOffsetZ
+        ]);
+    cubeOffsetX = 2.0 * mazeWidth + bigOffset;
+    cubeOffsetZ = 2.0 * mazeHeight + bigOffset;
+    positions = positions.concat([
+          -halfSize + cubeOffsetX, halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
+          halfSize + cubeOffsetX, halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
+          -halfSize + cubeOffsetX, halfSize + cubeOffsetY, halfSize + cubeOffsetZ,
+          halfSize + cubeOffsetX, halfSize + cubeOffsetY, halfSize + cubeOffsetZ
+        ]);
+    cubeOffsetX = 4.0 * mazeWidth + bigOffset;
+    cubeOffsetZ = 0.0 + bigOffset;
+    positions = positions.concat([
+          -halfSize + cubeOffsetX, halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
+          halfSize + cubeOffsetX, halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
+          -halfSize + cubeOffsetX, halfSize + cubeOffsetY, halfSize + cubeOffsetZ,
+          halfSize + cubeOffsetX, halfSize + cubeOffsetY, halfSize + cubeOffsetZ
+        ]);
     /*for (i = 0; i < mazeWidth; i++) {
       for (j = 0; j < mazeHeight; j++) {
         cubeOffsetX = 2.0 * i + 2.0 * mazeWidth;
@@ -218,82 +294,6 @@ function initBuffers(gl) {
         ]);
       }
     }*/
-    cubeOffsetY = 0.0;
-    halfSize = 20.0;
-    var bigOffset = 4.0;
-    cubeOffsetX = 0.0;
-    cubeOffsetZ = 0.0;
-    var oldHalfSize = 2.0
-    positions = positions.concat([
-          -halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
-          halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
-          -halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, halfSize + cubeOffsetZ,
-          halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, halfSize + cubeOffsetZ
-        ]);
-    /*cubeOffsetX = 4.0 * mazeWidth + bigOffset;
-    cubeOffsetZ = 4.0 * mazeHeight + bigOffset;
-    positions = positions.concat([
-          -halfSize + cubeOffsetX, halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
-          halfSize + cubeOffsetX, halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
-          -halfSize + cubeOffsetX, halfSize + cubeOffsetY, halfSize + cubeOffsetZ,
-          halfSize + cubeOffsetX, halfSize + cubeOffsetY, halfSize + cubeOffsetZ
-        ]);
-    cubeOffsetX = 2.0 * mazeWidth + bigOffset;
-    cubeOffsetZ = 4.0 * mazeHeight + bigOffset;
-    positions = positions.concat([
-          -halfSize + cubeOffsetX, halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
-          halfSize + cubeOffsetX, halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
-          -halfSize + cubeOffsetX, halfSize + cubeOffsetY, halfSize + cubeOffsetZ,
-          halfSize + cubeOffsetX, halfSize + cubeOffsetY, halfSize + cubeOffsetZ
-        ]);
-    cubeOffsetX = 0.0 + bigOffset;
-    cubeOffsetZ = 4.0 * mazeHeight + bigOffset;
-    positions = positions.concat([
-          -halfSize + cubeOffsetX, halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
-          halfSize + cubeOffsetX, halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
-          -halfSize + cubeOffsetX, halfSize + cubeOffsetY, halfSize + cubeOffsetZ,
-          halfSize + cubeOffsetX, halfSize + cubeOffsetY, halfSize + cubeOffsetZ
-        ]);
-    cubeOffsetX = 0.0 + bigOffset;
-    cubeOffsetZ = 2.0 * mazeHeight + bigOffset;
-    positions = positions.concat([
-          -halfSize + cubeOffsetX, halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
-          halfSize + cubeOffsetX, halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
-          -halfSize + cubeOffsetX, halfSize + cubeOffsetY, halfSize + cubeOffsetZ,
-          halfSize + cubeOffsetX, halfSize + cubeOffsetY, halfSize + cubeOffsetZ
-        ]);
-    cubeOffsetX = 0.0 + bigOffset;
-    cubeOffsetZ = 0.0 + bigOffset;
-    positions = positions.concat([
-          -halfSize + cubeOffsetX, halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
-          halfSize + cubeOffsetX, halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
-          -halfSize + cubeOffsetX, halfSize + cubeOffsetY, halfSize + cubeOffsetZ,
-          halfSize + cubeOffsetX, halfSize + cubeOffsetY, halfSize + cubeOffsetZ
-        ]);
-    cubeOffsetX = 4.0 * mazeWidth + bigOffset;
-    cubeOffsetZ = 2.0 * mazeHeight + bigOffset;
-    positions = positions.concat([
-          -halfSize + cubeOffsetX, halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
-          halfSize + cubeOffsetX, halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
-          -halfSize + cubeOffsetX, halfSize + cubeOffsetY, halfSize + cubeOffsetZ,
-          halfSize + cubeOffsetX, halfSize + cubeOffsetY, halfSize + cubeOffsetZ
-        ]);
-    cubeOffsetX = 2.0 * mazeWidth + bigOffset;
-    cubeOffsetZ = 2.0 * mazeHeight + bigOffset;
-    positions = positions.concat([
-          -halfSize + cubeOffsetX, halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
-          halfSize + cubeOffsetX, halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
-          -halfSize + cubeOffsetX, halfSize + cubeOffsetY, halfSize + cubeOffsetZ,
-          halfSize + cubeOffsetX, halfSize + cubeOffsetY, halfSize + cubeOffsetZ
-        ]);
-    cubeOffsetX = 4.0 * mazeWidth + bigOffset;
-    cubeOffsetZ = 0.0 + bigOffset;
-    positions = positions.concat([
-          -halfSize + cubeOffsetX, halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
-          halfSize + cubeOffsetX, halfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
-          -halfSize + cubeOffsetX, halfSize + cubeOffsetY, halfSize + cubeOffsetZ,
-          halfSize + cubeOffsetX, halfSize + cubeOffsetY, halfSize + cubeOffsetZ
-        ]);*/
     /*for (i = 0; i < mazeWidth; i++) {
       for (j = 0; j < mazeHeight; j++) {
         cubeOffsetX = 2.0 * i + 4.0 * mazeWidth;
@@ -421,6 +421,40 @@ function initBuffers(gl) {
   var textureCoordinates = [];
   {
     var i, j, k;
+    textureCoordinates = textureCoordinates.concat([
+      0.0, 0.5,
+      1.0, 0.5,
+      0.0, 1.0,
+      1.0, 1.0,
+      0.0, 0.5,
+      1.0, 0.5,
+      0.0, 1.0,
+      1.0, 1.0,
+      0.0, 0.5,
+      1.0, 0.5,
+      0.0, 1.0,
+      1.0, 1.0,
+      0.0, 0.5,
+      1.0, 0.5,
+      0.0, 1.0,
+      1.0, 1.0,
+      0.0, 0.5,
+      1.0, 0.5,
+      0.0, 1.0,
+      1.0, 1.0,
+      0.0, 0.5,
+      1.0, 0.5,
+      0.0, 1.0,
+      1.0, 1.0,
+      0.0, 0.5,
+      1.0, 0.5,
+      0.0, 1.0,
+      1.0, 1.0,
+      0.0, 0.5,
+      1.0, 0.5,
+      0.0, 1.0,
+      1.0, 1.0
+    ]);
     /*for (i = 0; i < mazeWidth; i++) {
       for (j = 0; j < mazeHeight; j++) {
         var topTex = canvasMaze.getContext('2d').getImageData(i, j, 1, 1).data[0] == 255 ? 0.5 : 0.0;
@@ -452,12 +486,6 @@ function initBuffers(gl) {
         ]);
       }
     }*/
-    textureCoordinates = textureCoordinates.concat([
-            0.0, 0.5,
-            1.0, 0.5,
-            0.0, 1.0,
-            1.0, 1.0
-          ]);
     /*for (k = 0; k < 24; k++) {
       for (i = 0; i < mazeWidth; i++) {
         for (j = 0; j < mazeHeight; j++) {
@@ -487,7 +515,13 @@ function initBuffers(gl) {
 
   var indices = [];
   {
-    /*var i, j;
+    var i, j;
+    for (i = 0; i < 8; i++) {
+      indices = indices.concat([
+        0 + 4 * i, 1 + 4 * i, 3 + 4 * i, 0 + 4 * i, 3 + 4 * i, 2 + 4 * i   // top
+      ]);
+    }
+    /*
     for (i = 0; i < mazeWidth * mazeHeight; i++) {
       indices = indices.concat([
         0 + 24 * i, 1 + 24 * i, 3 + 24 * i, 0 + 24 * i, 3 + 24 * i, 2 + 24 * i,    // front
@@ -498,11 +532,8 @@ function initBuffers(gl) {
         20 + 24 * i, 21 + 24 * i, 23 + 24 * i, 20 + 24 * i, 23 + 24 * i, 22 + 24 * i,   // left
       ]);
     }*/
-    i = 0;
     //i =  mazeWidth * mazeHeight;
-    indices = indices.concat([
-	          0, 1, 3, 0, 3, 2   // top
-	    ]);
+    
     /*for (j = 0; j < 24; j++) {
       for (i = mazeWidth * mazeHeight * (j + 1); i < (j + 2) * mazeWidth * mazeHeight; i++) {
         indices = indices.concat([
@@ -722,7 +753,7 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
   gl.uniform1i(programInfo.uniformLocations.uSampler, 0);
 
   {
-    const vertexCount = 4;//36 * mazeWidth * mazeHeight; + 10000;//+ 18 * 8 * mazeWidth * mazeHeight;
+    const vertexCount = 48;//36 * mazeWidth * mazeHeight; + 10000;//+ 18 * 8 * mazeWidth * mazeHeight;
     const type = gl.UNSIGNED_SHORT;
     const offset = 0;
     gl.drawElements(gl.TRIANGLES, vertexCount, type, offset);
