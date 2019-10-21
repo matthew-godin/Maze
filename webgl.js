@@ -857,8 +857,8 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
   }
   else if (floatQuit) {
     floatQuit = false;
-    ZTranslation = 44.0 + 2.0 * mazeHeight;
-    XTranslation = 33.0 + 2.0 * mazeWidth;
+    ZTranslation = 2.0 + 2.0 * mazeHeight;
+    XTranslation = 2.0 + 2.0 * mazeWidth;
     YTranslation = 2.0;
     YLookAt = 2.0;
     camRotationX = 0.0;
