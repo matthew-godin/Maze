@@ -213,7 +213,7 @@ function initBuffers(gl) {
           -halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, halfSize + cubeOffsetZ,
           halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, halfSize + cubeOffsetZ
         ]);
-    /*cubeOffsetX = 4.0 + bigOffset;
+    cubeOffsetX = 4.0 + bigOffset;
     cubeOffsetZ = 2.0 * mazeHeight + bigOffset;
     positions = positions.concat([
           -halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
@@ -221,7 +221,7 @@ function initBuffers(gl) {
           -halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, halfSize + cubeOffsetZ,
           halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, halfSize + cubeOffsetZ
         ]);
-    cubeOffsetX = 4.0 + bigOffset;
+    /*cubeOffsetX = 4.0 + bigOffset;
     cubeOffsetZ = 4.0 * mazeHeight + bigOffset;
     positions = positions.concat([
           -halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
@@ -753,7 +753,7 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
   gl.uniform1i(programInfo.uniformLocations.uSampler, 0);
 
   {
-    const vertexCount = 18;//36 * mazeWidth * mazeHeight; + 10000;//+ 18 * 8 * mazeWidth * mazeHeight;
+    const vertexCount = 24;//36 * mazeWidth * mazeHeight; + 10000;//+ 18 * 8 * mazeWidth * mazeHeight;
     const type = gl.UNSIGNED_SHORT;
     const offset = 0;
     gl.drawElements(gl.TRIANGLES, vertexCount, type, offset);
