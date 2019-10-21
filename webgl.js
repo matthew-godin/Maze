@@ -197,31 +197,23 @@ function initBuffers(gl) {
           -halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, halfSize + cubeOffsetZ,
           halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, halfSize + cubeOffsetZ
         ]);
-    cubeOffsetX = 4.0 * mazeWidth + bigOffset;
-    cubeOffsetZ = 4.0 * mazeHeight + bigOffset;
-    positions = positions.concat([
-          -halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
-          halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
-          -halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, halfSize + cubeOffsetZ,
-          halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, halfSize + cubeOffsetZ
-        ]);
     cubeOffsetX = 2.0 * mazeWidth + bigOffset;
-    cubeOffsetZ = 4.0 * mazeHeight + bigOffset;
+    cubeOffsetZ = 0.0 * mazeHeight + bigOffset;
     positions = positions.concat([
           -halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
           halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
           -halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, halfSize + cubeOffsetZ,
           halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, halfSize + cubeOffsetZ
         ]);
-    cubeOffsetX = 0.0 + bigOffset;
-    cubeOffsetZ = 4.0 * mazeHeight + bigOffset;
+    cubeOffsetX = 4.0 * mazeWidth + bigOffset;
+    cubeOffsetZ = 0.0 * mazeHeight + bigOffset;
     positions = positions.concat([
           -halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
           halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
           -halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, halfSize + cubeOffsetZ,
           halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, halfSize + cubeOffsetZ
         ]);
-    cubeOffsetX = 0.0 + bigOffset;
+    cubeOffsetX = 4.0 + bigOffset;
     cubeOffsetZ = 2.0 * mazeHeight + bigOffset;
     positions = positions.concat([
           -halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
@@ -229,8 +221,16 @@ function initBuffers(gl) {
           -halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, halfSize + cubeOffsetZ,
           halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, halfSize + cubeOffsetZ
         ]);
-    cubeOffsetX = 0.0 + bigOffset;
-    cubeOffsetZ = 0.0 + bigOffset;
+    cubeOffsetX = 4.0 + bigOffset;
+    cubeOffsetZ = 4.0 * mazeHeight + bigOffset;
+    positions = positions.concat([
+          -halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
+          halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
+          -halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, halfSize + cubeOffsetZ,
+          halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, halfSize + cubeOffsetZ
+        ]);
+    cubeOffsetX = 2.0 + bigOffset;
+    cubeOffsetZ = 4.0 + bigOffset;
     positions = positions.concat([
           -halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
           halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
@@ -245,16 +245,16 @@ function initBuffers(gl) {
           -halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, halfSize + cubeOffsetZ,
           halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, halfSize + cubeOffsetZ
         ]);
-    cubeOffsetX = 2.0 * mazeWidth + bigOffset;
-    cubeOffsetZ = 2.0 * mazeHeight + bigOffset;
+    cubeOffsetX = 0.0 * mazeWidth + bigOffset;
+    cubeOffsetZ = 4.0 * mazeHeight + bigOffset;
     positions = positions.concat([
           -halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
           halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
           -halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, halfSize + cubeOffsetZ,
           halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, halfSize + cubeOffsetZ
         ]);
-    cubeOffsetX = 4.0 * mazeWidth + bigOffset;
-    cubeOffsetZ = 0.0 + bigOffset;
+    cubeOffsetX = 0.0 * mazeWidth + bigOffset;
+    cubeOffsetZ = 2.0 + bigOffset;
     positions = positions.concat([
           -halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
           halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
