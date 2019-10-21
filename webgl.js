@@ -529,7 +529,7 @@ function initBuffers(gl) {
     }
     for (i = mazeWidth * mazeHeight; i < 1; i++) {
 	    indices = indices.concat([
-	          4 * i, 4 * i + 1, 4 * i + 3, 4 * i, 4 * i + 3, 4 * i + 2   // top
+	          24 * i, 24 * i + 1, 24 * i + 3, 24 * i, 4 * i + 3, 24 * i + 2   // top
 	    ]);
 	}
     /*for (j = 0; j < 24; j++) {
