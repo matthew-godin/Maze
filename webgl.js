@@ -220,7 +220,7 @@ function initBuffers(gl) {
     }
     cubeOffsetY = 0.0;
     halfSize = 10.0;
-    var bigOffset = 0.0;
+    var bigOffset = 4.0;
     cubeOffsetX = 4.0 * mazeWidth + bigOffset;
     cubeOffsetZ = 2.0 * mazeHeight + bigOffset;
     positions = positions.concat([
@@ -751,7 +751,7 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
   gl.uniform1i(programInfo.uniformLocations.uSampler, 0);
 
   {
-    const vertexCount = 36 * mazeWidth * mazeHeight + 8 * 18;//+ 18 * 8 * mazeWidth * mazeHeight;
+    const vertexCount = 24 * mazeWidth * mazeHeight + 8 * 18;//+ 18 * 8 * mazeWidth * mazeHeight;
     const type = gl.UNSIGNED_SHORT;
     const offset = 0;
     gl.drawElements(gl.TRIANGLES, vertexCount, type, offset);
