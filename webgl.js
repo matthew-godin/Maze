@@ -527,7 +527,7 @@ function initBuffers(gl) {
         20 + 24 * i, 21 + 24 * i, 23 + 24 * i, 20 + 24 * i, 23 + 24 * i, 22 + 24 * i,   // left
       ]);
     }
-    for (i = mazeWidth * mazeHeight; i < 1; i++) {
+    for (i = mazeWidth * mazeHeight; i < mazeWidth * mazeHeight + 1; i++) {
 	    indices = indices.concat([
 	          24 * i, 24 * i + 1, 24 * i + 3, 24 * i, 4 * i + 3, 24 * i + 2   // top
 	    ]);
