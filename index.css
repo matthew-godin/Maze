@@ -159,7 +159,7 @@ a {
   left: 0;
   right: 100%;
   bottom: 1px;
-  background: #000000;
+  background: #FFFFFF;
   -webkit-transition-property: right;
   transition-property: right;
   -webkit-transition-duration: 0.2s;
