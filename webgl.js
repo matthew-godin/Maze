@@ -500,7 +500,7 @@ function initBuffers(gl) {
     }
     i =  mazeWidth * mazeHeight;
     indices = indices.concat([
-	          24 * i, 24 * i + 1, 24 * i + 3, 24 * i, 24 * i + 3, 24 * i + 2   // top
+	          positions.length - 4, positions.length - 3, positions.length - 1, positions.length - 4, positions.length - 1, positions.length - 2   // top
 	    ]);
     /*for (j = 0; j < 24; j++) {
       for (i = mazeWidth * mazeHeight * (j + 1); i < (j + 2) * mazeWidth * mazeHeight; i++) {
