@@ -120,6 +120,7 @@ a {
 .parent {
   min-height: 200px;
   min-width: 200px;
+  color: white;
 }
 
 .parent span {
