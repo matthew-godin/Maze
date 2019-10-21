@@ -524,7 +524,7 @@ function initBuffers(gl) {
         20 + 24 * i, 21 + 24 * i, 23 + 24 * i, 20 + 24 * i, 23 + 24 * i, 22 + 24 * i,   // left
       ]);
     }
-    for (i = 0; i < 8; i++) {}
+    for (i = 0; i < 8; i++) {
 	    indices = indices.concat([
 	          4 * i, 4 * i + 1, 4 * i + 3, 4 * i, 4 * i + 3, 4 * i + 2   // top
 	    ]);
