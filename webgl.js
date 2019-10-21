@@ -253,6 +253,7 @@ function initBuffers(gl) {
           -halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, halfSize + cubeOffsetZ,
           halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, halfSize + cubeOffsetZ
         ]);
+    halfSize = 1.0;
     for (i = 0; i < mazeWidth; i++) {
       for (j = 0; j < mazeHeight; j++) {
         cubeOffsetX = 2.0 * i + 2.0 * mazeWidth;
@@ -513,15 +514,15 @@ function initBuffers(gl) {
         0 + 4 * i, 1 + 4 * i, 3 + 4 * i, 0 + 4 * i, 3 + 4 * i, 2 + 4 * i   // top
       ]);
     }
-    
-    for (i = 8; i < mazeWidth * mazeHeight + 8; i++) {
+    var iPreConst = 32;
+    for (i = 0; i < mazeWidth * mazeHeight; i++) {
       indices = indices.concat([
-        0 + 24 * i, 1 + 24 * i, 3 + 24 * i, 0 + 24 * i, 3 + 24 * i, 2 + 24 * i,    // front
-        4 + 24 * i, 5 + 24 * i, 6 + 24 * i, 5 + 24 * i, 7 + 24 * i, 6 + 24 * i,    // back
-        8 + 24 * i, 9 + 24 * i, 11 + 24 * i, 8 + 24 * i, 11 + 24 * i, 10 + 24 * i,   // top
-        12 + 24 * i, 13 + 24 * i, 15 + 24 * i, 12 + 24 * i, 15 + 24 * i, 14 + 24 * i,   // bottom
-        16 + 24 * i, 17 + 24 * i, 19 + 24 * i, 16 + 24 * i, 19 + 24 * i, 18 + 24 * i,   // right
-        20 + 24 * i, 21 + 24 * i, 23 + 24 * i, 20 + 24 * i, 23 + 24 * i, 22 + 24 * i,   // left
+        0 + 24 * i + iPreConst, 1 + 24 * i + iPreConst, 3 + 24 * i + iPreConst, 0 + 24 * i + iPreConst, 3 + 24 * i + iPreConst, 2 + 24 * i + iPreConst,    // front
+        4 + 24 * i + iPreConst, 5 + 24 * i + iPreConst, 6 + 24 * i + iPreConst, 5 + 24 * i + iPreConst, 7 + 24 * i + iPreConst, 6 + 24 * i + iPreConst,    // back
+        8 + 24 * i + iPreConst, 9 + 24 * i + iPreConst, 11 + 24 * i + iPreConst, 8 + 24 * i + iPreConst, 11 + 24 * i + iPreConst, 10 + 24 * i + iPreConst,   // top
+        12 + 24 * i + iPreConst, 13 + 24 * i + iPreConst, 15 + 24 * i + iPreConst, 12 + 24 * i + iPreConst, 15 + 24 * i + iPreConst, 14 + 24 * i + iPreConst,   // bottom
+        16 + 24 * i + iPreConst, 17 + 24 * i + iPreConst, 19 + 24 * i + iPreConst, 16 + 24 * i + iPreConst, 19 + 24 * i + iPreConst, 18 + 24 * i + iPreConst,   // right
+        20 + 24 * i + iPreConst, 21 + 24 * i + iPreConst, 23 + 24 * i + iPreConst, 20 + 24 * i + iPreConst, 23 + 24 * i + iPreConst, 22 + 24 * i + iPreConst,   // left
       ]);
     }
     //i =  mazeWidth * mazeHeight;
@@ -741,7 +742,7 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
   // Bind the texture to texture unit 0
   gl.bindTexture(gl.TEXTURE_2D, texture);
 
-  // Tell the shader we bound the texture to texture unit 0
+  // Tell the shader we bound the texture to textuše unit 0
   gl.uniform1i(programInfo.uniformLocations.uSampler, 0);
 
   {
