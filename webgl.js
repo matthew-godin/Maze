@@ -530,7 +530,7 @@ function initBuffers(gl) {
     ]);
     for (i = 0; i < mazeWidth; i++) {
       for (j = 0; j < mazeHeight; j++) {
-        var topTex = canvasMaze.getContext('2d').getImageData(i, j, 1, 1).data[0] == 255 ? t1 : 0.0;
+        var topTex = randMaze[i][j] ? t1 : 0.0;//canvasMaze.getContext('2d').getImageData(i, j, 1, 1).data[0] == 255 ? t1 : 0.0;
         textureCoordinates = textureCoordinates.concat([
           1.0, t1,
           0.0, t1,
@@ -875,6 +875,62 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
     titleContainer.style.display = "none";
   }
   if (WDown) {
+    if (randMaze[(XReal + xCoord * 2.0 * deltaTime) / 2, ZReal / 2]
+      && randMaze[(XReal + xCoord * 2.0 * deltaTime) / 2, ZReal2 / 2]
+      && randMaze[(XReal2 + xCoord * 2.0 * deltaTime) / 2, ZReal / 2]
+      && randMaze[(XReal2 + xCoord * 2.0 * deltaTime) / 2, ZReal2 / 2]) {
+      XTranslation += xCoord * 2.0 * deltaTime;
+    }
+    if (randMaze[XReal / 2, (ZReal + yCoord * 2.0 * deltaTime) / 2]
+      && randMaze[XReal / 2, (ZReal2 + yCoord * 2.0 * deltaTime) / 2]
+      && randMaze[XReal2 / 2, (ZReal + yCoord * 2.0 * deltaTime) / 2]
+      && randMaze[XReal2 / 2, (ZReal2 + yCoord * 2.0 * deltaTime) / 2]) {
+      ZTranslation += yCoord * 2.0 * deltaTime;
+    }
+  }
+  if (SDown) {
+    if (randMaze[(XReal - xCoord * 2.0 * deltaTime) / 2, ZReal / 2]
+      && randMaze[(XReal - xCoord * 2.0 * deltaTime) / 2, ZReal2 / 2]
+      && randMaze[(XReal2 - xCoord * 2.0 * deltaTime) / 2, ZReal / 2]
+      && randMaze[(XReal2 - xCoord * 2.0 * deltaTime) / 2, ZReal2 / 2]) {
+      XTranslation -= xCoord * 2.0 * deltaTime;
+    }
+    if (randMaze[XReal / 2, (ZReal - yCoord * 2.0 * deltaTime) / 2]
+      && randMaze[XReal / 2, (ZReal2 - yCoord * 2.0 * deltaTime) / 2]
+      && randMaze[XReal2 / 2, (ZReal - yCoord * 2.0 * deltaTime) / 2]
+      && randMaze[XReal2 / 2, (ZReal2 - yCoord * 2.0 * deltaTime) / 2]) {
+      ZTranslation -= yCoord * 2.0 * deltaTime;
+    }
+  }
+  if (DDown) {
+    if (randMaze[(XReal - yCoord * 2.0 * deltaTime) / 2, ZReal / 2]
+      && randMaze[(XReal - yCoord * 2.0 * deltaTime) / 2, ZReal2 / 2]
+      && randMaze[(XReal2 - yCoord * 2.0 * deltaTime) / 2, ZReal / 2]
+      && randMaze[(XReal2 - yCoord * 2.0 * deltaTime) / 2, ZReal2 / 2]) {
+      XTranslation -= yCoord * 2.0 * deltaTime;
+    }
+    if (randMaze[XReal / 2, (ZReal + xCoord * 2.0 * deltaTime) / 2]
+      && randMaze[XReal / 2, (ZReal2 + xCoord * 2.0 * deltaTime) / 2]
+      && randMaze[XReal2 / 2, (ZReal + xCoord * 2.0 * deltaTime) / 2]
+      && randMaze[XReal2 / 2, (ZReal2 + xCoord * 2.0 * deltaTime) / 2]) {
+      ZTranslation += xCoord * 2.0 * deltaTime;
+    }
+  }
+  if (ADown) {
+    if (randMaze[(XReal + yCoord * 2.0 * deltaTime) / 2, ZReal / 2]
+      && randMaze[(XReal + yCoord * 2.0 * deltaTime) / 2, ZReal2 / 2]
+      && randMaze[(XReal2 + yCoord * 2.0 * deltaTime) / 2, ZReal / 2]
+      && randMaze[(XReal2 + yCoord * 2.0 * deltaTime) / 2, ZReal2 / 2]) {
+      XTranslation += yCoord * 2.0 * deltaTime;
+    }
+    if (randMaze[XReal / 2, (ZReal - xCoord * 2.0 * deltaTime) / 2]
+      && randMaze[XReal / 2, (ZReal2 - xCoord * 2.0 * deltaTime) / 2]
+      && randMaze[XReal2 / 2, (ZReal - xCoord * 2.0 * deltaTime) / 2]
+      && randMaze[XReal2 / 2, (ZReal2 - xCoord * 2.0 * deltaTime) / 2]) {
+      ZTranslation -= xCoord * 2.0 * deltaTime;
+    }
+  }
+  /*if (WDown) {
     if (canvasMaze.getContext('2d').getImageData
       ((XReal + xCoord * 2.0 * deltaTime) / 2, ZReal / 2, 1, 1).data[0] == 255
       && canvasMaze.getContext('2d').getImageData
@@ -961,7 +1017,7 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
         (XReal2 / 2, (ZReal2 - xCoord * 2.0 * deltaTime) / 2, 1, 1).data[0] == 255) {
       ZTranslation -= xCoord * 2.0 * deltaTime;
     }
-  }
+  }*/
   if (aDown) {
     camRotationY -= deltaTime;
   }
