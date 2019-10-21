@@ -411,44 +411,44 @@ function initBuffers(gl) {
   const textureCoordBuffer = gl.createBuffer();
   gl.bindBuffer(gl.ARRAY_BUFFER, textureCoordBuffer);
 
-  var t1 = 0.333333, t2 = 0.666666;
+  var t1 = 0.25, t2 = 0.5, t3 = 0.75;
 
   var textureCoordinates = [];
   {
     var i, j, k;
     textureCoordinates = textureCoordinates.concat([
-      0.0, t1,
-      1.0, t1,
       0.0, t2,
       1.0, t2,
-      0.0, t1,
-      1.0, t1,
+      0.0, t3,
+      1.0, t3,
       0.0, t2,
       1.0, t2,
-      0.0, t1,
-      1.0, t1,
+      0.0, t3,
+      1.0, t3,
       0.0, t2,
       1.0, t2,
-      0.0, t1,
-      1.0, t1,
+      0.0, t3,
+      1.0, t3,
       0.0, t2,
       1.0, t2,
-      0.0, t1,
-      1.0, t1,
+      0.0, t3,
+      1.0, t3,
       0.0, t2,
       1.0, t2,
-      0.0, t1,
-      1.0, t1,
+      0.0, t3,
+      1.0, t3,
       0.0, t2,
       1.0, t2,
-      0.0, t1,
-      1.0, t1,
+      0.0, t3,
+      1.0, t3,
       0.0, t2,
       1.0, t2,
-      0.0, t1,
-      1.0, t1,
+      0.0, t3,
+      1.0, t3,
       0.0, t2,
-      1.0, t2
+      1.0, t2,
+      0.0, t3,
+      1.0, t3
     ]);
     for (i = 0; i < mazeWidth; i++) {
       for (j = 0; j < mazeHeight; j++) {
