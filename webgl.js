@@ -1,10 +1,10 @@
 var cubeRotation = 0.0;
 var camRotationX = 2.0, camRotationY = 0.0;
 var startAngle = Math.random() * 2.0 * Math.PI;
-var floatRadius = 100.0;
-var floatCamHeight = 10.0;
+var floatRadius = 70.0;
+var floatCamHeight = 10.0, floatCamLookAtHeight = -3.0;
 var ZTranslation = floatRadius * Math.sin(startAngle), XTranslation = floatRadius * Math.cos(startAngle), YTranslation = floatCamHeight;
-var YLookAt = 0.0, XLookAt = floatRadius * Math.cos(startAngle + Math.PI), ZLookAt = floatRadius * Math.sin(startAngle + Math.PI);
+var YLookAt = floatCamLookAtHeight, XLookAt = floatRadius * Math.cos(startAngle + Math.PI), ZLookAt = floatRadius * Math.sin(startAngle + Math.PI);
 var WDown = false, ADown = false, SDown = false, DDown = false, aRight = false, aLeft = false, aUp = false, aDown = false;
 var numCubes = 4, mazeWidth = 50, mazeHeight = 50;
 var canvasMaze;
@@ -861,7 +861,7 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
       YTranslation = floatCamHeight;
       XLookAt = floatRadius * Math.cos(startAngle + Math.PI) + 3.0 * mazeWidth;
       ZLookAt = floatRadius * Math.sin(startAngle + Math.PI) + 3.0 * mazeHeight;
-      YLookAt = 0.0;
+      YLookAt = floatCamLookAtHeight;
     }
     //floatRotation += deltaTime * 0.1;
     //XTranslation = floatRadius * Math.cos(floatRotation) + XLookAt;
