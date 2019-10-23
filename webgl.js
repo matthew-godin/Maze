@@ -873,7 +873,7 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
     XTranslation = 2.0 + 2.0 * mazeWidth;
     YTranslation = 2.0;
     YLookAt = 2.0;
-    camRotationX = 45.0 / 360.0 * Math.PI;
+    camRotationX = (randMaze[1][2] ? 0.0 : 90.0) / 360.0 * Math.PI;
     camRotationY = 0.0;
     var titleContainer = document.getElementById("title-container");
     titleContainer.style.display = "none";
