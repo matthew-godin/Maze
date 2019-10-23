@@ -106,7 +106,7 @@ h2 {
 }
 
 .top-container {
-	font-size: 42pt;
+	font-size: 63pt;
 }
 
 #bottom-right-container #bottom-right-main-container {
@@ -143,7 +143,7 @@ h2 {
 
 .sub-bottom-container {
 	float: left;
-	font-size: 16pt;
+	font-size: 24pt;
 	margin: 5pt;
 	display: inline-block;
 	transition: all 5000ms ease;
