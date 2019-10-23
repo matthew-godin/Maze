@@ -100,15 +100,21 @@ h2 {
 	left: 85%;
   	margin-left: -25px;
      color: white;
+     font-size: 14pt;
+     text-align: right;
 }
 
 .top-container {
 	font-size: 42pt;
 }
 
-#bottom-right-main-container {
-	font-size: 14pt;
+/*#bottom-right-main-container {
+	
 }
+
+#bottom-right-hidden-container {
+	
+}*/
 
 .bottom-center-container {
 	text-align: center;
