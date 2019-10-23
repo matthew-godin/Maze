@@ -2,7 +2,8 @@ var cubeRotation = 0.0;
 var camRotationX = 2.0, camRotationY = 0.0;
 var startAngle = Math.random() * 2.0 * Math.PI;
 var floatRadius = 100.0;
-var ZTranslation = floatRadius * Math.sin(startAngle), XTranslation = floatRadius * Math.cos(startAngle), YTranslation = 20.0;
+var floatCamHeight = 10.0;
+var ZTranslation = floatRadius * Math.sin(startAngle), XTranslation = floatRadius * Math.cos(startAngle), YTranslation = floatCamHeight;
 var YLookAt = 0.0, XLookAt = floatRadius * Math.cos(startAngle + Math.PI), ZLookAt = floatRadius * Math.sin(startAngle + Math.PI);
 var WDown = false, ADown = false, SDown = false, DDown = false, aRight = false, aLeft = false, aUp = false, aDown = false;
 var numCubes = 4, mazeWidth = 50, mazeHeight = 50;
@@ -69,7 +70,7 @@ function logKeyUp(e) {
   }
 }
 
-function createRandMaze (i, j) {
+function createRandMaze(i, j) {
   // Using Prim's Algorithm
   var numPossibilities = 0, temp = j - 2, n = false, e = false, s = false, w = false;
   if (temp >= 1 && !randMaze[i][temp]) {
@@ -273,67 +274,67 @@ function initBuffers(gl) {
     cubeOffsetZ = 0.0 + bigOffset;
     var oldHalfSize = 1.0
     positions = positions.concat([
-          -halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
-          halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
-          -halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, halfSize + cubeOffsetZ,
-          halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, halfSize + cubeOffsetZ
-        ]);
+      -halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
+      halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
+      -halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, halfSize + cubeOffsetZ,
+      halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, halfSize + cubeOffsetZ
+    ]);
     cubeOffsetX = 2.0 * mazeWidth + bigOffset;
     cubeOffsetZ = 0.0 * mazeHeight + bigOffset;
     positions = positions.concat([
-          -halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
-          halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
-          -halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, halfSize + cubeOffsetZ,
-          halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, halfSize + cubeOffsetZ
-        ]);
+      -halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
+      halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
+      -halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, halfSize + cubeOffsetZ,
+      halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, halfSize + cubeOffsetZ
+    ]);
     cubeOffsetX = 4.0 * mazeWidth + bigOffset;
     cubeOffsetZ = 0.0 * mazeHeight + bigOffset;
     positions = positions.concat([
-          -halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
-          halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
-          -halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, halfSize + cubeOffsetZ,
-          halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, halfSize + cubeOffsetZ
-        ]);
+      -halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
+      halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
+      -halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, halfSize + cubeOffsetZ,
+      halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, halfSize + cubeOffsetZ
+    ]);
     cubeOffsetX = 4.0 * mazeWidth + bigOffset;
     cubeOffsetZ = 2.0 * mazeHeight + bigOffset;
     positions = positions.concat([
-          -halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
-          halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
-          -halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, halfSize + cubeOffsetZ,
-          halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, halfSize + cubeOffsetZ
-        ]);
+      -halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
+      halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
+      -halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, halfSize + cubeOffsetZ,
+      halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, halfSize + cubeOffsetZ
+    ]);
     cubeOffsetX = 4.0 * mazeWidth + bigOffset;
     cubeOffsetZ = 4.0 * mazeHeight + bigOffset;
     positions = positions.concat([
-          -halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
-          halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
-          -halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, halfSize + cubeOffsetZ,
-          halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, halfSize + cubeOffsetZ
-        ]);
+      -halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
+      halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
+      -halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, halfSize + cubeOffsetZ,
+      halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, halfSize + cubeOffsetZ
+    ]);
     cubeOffsetX = 2.0 * mazeWidth + bigOffset;
-    cubeOffsetZ = 4.0  * mazeHeight+ bigOffset;
+    cubeOffsetZ = 4.0 * mazeHeight + bigOffset;
     positions = positions.concat([
-          -halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
-          halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
-          -halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, halfSize + cubeOffsetZ,
-          halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, halfSize + cubeOffsetZ
-        ]);
+      -halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
+      halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
+      -halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, halfSize + cubeOffsetZ,
+      halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, halfSize + cubeOffsetZ
+    ]);
     cubeOffsetX = 0.0 * mazeWidth + bigOffset;
     cubeOffsetZ = 4.0 * mazeHeight + bigOffset;
     positions = positions.concat([
-          -halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
-          halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
-          -halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, halfSize + cubeOffsetZ,
-          halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, halfSize + cubeOffsetZ
-        ]);
+      -halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
+      halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
+      -halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, halfSize + cubeOffsetZ,
+      halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, halfSize + cubeOffsetZ
+    ]);
     cubeOffsetX = 0.0 * mazeWidth + bigOffset;
     cubeOffsetZ = 2.0 * mazeHeight + bigOffset;
     positions = positions.concat([
-          -halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
-          halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
-          -halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, halfSize + cubeOffsetZ,
-          halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, halfSize + cubeOffsetZ
-        ]);
+      -halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
+      halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, -halfSize + cubeOffsetZ,
+      -halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, halfSize + cubeOffsetZ,
+      halfSize + cubeOffsetX, oldHalfSize + cubeOffsetY, halfSize + cubeOffsetZ
+    ]);
     halfSize = 1.0;
     for (i = 0; i < mazeWidth; i++) {
       for (j = 0; j < mazeHeight; j++) {
@@ -609,7 +610,7 @@ function initBuffers(gl) {
       ]);
     }
     //i =  mazeWidth * mazeHeight;
-    
+
     /*for (j = 0; j < 24; j++) {
       for (i = mazeWidth * mazeHeight * (j + 1); i < (j + 2) * mazeWidth * mazeHeight; i++) {
         indices = indices.concat([
@@ -857,7 +858,7 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
       startAngle = Math.random() * 2.0 * Math.PI;
       ZTranslation = floatRadius * Math.sin(startAngle) + 3.0 * mazeHeight;
       XTranslation = floatRadius * Math.cos(startAngle) + 3.0 * mazeWidth;
-      YTranslation = 20.0;
+      YTranslation = floatCamHeight;
       XLookAt = floatRadius * Math.cos(startAngle + Math.PI) + 3.0 * mazeWidth;
       ZLookAt = floatRadius * Math.sin(startAngle + Math.PI) + 3.0 * mazeHeight;
       YLookAt = 0.0;
