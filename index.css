@@ -92,8 +92,22 @@ h2 {
      color: white;
 }
 
+#bottom-right-container {
+	/*text-align: center;
+	margin-top: 100pt;*/
+	top: 90%;
+	position: absolute;
+	left: 85%;
+  	margin-left: -25px;
+     color: white;
+}
+
 .top-container {
 	font-size: 42pt;
+}
+
+#bottom-right-main-container {
+	font-size: 14pt;
 }
 
 .bottom-center-container {
