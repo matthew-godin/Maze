@@ -7,6 +7,7 @@ var ZTranslation = floatRadius * Math.sin(startAngle), XTranslation = floatRadiu
 var YLookAt = floatCamLookAtHeight, XLookAt = floatRadius * Math.cos(startAngle + Math.PI), ZLookAt = floatRadius * Math.sin(startAngle + Math.PI);
 var WDown = false, ADown = false, SDown = false, DDown = false, aRight = false, aLeft = false, aUp = false, aDown = false;
 var numCubes = 4, mazeWidth = 50, mazeHeight = 50;
+var primDeepBranchFactor = 10.0;
 var canvasMaze;
 var floatCam = true;
 var floatQuit = true;
@@ -96,12 +97,12 @@ function createRandMaze(i, j) {
   if (n) {
     if (direction == 0) {
       randMaze[i][j - 2] = randMaze[i][j - 1] = true;
-      var deepShort = Math.floor(Math.random() * 2.0);
+      var deepShort = Math.floor(Math.random() * primDeepBranchFactor);
       if (deepShort == 0) {
         createRandMaze(i, j);
       }
       createRandMaze(i, j - 2);
-      if (deepShort == 1) {
+      if (deepShort != 0) {
         createRandMaze(i, j);
       }
       createRandMaze(i, j);
@@ -114,12 +115,12 @@ function createRandMaze(i, j) {
   if (e) {
     if (direction == 0) {
       randMaze[i + 2][j] = randMaze[i + 1][j] = true;
-      var deepShort = Math.floor(Math.random() * 2.0);
+      var deepShort = Math.floor(Math.random() * primDeepBranchFactor);
       if (deepShort == 0) {
         createRandMaze(i, j);
       }
       createRandMaze(i + 2, j);
-      if (deepShort == 1) {
+      if (deepShort != 0) {
         createRandMaze(i, j);
       }
       createRandMaze(i, j);
@@ -132,12 +133,12 @@ function createRandMaze(i, j) {
   if (s) {
     if (direction == 0) {
       randMaze[i][j + 2] = randMaze[i][j + 1] = true;
-      var deepShort = Math.floor(Math.random() * 2.0);
+      var deepShort = Math.floor(Math.random() * primDeepBranchFactor);
       if (deepShort == 0) {
         createRandMaze(i, j);
       }
       createRandMaze(i, j + 2);
-      if (deepShort == 1) {
+      if (deepShort != 0) {
         createRandMaze(i, j);
       }
       createRandMaze(i, j);
@@ -150,12 +151,12 @@ function createRandMaze(i, j) {
   if (w) {
     if (direction == 0) {
       randMaze[i - 2][j] = randMaze[i - 1][j] = true;
-      var deepShort = Math.floor(Math.random() * 2.0);
+      var deepShort = Math.floor(Math.random() * primDeepBranchFactor);
       if (deepShort == 0) {
         createRandMaze(i, j);
       }
       createRandMaze(i - 2, j);
-      if (deepShort == 1) {
+      if (deepShort != 0) {
         createRandMaze(i, j);
       }
       createRandMaze(i, j);
