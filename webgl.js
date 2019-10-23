@@ -878,8 +878,10 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
     var titleContainer = document.getElementById("title-container");
     titleContainer.style.display = "none";
   }
-  if (Math.floor((XReal + xCoord * 2.0 * deltaTime) / 2) < randMaze.size() && Math.floor(ZReal / 2) < randMaze.size()
-    && Math.floor((XReal2 + xCoord * 2.0 * deltaTime) / 2) < randMaze.size() && Math.floor(ZReal2 / 2) < randMaze.size()) {
+  if (Math.floor((XReal + xCoord * 2.0 * deltaTime) / 2) < randMaze.length && Math.floor(ZReal / 2) < randMaze.length
+    && Math.floor((XReal2 + xCoord * 2.0 * deltaTime) / 2) < randMaze.length && Math.floor(ZReal2 / 2) < randMaze.length
+    && Math.floor((XReal + xCoord * 2.0 * deltaTime) / 2) < randMaze[0].length && Math.floor(ZReal / 2) < randMaze[0].length
+    && Math.floor((XReal2 + xCoord * 2.0 * deltaTime) / 2) < randMaze[0].length && Math.floor(ZReal2 / 2) < randMaze[0].length) {
     if (WDown) {
       if (randMaze[Math.floor((XReal + xCoord * 2.0 * deltaTime) / 2)][Math.floor(ZReal / 2)]
         && randMaze[Math.floor((XReal + xCoord * 2.0 * deltaTime) / 2)][Math.floor(ZReal2 / 2)]
