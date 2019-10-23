@@ -87,7 +87,8 @@ h2 {
 	margin-top: 100pt;*/
 	top: 35%;
 	position: absolute;
-	left: 20%;
+  left: 50%;
+  margin-left: -344px;
      color: white;
 }
 
