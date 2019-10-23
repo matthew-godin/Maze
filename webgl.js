@@ -96,8 +96,8 @@ function createRandMaze(i, j) {
   if (n) {
     if (direction == 0) {
       randMaze[i][j - 2] = randMaze[i][j - 1] = true;
-      createRandMaze(i, j - 2);
       createRandMaze(i, j);
+      createRandMaze(i, j - 2);
       createRandMaze(i, j);
       e = s = w = false;
     }
@@ -108,8 +108,8 @@ function createRandMaze(i, j) {
   if (e) {
     if (direction == 0) {
       randMaze[i + 2][j] = randMaze[i + 1][j] = true;
-      createRandMaze(i + 2, j);
       createRandMaze(i, j);
+      createRandMaze(i + 2, j);
       createRandMaze(i, j);
       s = w = false;
     }
@@ -120,8 +120,8 @@ function createRandMaze(i, j) {
   if (s) {
     if (direction == 0) {
       randMaze[i][j + 2] = randMaze[i][j + 1] = true;
-      createRandMaze(i, j + 2);
       createRandMaze(i, j);
+      createRandMaze(i, j + 2);
       createRandMaze(i, j);
       w = false;
     }
@@ -132,8 +132,8 @@ function createRandMaze(i, j) {
   if (w) {
     if (direction == 0) {
       randMaze[i - 2][j] = randMaze[i - 1][j] = true;
-      createRandMaze(i - 2, j);
       createRandMaze(i, j);
+      createRandMaze(i - 2, j);
       createRandMaze(i, j);
     }
     else {
