@@ -1,7 +1,7 @@
 var cubeRotation = 0.0;
 var camRotationX = 2.0, camRotationY = 0.0;
 var startAngle = Math.random() * 2.0 * Math.PI;
-var floatRadius = 50.0;
+var floatRadius = 60.0;
 var floatCamHeight = 6.0, floatCamLookAtHeight = -6.0;
 var ZTranslation = floatRadius * Math.sin(startAngle), XTranslation = floatRadius * Math.cos(startAngle), YTranslation = floatCamHeight;
 var YLookAt = floatCamLookAtHeight, XLookAt = floatRadius * Math.cos(startAngle + Math.PI), ZLookAt = floatRadius * Math.sin(startAngle + Math.PI);
