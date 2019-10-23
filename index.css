@@ -95,7 +95,7 @@ h2 {
 #parent-bottom-right #bottom-right-container {
 	/*text-align: center;
 	margin-top: 100pt;*/
-	top: 91%;
+	bottom: 0%;
 	position: absolute;
   font-size: 14pt;
   text-align: right;
@@ -111,8 +111,8 @@ h2 {
 
 #bottom-right-container #bottom-right-main-container {
   color: white;
-  opacity: 0.5;
-  margin: 1%;
+  opacity: 0.7;
+  margin: 0.2%;
   transition: opacity 1s ease;
 }
 
