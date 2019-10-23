@@ -97,7 +97,7 @@ function createRandMaze(i, j) {
   if (n) {
     if (direction == 0) {
       randMaze[i][j - 2] = randMaze[i][j - 1] = true;
-      var deepShort = Math.floor(Math.random() * primDeepBranchFactor);
+      var deepShort = 1;//Math.floor(Math.random() * primDeepBranchFactor);
       if (deepShort == 0) {
         createRandMaze(i, j);
       }
@@ -115,7 +115,7 @@ function createRandMaze(i, j) {
   if (e) {
     if (direction == 0) {
       randMaze[i + 2][j] = randMaze[i + 1][j] = true;
-      var deepShort = Math.floor(Math.random() * primDeepBranchFactor);
+      var deepShort = 1;//Math.floor(Math.random() * primDeepBranchFactor);
       if (deepShort == 0) {
         createRandMaze(i, j);
       }
@@ -133,7 +133,7 @@ function createRandMaze(i, j) {
   if (s) {
     if (direction == 0) {
       randMaze[i][j + 2] = randMaze[i][j + 1] = true;
-      var deepShort = Math.floor(Math.random() * primDeepBranchFactor);
+      var deepShort = 1;//Math.floor(Math.random() * primDeepBranchFactor);
       if (deepShort == 0) {
         createRandMaze(i, j);
       }
@@ -151,7 +151,7 @@ function createRandMaze(i, j) {
   if (w) {
     if (direction == 0) {
       randMaze[i - 2][j] = randMaze[i - 1][j] = true;
-      var deepShort = Math.floor(Math.random() * primDeepBranchFactor);
+      var deepShort = 1;//Math.floor(Math.random() * primDeepBranchFactor);
       if (deepShort == 0) {
         createRandMaze(i, j);
       }
