@@ -102,19 +102,20 @@ h2 {
      color: white;
      font-size: 14pt;
      text-align: right;
+     width: 300px;
 }
 
 .top-container {
 	font-size: 42pt;
 }
 
-/*#bottom-right-main-container {
-	
+#bottom-right-main-container {
+	text-align: right;
 }
 
 #bottom-right-hidden-container {
-	
-}*/
+	text-align: right;
+}
 
 .bottom-center-container {
 	text-align: center;
