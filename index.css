@@ -101,7 +101,7 @@ h2 {
   text-align: right;
   width: 100%;
   right: 2%;
-  color: white;
+  color: black;
   transition: transform 1s ease-in-out;
 }
 
@@ -110,7 +110,7 @@ h2 {
 }
 
 #bottom-right-container #bottom-right-main-container {
-  color: white;
+  color: black;
   opacity: 0.7;
   margin: 0.2%;
   transition: opacity 1s ease;
@@ -130,7 +130,7 @@ h2 {
 }
 
 #bottom-right-container:hover #bottom-right-hidden-container {
-  color: white;
+  color: black;
 }
 
 .bottom-center-container {
@@ -157,7 +157,7 @@ a {
 .parent {
   min-height: 200px;
   min-width: 200px;
-  color: white;
+  color: black;
 }
 
 .parent span {
@@ -197,7 +197,7 @@ a {
   left: 0;
   right: 100%;
   bottom: 1px;
-  background: #FFFFFF;
+  background: #000000;
   -webkit-transition-property: right;
   transition-property: right;
   -webkit-transition-duration: 0.2s;
