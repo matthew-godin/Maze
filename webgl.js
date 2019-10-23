@@ -878,60 +878,63 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
     var titleContainer = document.getElementById("title-container");
     titleContainer.style.display = "none";
   }
-  if (WDown) {
-    if (randMaze[Math.floor((XReal + xCoord * 2.0 * deltaTime) / 2)][Math.floor(ZReal / 2)]
-      && randMaze[Math.floor((XReal + xCoord * 2.0 * deltaTime) / 2)][Math.floor(ZReal2 / 2)]
-      && randMaze[Math.floor((XReal2 + xCoord * 2.0 * deltaTime) / 2)][Math.floor(ZReal / 2)]
-      && randMaze[Math.floor((XReal2 + xCoord * 2.0 * deltaTime) / 2)][Math.floor(ZReal2 / 2)]) {
-      XTranslation += xCoord * 2.0 * deltaTime;
+  if (Math.floor((XReal + xCoord * 2.0 * deltaTime) / 2) < randMaze.size() && Math.floor(ZReal / 2) < randMaze.size()
+    && Math.floor((XReal2 + xCoord * 2.0 * deltaTime) / 2) < randMaze.size() && Math.floor(ZReal2 / 2) < randMaze.size()) {
+    if (WDown) {
+      if (randMaze[Math.floor((XReal + xCoord * 2.0 * deltaTime) / 2)][Math.floor(ZReal / 2)]
+        && randMaze[Math.floor((XReal + xCoord * 2.0 * deltaTime) / 2)][Math.floor(ZReal2 / 2)]
+        && randMaze[Math.floor((XReal2 + xCoord * 2.0 * deltaTime) / 2)][Math.floor(ZReal / 2)]
+        && randMaze[Math.floor((XReal2 + xCoord * 2.0 * deltaTime) / 2)][Math.floor(ZReal2 / 2)]) {
+        XTranslation += xCoord * 2.0 * deltaTime;
+      }
+      if (randMaze[Math.floor(XReal / 2)][Math.floor((ZReal + yCoord * 2.0 * deltaTime) / 2)]
+        && randMaze[Math.floor(XReal / 2)][Math.floor((ZReal2 + yCoord * 2.0 * deltaTime) / 2)]
+        && randMaze[Math.floor(XReal2 / 2)][Math.floor((ZReal + yCoord * 2.0 * deltaTime) / 2)]
+        && randMaze[Math.floor(XReal2 / 2)][Math.floor((ZReal2 + yCoord * 2.0 * deltaTime) / 2)]) {
+        ZTranslation += yCoord * 2.0 * deltaTime;
+      }
     }
-    if (randMaze[Math.floor(XReal / 2)][Math.floor((ZReal + yCoord * 2.0 * deltaTime) / 2)]
-      && randMaze[Math.floor(XReal / 2)][Math.floor((ZReal2 + yCoord * 2.0 * deltaTime) / 2)]
-      && randMaze[Math.floor(XReal2 / 2)][Math.floor((ZReal + yCoord * 2.0 * deltaTime) / 2)]
-      && randMaze[Math.floor(XReal2 / 2)][Math.floor((ZReal2 + yCoord * 2.0 * deltaTime) / 2)]) {
-      ZTranslation += yCoord * 2.0 * deltaTime;
+    if (SDown) {
+      if (randMaze[Math.floor((XReal - xCoord * 2.0 * deltaTime) / 2)][Math.floor(ZReal / 2)]
+        && randMaze[Math.floor((XReal - xCoord * 2.0 * deltaTime) / 2)][Math.floor(ZReal2 / 2)]
+        && randMaze[Math.floor((XReal2 - xCoord * 2.0 * deltaTime) / 2)][Math.floor(ZReal / 2)]
+        && randMaze[Math.floor((XReal2 - xCoord * 2.0 * deltaTime) / 2)][Math.floor(ZReal2 / 2)]) {
+        XTranslation -= xCoord * 2.0 * deltaTime;
+      }
+      if (randMaze[Math.floor(XReal / 2)][Math.floor((ZReal - yCoord * 2.0 * deltaTime) / 2)]
+        && randMaze[Math.floor(XReal / 2)][Math.floor((ZReal2 - yCoord * 2.0 * deltaTime) / 2)]
+        && randMaze[Math.floor(XReal2 / 2)][Math.floor((ZReal - yCoord * 2.0 * deltaTime) / 2)]
+        && randMaze[Math.floor(XReal2 / 2)][Math.floor((ZReal2 - yCoord * 2.0 * deltaTime) / 2)]) {
+        ZTranslation -= yCoord * 2.0 * deltaTime;
+      }
     }
-  }
-  if (SDown) {
-    if (randMaze[Math.floor((XReal - xCoord * 2.0 * deltaTime) / 2)][Math.floor(ZReal / 2)]
-      && randMaze[Math.floor((XReal - xCoord * 2.0 * deltaTime) / 2)][Math.floor(ZReal2 / 2)]
-      && randMaze[Math.floor((XReal2 - xCoord * 2.0 * deltaTime) / 2)][Math.floor(ZReal / 2)]
-      && randMaze[Math.floor((XReal2 - xCoord * 2.0 * deltaTime) / 2)][Math.floor(ZReal2 / 2)]) {
-      XTranslation -= xCoord * 2.0 * deltaTime;
+    if (DDown) {
+      if (randMaze[Math.floor((XReal - yCoord * 2.0 * deltaTime) / 2)][Math.floor(ZReal / 2)]
+        && randMaze[Math.floor((XReal - yCoord * 2.0 * deltaTime) / 2)][Math.floor(ZReal2 / 2)]
+        && randMaze[Math.floor((XReal2 - yCoord * 2.0 * deltaTime) / 2)][Math.floor(ZReal / 2)]
+        && randMaze[Math.floor((XReal2 - yCoord * 2.0 * deltaTime) / 2)][Math.floor(ZReal2 / 2)]) {
+        XTranslation -= yCoord * 2.0 * deltaTime;
+      }
+      if (randMaze[Math.floor(XReal / 2)][Math.floor((ZReal + xCoord * 2.0 * deltaTime) / 2)]
+        && randMaze[Math.floor(XReal / 2)][Math.floor((ZReal2 + xCoord * 2.0 * deltaTime) / 2)]
+        && randMaze[Math.floor(XReal2 / 2)][Math.floor((ZReal + xCoord * 2.0 * deltaTime) / 2)]
+        && randMaze[Math.floor(XReal2 / 2)][Math.floor((ZReal2 + xCoord * 2.0 * deltaTime) / 2)]) {
+        ZTranslation += xCoord * 2.0 * deltaTime;
+      }
     }
-    if (randMaze[Math.floor(XReal / 2)][Math.floor((ZReal - yCoord * 2.0 * deltaTime) / 2)]
-      && randMaze[Math.floor(XReal / 2)][Math.floor((ZReal2 - yCoord * 2.0 * deltaTime) / 2)]
-      && randMaze[Math.floor(XReal2 / 2)][Math.floor((ZReal - yCoord * 2.0 * deltaTime) / 2)]
-      && randMaze[Math.floor(XReal2 / 2)][Math.floor((ZReal2 - yCoord * 2.0 * deltaTime) / 2)]) {
-      ZTranslation -= yCoord * 2.0 * deltaTime;
-    }
-  }
-  if (DDown) {
-    if (randMaze[Math.floor((XReal - yCoord * 2.0 * deltaTime) / 2)][Math.floor(ZReal / 2)]
-      && randMaze[Math.floor((XReal - yCoord * 2.0 * deltaTime) / 2)][Math.floor(ZReal2 / 2)]
-      && randMaze[Math.floor((XReal2 - yCoord * 2.0 * deltaTime) / 2)][Math.floor(ZReal / 2)]
-      && randMaze[Math.floor((XReal2 - yCoord * 2.0 * deltaTime) / 2)][Math.floor(ZReal2 / 2)]) {
-      XTranslation -= yCoord * 2.0 * deltaTime;
-    }
-    if (randMaze[Math.floor(XReal / 2)][Math.floor((ZReal + xCoord * 2.0 * deltaTime) / 2)]
-      && randMaze[Math.floor(XReal / 2)][Math.floor((ZReal2 + xCoord * 2.0 * deltaTime) / 2)]
-      && randMaze[Math.floor(XReal2 / 2)][Math.floor((ZReal + xCoord * 2.0 * deltaTime) / 2)]
-      && randMaze[Math.floor(XReal2 / 2)][Math.floor((ZReal2 + xCoord * 2.0 * deltaTime) / 2)]) {
-      ZTranslation += xCoord * 2.0 * deltaTime;
-    }
-  }
-  if (ADown) {
-    if (randMaze[Math.floor((XReal + yCoord * 2.0 * deltaTime) / 2)][Math.floor(ZReal / 2)]
-      && randMaze[Math.floor((XReal + yCoord * 2.0 * deltaTime) / 2)][Math.floor(ZReal2 / 2)]
-      && randMaze[Math.floor((XReal2 + yCoord * 2.0 * deltaTime) / 2)][Math.floor(ZReal / 2)]
-      && randMaze[Math.floor((XReal2 + yCoord * 2.0 * deltaTime) / 2)][Math.floor(ZReal2 / 2)]) {
-      XTranslation += yCoord * 2.0 * deltaTime;
-    }
-    if (randMaze[Math.floor(XReal / 2)][Math.floor((ZReal - xCoord * 2.0 * deltaTime) / 2)]
-      && randMaze[Math.floor(XReal / 2)][Math.floor((ZReal2 - xCoord * 2.0 * deltaTime) / 2)]
-      && randMaze[Math.floor(XReal2 / 2)][Math.floor((ZReal - xCoord * 2.0 * deltaTime) / 2)]
-      && randMaze[Math.floor(XReal2 / 2)][Math.floor((ZReal2 - xCoord * 2.0 * deltaTime) / 2)]) {
-      ZTranslation -= xCoord * 2.0 * deltaTime;
+    if (ADown) {
+      if (randMaze[Math.floor((XReal + yCoord * 2.0 * deltaTime) / 2)][Math.floor(ZReal / 2)]
+        && randMaze[Math.floor((XReal + yCoord * 2.0 * deltaTime) / 2)][Math.floor(ZReal2 / 2)]
+        && randMaze[Math.floor((XReal2 + yCoord * 2.0 * deltaTime) / 2)][Math.floor(ZReal / 2)]
+        && randMaze[Math.floor((XReal2 + yCoord * 2.0 * deltaTime) / 2)][Math.floor(ZReal2 / 2)]) {
+        XTranslation += yCoord * 2.0 * deltaTime;
+      }
+      if (randMaze[Math.floor(XReal / 2)][Math.floor((ZReal - xCoord * 2.0 * deltaTime) / 2)]
+        && randMaze[Math.floor(XReal / 2)][Math.floor((ZReal2 - xCoord * 2.0 * deltaTime) / 2)]
+        && randMaze[Math.floor(XReal2 / 2)][Math.floor((ZReal - xCoord * 2.0 * deltaTime) / 2)]
+        && randMaze[Math.floor(XReal2 / 2)][Math.floor((ZReal2 - xCoord * 2.0 * deltaTime) / 2)]) {
+        ZTranslation -= xCoord * 2.0 * deltaTime;
+      }
     }
   }
   /*if (WDown) {
