@@ -92,29 +92,45 @@ h2 {
      color: white;
 }
 
-#bottom-right-container {
+#parent-bottom-right #bottom-right-container {
 	/*text-align: center;
 	margin-top: 100pt;*/
-	top: 90%;
+	top: 91%;
 	position: absolute;
-	left: 85%;
-  	margin-left: -25px;
-     color: white;
-     font-size: 14pt;
-     text-align: right;
-     width: 300px;
+  font-size: 14pt;
+  text-align: right;
+  width: 100%;
+  right: 2%;
+  color: white;
+  transition: transform 1s ease-in-out;
 }
 
 .top-container {
 	font-size: 42pt;
 }
 
-#bottom-right-main-container {
-	text-align: right;
+#bottom-right-container #bottom-right-main-container {
+  color: white;
+  opacity: 0.5;
+  margin: 1%;
+  transition: opacity 1s ease;
 }
 
-#bottom-right-hidden-container {
-	text-align: right;
+#bottom-right-container #bottom-right-hidden-container {
+  color: transparent;
+  transition: color 1s ease;
+}
+
+#parent-bottom-right #bottom-right-container:hover {
+  transform: translateY(-40%);
+}
+
+#bottom-right-container:hover #bottom-right-main-container {
+  opacity: 1;
+}
+
+#bottom-right-container:hover #bottom-right-hidden-container {
+  color: white;
 }
 
 .bottom-center-container {

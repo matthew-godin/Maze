@@ -6,7 +6,7 @@
 	<link rel="stylesheet" type="text/css" href="index.css" />
 </head>
 
-<body id="main-container">
+<body id="main-container" class="main-wrap">
 	<img id="maze-img" src="img/maze.png" style="display:none" />
 	<canvas id="glcanvas"></canvas>
 	<div class="container" id="title-container">
@@ -24,9 +24,11 @@
 			</div>
 		</div>
 	</div>
-	<div id="bottom-right-container">
-		<div class="bottom-right-main-container">Information</div>
-		<div class="bottom-right-hidden-container">Maze randomly generated using Prim's algorithm</div>
+	<div id="parent-bottom-right">
+		<div id="bottom-right-container">
+			<div id="bottom-right-main-container">Maze Generation</div>
+			<div id="bottom-right-hidden-container">Prim's algorithm was used to randomly generate this maze</div>
+		</div>
 	</div>
 	<script src="index.js"></script>
 	<script src="gl-matrix.js"></script>
