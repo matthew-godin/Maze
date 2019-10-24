@@ -90,7 +90,6 @@ h2 {
   left: 50%;
   margin-left: -376px;
      color: white;
-     font-family: kghappy;
 }
 
 #parent-bottom-right #bottom-right-container {
@@ -107,7 +106,8 @@ h2 {
 }
 
 .top-container {
-	font-size: 63pt;
+  font-size: 63pt;
+  font-family: kghappy;
 }
 
 #bottom-right-container #bottom-right-main-container {
@@ -146,11 +146,13 @@ h2 {
 
 .sub-bottom-container {
 	float: left;
-	font-size: 24pt;
+  font-size: 24pt;
+  font-family: cocogoose;
 	margin: 5pt;
 	display: inline-block;
 	transition: all 5000ms ease;
-	height: 57px;
+  height: 57px;
+  padding: 5px;
 }
 
 a {
