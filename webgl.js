@@ -902,6 +902,10 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
     camRotationY = 0.0;
     var titleContainer = document.getElementById("title-container");
     titleContainer.style.display = "none";
+    var bottomRightContainer = document.getElementById("parent-bottom-right");
+    bottomRightContainer.style.display = "none";
+    //bottomRightContainer.children[0].children[0].textContent = "Navigation";
+    //bottomRightContainer.children[0].children[1].innerHTML = "Got lost? Press H to help you get to the end<br />Powered by the A* algorithm (coming soon)";
   }
   if (Math.floor((XReal + xCoord * 2.0 * deltaTime) / 2) < randMaze.length && Math.floor(ZReal / 2) < randMaze.length
     && Math.floor((XReal2 + xCoord * 2.0 * deltaTime) / 2) < randMaze.length && Math.floor(ZReal2 / 2) < randMaze.length
