@@ -5,7 +5,12 @@ html, body { width:100%; height:100%; } /* just to be sure these are full screen
 #glcanvas { display:block; } /* To remove the scrollbars */
 
 @font-face {
-  font-family: mainfont;
+  font-family: kghappy;
+  src: url(fonts/kghappy.ttf);
+}
+
+@font-face {
+  font-family: cocogoose;
   src: url(fonts/cocogoose.ttf);
 }
 
@@ -47,7 +52,6 @@ h2 {
 }*/
 
 * {
-	font-family: mainfont;
 	-webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
        -moz-animation: fadein 2s; /* Firefox < 16 */
         -ms-animation: fadein 2s; /* Internet Explorer */
@@ -84,8 +88,9 @@ h2 {
 	top: 35%;
 	position: absolute;
   left: 50%;
-  margin-left: -344px;
+  margin-left: -326px;
      color: white;
+     font-family: kghappy;
 }
 
 #parent-bottom-right #bottom-right-container {
@@ -98,6 +103,7 @@ h2 {
   right: 2%;
   color: white;
   transition: transform 1s ease-in-out;
+  font-family: cocogoose;
 }
 
 .top-container {
@@ -144,7 +150,7 @@ h2 {
 	margin: 5pt;
 	display: inline-block;
 	transition: all 5000ms ease;
-	height: 47px;
+	height: 57px;
 }
 
 a {
@@ -188,7 +194,7 @@ a {
 
 .hvr-underline-from-left:before {
   content: "";
-  height: 4px;
+  height: 6px;
   position: absolute;
   z-index: -1;
   left: 0;
