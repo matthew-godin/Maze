@@ -97,7 +97,6 @@ h2 {
 	margin-top: 100pt;*/
 	bottom: 0%;
 	position: absolute;
-  font-size: 14pt;
   text-align: right;
   width: 100%;
   right: 2%;
@@ -112,12 +111,14 @@ h2 {
 #bottom-right-container #bottom-right-main-container {
   color: white;
   opacity: 0.7;
+  font-size: 16pt;
   margin: 0.2%;
   transition: opacity 1s ease;
 }
 
 #bottom-right-container #bottom-right-hidden-container {
   color: transparent;
+  font-size: 12pt;
   transition: color 1s ease;
 }
 
