@@ -208,9 +208,12 @@ function main() {
 
     varying highp vec2 vTextureCoord;
 
+    varying vec4 v_positionWithOffset;
+
     void main(void) {
       gl_Position = uProjectionMatrix * uModelViewMatrix * aVertexPosition;
       vTextureCoord = aTextureCoord;
+      v_positionWithOffset = uProjectionMatrix * uModelViewMatrix * aVertexPosition;
     }
   `;
 
@@ -221,8 +224,10 @@ function main() {
 
     uniform sampler2D uSampler;
 
+    varying vec4 v_positionWithOffset;
+
     void main(void) {
-      gl_FragColor = texture2D(uSampler, vTextureCoord);
+      gl_FragColor = texture2D(uSampler, vTextureCoord) * v_positionWithOffset * 0.5;
     }
   `;
 
