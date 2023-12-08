@@ -227,7 +227,7 @@ function main() {
     varying highp vec4 v_positionWithOffset;
 
     void main(void) {
-      gl_FragColor = texture2D(uSampler, vTextureCoord) * v_positionWithOffset * 0.5;
+      gl_FragColor = texture2D(uSampler, vTextureCoord) * v_positionWithOffset;
     }
   `;
 
