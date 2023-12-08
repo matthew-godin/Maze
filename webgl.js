@@ -8,7 +8,7 @@ var YLookAt = floatCamLookAtHeight, XLookAt = floatRadius * Math.cos(startAngle 
 var WDown = false, ADown = false, SDown = false, DDown = false, aRight = false, aLeft = false, aUp = false, aDown = false;
 var numCubes = 4, mazeWidth = 50, mazeHeight = 50;
 var primDeepBranchFactor = 10.0;
-var canvasMaze;
+//var canvasMaze;
 var floatCam = true;
 var floatQuit = true;
 var floatRotation = 0.0;
@@ -176,13 +176,13 @@ function main() {
 
   document.addEventListener('keydown', logKeyDown);
   document.addEventListener('keyup', logKeyUp);
-  var imgMaze = document.getElementById('maze-img');
-  canvasMaze = document.createElement('canvas');
+  //var imgMaze = document.getElementById('maze-img');
+  //canvasMaze = document.createElement('canvas');
   mazeWidth = 50;//canvasMaze.width = imgMaze.width;
   mazeHeight = 50;//canvasMaze.height = imgMaze.height;
   randMaze[1][1] = true;
   createRandMaze(1, 1);
-  canvasMaze.getContext('2d').drawImage(imgMaze, 0, 0, imgMaze.width, imgMaze.height);
+  //canvasMaze.getContext('2d').drawImage(imgMaze, 0, 0, imgMaze.width, imgMaze.height);
   //XLookAt = mazeWidth;
   //ZLookAt = mazeHeight;
   XTranslation += 3.0 * mazeWidth;
