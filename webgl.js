@@ -902,8 +902,6 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
     YLookAt = 2.0;
     camRotationX = (randMaze[1][2] ? 90.0 : 0.0) / 360.0 * 2.0 * Math.PI;
     camRotationY = 0.0;
-    var titleContainer = document.getElementById("title-container");
-    titleContainer.style.display = "none";
     var bottomRightContainer = document.getElementById("parent-bottom-right");
     bottomRightContainer.style.display = "none";
     //bottomRightContainer.children[0].children[0].textContent = "Navigation";
