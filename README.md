@@ -1,5 +1,7 @@
 # Maze
 
+**Available on https://matthew-godin.com/maze**
+
 3D maze made with WebGL. The maze is randomly generated using Prim's algorithm.
 
 ## Exploration Mode Controls
