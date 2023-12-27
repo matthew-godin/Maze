@@ -6,4 +6,4 @@
 
 ## Exploration Mode Controls
 
-Press any key to enter the maze. Once inside the maze, use WASD to move and ←→ to change direction.
+Press any key including WASD and ←→ to enter the maze. Once inside the maze, use WASD to move and ←→ to change direction.
